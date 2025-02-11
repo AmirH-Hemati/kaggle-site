@@ -16,7 +16,7 @@ mongoose
   });
 app.use(cors());
 app.use("/api/users/", usersRouter);
-app.use("/api/upload/", datasetRouter);
+app.use("/api/dataset/", datasetRouter);
 app.listen(1313, () => {
   console.log("server listen to 1313");
 });
