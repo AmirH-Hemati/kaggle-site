@@ -5,7 +5,7 @@ function Layout() {
   return (
     <div className="flex flex-col w-full h-screen ">
       <Header />
-      <main className="flex flex-col w-full ">
+      <main className="flex flex-col w-full h-full">
         <Outlet />
       </main>
     </div>
