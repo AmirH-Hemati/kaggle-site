@@ -3,6 +3,8 @@ import Layout from "./ui/Layout";
 import Home from "./page/Home";
 import LoginForm from "./feature/authorization/LoginForm";
 import AuthLayout from "./ui/AuthLayout";
+import SignIn from "./feature/authorization/SignIn";
+import SignInUploader from "./feature/authorization/SignInUploader";
 function App() {
   return (
     <Routes>
@@ -10,6 +12,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route element={<AuthLayout />}>
           <Route path="/login" element={<LoginForm />} />
+          <Route path="/signIn" element={<SignIn />} />
+
+          <Route path="signInUploader" element={<SignInUploader />} />
+          <Route path="signInAnalyze" element={<SignInUploader />} />
         </Route>
       </Route>
     </Routes>
