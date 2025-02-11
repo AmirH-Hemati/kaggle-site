@@ -16,3 +16,10 @@ export async function login({ email, password }) {
   });
   return data;
 }
+
+export async function test({ email }) {
+  const { data } = await axios.post("http://localhost:1313/api/users/test", {
+    email,
+  });
+  return data;
+}
