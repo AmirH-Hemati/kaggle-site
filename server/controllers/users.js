@@ -19,6 +19,7 @@ export async function login(req, res) {
   res.json({ message: "ok", data: token });
 }
 export async function signIn(req, res) {
+  console.log("test in server");
   const { userName, email, password, role } = req.body;
   const user = await User.findOne({ email });
   if (user) {

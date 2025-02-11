@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
-import usersSchema from "./routes/users.js";
+import usersRouter from "./routes/users.js";
+import cors from "cors";
 const app = express();
 
 app.use(express.json());
@@ -12,7 +13,8 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
-app.use("/api/users", usersSchema);
+app.use(cors());
+app.use("/api/users/", usersRouter);
 app.listen(1313, () => {
   console.log("server listen to 1313");
 });

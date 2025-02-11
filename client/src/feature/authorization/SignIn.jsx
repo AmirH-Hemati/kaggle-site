@@ -13,9 +13,10 @@ function SignIn() {
     setValue((value) => ({ ...value, [e.target.name]: e.target.value }));
   }
   function handelSignIn(e) {
+    e.preventDefault();
     if (!value.password || !value.userName || !value.role || !value.email)
       return;
-    e.preventDefault();
+    console.log("test");
     signIn(value);
   }
   return (
