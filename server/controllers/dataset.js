@@ -18,3 +18,10 @@ export async function myUpload(req, res) {
   const datasets = await Dataset.find({ uploadedBy: id });
   res.json({ message: "ok", data: datasets });
 }
+export async function datasets(req, res) {
+  const datasets = await Dataset.find({}).populate(
+    "uploadedBy",
+    "email userName"
+  );
+  res.json({ message: "ok", data: datasets });
+}
