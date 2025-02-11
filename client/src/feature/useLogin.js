@@ -6,9 +6,10 @@ export function useLogin() {
   const queryClient = useQueryClient();
   const { mutate: login, isPending } = useMutation({
     mutationFn: ({ email, password }) => loginAPI({ email, password }),
-    onSuccess: () => {
+    onSuccess: (user) => {
       queryClient.invalidateQueries({ queryKey: ["user"] });
       toast.success("خوش امدید ! ...");
+      localStorage.setItem("token", user.data);
     },
     onError: (err) => {
       toast.error(err.response.data.message);
