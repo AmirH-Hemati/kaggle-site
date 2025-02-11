@@ -22,12 +22,14 @@ function LoginForm() {
         placeholder="User Name"
         className="border-2 border-black/50 p-2 rounded-sm"
         onChange={handelOnChange}
+        name="email"
       />
       <input
         type="password"
         placeholder="Password"
         className="border-2 border-black/50 p-2 rounded-sm"
         onChange={handelOnChange}
+        name="password"
       />
       <button className="w-full p-2 bg-red-500 text-white rounded-sm">
         submit

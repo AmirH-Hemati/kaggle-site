@@ -18,8 +18,7 @@ function App() {
             <Route path="/login" element={<LoginForm />} />
             <Route path="/signIn" element={<SignIn />} />
 
-            <Route path="signInUploader" element={<SignInUploader />} />
-            <Route path="signInAnalyze" element={<SignInUploader />} />
+            <Route path="/test" element={<SignInUploader />} />
           </Route>
         </Route>
       </Routes>

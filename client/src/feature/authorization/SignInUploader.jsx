@@ -1,5 +1,5 @@
 function SignInUploader() {
-  return <div>SignInUploader</div>;
+  return <div>test</div>;
 }
 
 export default SignInUploader;

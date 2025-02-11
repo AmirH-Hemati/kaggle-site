@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { signIn as signInAPI } from "../../service/apiAuth";
+import { toast } from "react-toastify";
 
 export function useSignIn() {
   const queryClient = useQueryClient();
@@ -8,9 +9,11 @@ export function useSignIn() {
       signInAPI({ userName, password, email, role }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["user"] });
+      toast.success("اکانت با موفقیت ساخته شد");
     },
     onError: (err) => {
       console.log(err);
+      toast.error(err.response.data.message);
     },
   });
   return { signIn, isPending };

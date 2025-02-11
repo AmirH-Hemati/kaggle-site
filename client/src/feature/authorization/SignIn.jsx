@@ -16,7 +16,7 @@ function SignIn() {
     e.preventDefault();
     if (!value.password || !value.userName || !value.role || !value.email)
       return;
-    console.log("test");
+    console.log("create account ");
     signIn(value);
   }
   return (
@@ -46,6 +46,7 @@ function SignIn() {
         onChange={handelOnChange}
       />
       <select name="role" onChange={handelOnChange}>
+        <option value="">select</option>
         <option value="uploader">uploader</option>
         <option value="analyzer">analyzer</option>
       </select>
@@ -57,20 +58,3 @@ function SignIn() {
 }
 
 export default SignIn;
-
-// return (
-//   <div className="w-full flex justify-evenly">
-//     <Link
-//       to={`/signInUploader`}
-//       className="w-80 h-72 bg-white shadow-md rounded-tr-2xl rounded-bl-2xl hover:bg-gray-200 cursor-pointer  transition"
-//     >
-//       Uploader
-//     </Link>
-//     <Link
-//       to={`/signInAnalyze`}
-//       className="w-80 h-72 bg-white shadow-md rounded-tr-2xl rounded-bl-2xl hover:bg-gray-200 cursor-pointer  transition"
-//     >
-//       Analyz
-//     </Link>
-//   </div>
-// );
