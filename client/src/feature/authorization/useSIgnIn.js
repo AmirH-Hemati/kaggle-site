@@ -1,5 +1,4 @@
 import { useMutation } from "@tanstack/react-query";
-import SignIn from "./SignIn";
 import { signIn as signInAPI } from "../../service/apiAuth";
 
 export function useSignIn() {
@@ -7,5 +6,5 @@ export function useSignIn() {
     mutationFn: ({ userName, email, password, role }) =>
       signInAPI({ userName, password, email, role }),
   });
-  return { SignIn, isPending };
+  return { signIn, isPending };
 }
