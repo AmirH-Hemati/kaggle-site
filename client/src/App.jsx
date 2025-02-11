@@ -8,6 +8,7 @@ import SignInUploader from "./feature/authorization/SignInUploader";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import LayoutUploader from "./ui/LayoutUploader";
 import UploadFile from "./page/UploadFile";
+import MyUpload from "./feature/dataset/MyUpload";
 const queryClient = new QueryClient();
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           </Route>
           <Route element={<LayoutUploader />}>
             <Route path="/upload" element={<UploadFile />} />
+            <Route path="/myUpload" element={<MyUpload />} />
           </Route>
         </Route>
       </Routes>

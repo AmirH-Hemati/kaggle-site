@@ -13,3 +13,8 @@ export async function uploadFile(req, res) {
   });
   res.json({ message: "ok", data: reslut });
 }
+export async function myUpload(req, res) {
+  const id = req.user._id;
+  const datasets = await Dataset.find({ uploadedBy: id });
+  res.json({ message: "ok", data: datasets });
+}

@@ -6,3 +6,8 @@ export async function createFile(formData) {
   });
   return data;
 }
+
+export async function myUploads() {
+  const { data } = await axiosInstance.get("/dataset/myUploads");
+  return data;
+}
