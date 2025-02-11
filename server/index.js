@@ -15,6 +15,7 @@ mongoose
     console.log(err);
   });
 app.use(cors());
+app.use(express.static("file"));
 app.use("/api/users/", usersRouter);
 app.use("/api/dataset/", datasetRouter);
 app.listen(1313, () => {
