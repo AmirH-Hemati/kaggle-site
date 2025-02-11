@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import usersRouter from "./routes/users.js";
+import datasetRouter from "./routes/dataset.js";
 import cors from "cors";
 const app = express();
 
@@ -15,6 +16,7 @@ mongoose
   });
 app.use(cors());
 app.use("/api/users/", usersRouter);
+app.use("/api/upload/", datasetRouter);
 app.listen(1313, () => {
   console.log("server listen to 1313");
 });
