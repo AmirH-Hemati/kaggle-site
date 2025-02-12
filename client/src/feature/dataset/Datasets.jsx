@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import UploadFile from "../../page/UploadFile";
 import Button from "../../ui/Button";
 import Input from "../../ui/Input";
@@ -15,7 +16,9 @@ function Datasets() {
             کنید
           </p>
           <div className="flex gap-4">
-            <Button type={`primary`}>داده های شما</Button>
+            <Link to={`/myUpload`}>
+              <Button type={`primary`}>داده های شما</Button>
+            </Link>
             <Modal>
               <Modal.Open openies={"createDataset"}>
                 <Button type={`contained`}>مجموعه داده جدید</Button>
