@@ -9,6 +9,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import LayoutUploader from "./ui/LayoutUploader";
 import UploadFile from "./page/UploadFile";
 import MyUpload from "./feature/dataset/MyUpload";
+import Json from "./page/Json";
 const queryClient = new QueryClient();
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route element={<LayoutUploader />}>
             <Route path="/upload" element={<UploadFile />} />
             <Route path="/myUpload" element={<MyUpload />} />
+            <Route path="/json" element={<Json />} />
           </Route>
         </Route>
       </Routes>
