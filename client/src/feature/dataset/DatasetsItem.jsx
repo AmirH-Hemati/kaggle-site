@@ -6,7 +6,7 @@ function DatasetsItem({ dataset }) {
       <img
         src="	https://www.kaggle.com/static/images/datasets/landing-header-light.svg"
         alt=""
-        className="rounded-3xl w-full object-cover aspect-square"
+        className="rounded-3xl w-full  aspect-square"
       />
       <p className="font-semibold text-sm">{dataset.title}</p>
 
