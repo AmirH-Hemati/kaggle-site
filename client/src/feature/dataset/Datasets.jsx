@@ -1,5 +1,6 @@
+import UploadFile from "../../page/UploadFile";
+import Modal from "../../ui/Modal";
 import AllDatasets from "./AllDatasets";
-import DatasetsItem from "./DatasetsItem";
 
 function Datasets() {
   return (
@@ -28,6 +29,14 @@ function Datasets() {
       <input type="text" placeholder="search" className="border-2 w-full p-3" />
       <p>مجموعه داده های پر طرفدار</p>
       <AllDatasets />
+      <Modal>
+        <Modal.Open openies={"createDataset"}>
+          <button>open modal</button>
+        </Modal.Open>
+        <Modal.Window name={"createDataset"}>
+          <UploadFile />
+        </Modal.Window>
+      </Modal>
     </div>
   );
 }

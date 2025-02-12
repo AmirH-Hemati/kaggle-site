@@ -2,11 +2,12 @@ import { cloneElement, createContext, useContext, useState } from "react";
 
 const modalContext = createContext();
 function Modal({ children }) {
-  const [isopen, setIsopen] = useState("");
-  const close = () => setIsopen("");
-  const open = (openies) => setIsopen(openies);
+  const [isOpen, setIsOpen] = useState("");
+  const close = () => setIsOpen("");
+  const open = (openies) => setIsOpen(openies);
+  console.log(isOpen);
   return (
-    <modalContext.Provider value={{ isopen, close, open }}>
+    <modalContext.Provider value={{ isOpen, close, open }}>
       {children}
     </modalContext.Provider>
   );
@@ -19,9 +20,9 @@ function Window({ name, children }) {
   const { isOpen, close } = useContext(modalContext);
   if (isOpen !== name) return null;
   return (
-    <div className="bg-black/50 fixed top-0 left-0 w-full h-screen blur-2xl">
-      <div className="flex flex-col">
-        <p>close</p>
+    <div className=" flex items-center justify-center fixed top-0 left-0 w-full h-screen   bg-black/70">
+      <div className="flex flex-col bg-white w-80 h-80">
+        <button onClick={close}>close</button>
         <div>{cloneElement(children, { onCLose: close })}</div>
       </div>
     </div>
