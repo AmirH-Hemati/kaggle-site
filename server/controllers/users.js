@@ -16,7 +16,7 @@ export async function login(req, res) {
       .json({ message: "ایمیل یا پسورد اشتباه است", data: null });
   }
   const token = jwt.sign({ _id: user._id }, "dwqdsadwqgfw45dqdwqs");
-  res.json({ message: "ok", data: token });
+  res.json({ message: "ok", data: { token: token, role: user?.role } });
 }
 export async function signIn(req, res) {
   console.log("test in server");

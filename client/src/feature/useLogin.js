@@ -4,14 +4,14 @@ import { toast } from "react-toastify";
 import { useAuth } from "../context/AuthContext";
 
 export function useLogin() {
-  const { login } = useAuth();
+  const { loginInAccount } = useAuth();
   const queryClient = useQueryClient();
   const { mutate: login, isPending } = useMutation({
     mutationFn: ({ email, password }) => loginAPI({ email, password }),
     onSuccess: (user) => {
       queryClient.invalidateQueries({ queryKey: ["user"] });
       toast.success("خوش امدید ! ...");
-      localStorage.setItem("token", user.data);
+      loginInAccount(user);
     },
     onError: (err) => {
       toast.error(err.response.data.message);
