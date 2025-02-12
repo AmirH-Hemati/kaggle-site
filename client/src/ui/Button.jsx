@@ -1,4 +1,4 @@
-function Button({ children, type }) {
+function Button({ children, type, onClick }) {
   const rootStyle =
     "text-xs font-semibold p-3 rounded-sm  hover:shadow-md cursor-pointer ";
   let style;
@@ -8,7 +8,11 @@ function Button({ children, type }) {
     style = rootStyle + "bg-white text-black border-2 border-black/50";
   }
 
-  return <button className={style}>{children}</button>;
+  return (
+    <button className={style} onClick={onClick}>
+      {children}
+    </button>
+  );
 }
 
 export default Button;

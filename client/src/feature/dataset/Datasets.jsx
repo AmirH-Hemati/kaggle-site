@@ -15,7 +15,14 @@ function Datasets() {
             کنید
           </p>
           <div className="flex gap-4">
-            <Button type={`contained`}>مجموعه داده جدید</Button>
+            <Modal>
+              <Modal.Open openies={"createDataset"}>
+                <Button type={`contained`}>مجموعه داده جدید</Button>
+              </Modal.Open>
+              <Modal.Window name={"createDataset"}>
+                <UploadFile />
+              </Modal.Window>
+            </Modal>
             <Button type={`primary`}>داده های شما</Button>
           </div>
         </div>
@@ -27,14 +34,6 @@ function Datasets() {
       <Input type="text" placeholder="جستجو کنید ..." />
       <p>مجموعه داده های پر طرفدار</p>
       <AllDatasets />
-      <Modal>
-        <Modal.Open openies={"createDataset"}>
-          <button>open modal</button>
-        </Modal.Open>
-        <Modal.Window name={"createDataset"}>
-          <UploadFile />
-        </Modal.Window>
-      </Modal>
     </div>
   );
 }
