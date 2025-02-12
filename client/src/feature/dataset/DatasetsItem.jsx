@@ -1,3 +1,5 @@
+import { datasets } from "../../../../server/controllers/dataset";
+
 function DatasetsItem({ dataset }) {
   return (
     <li className="flex flex-col h-full rounded-3xl shadow-sm hover:shadow-2xl p-2 text-sm  border-2 border-black/20">
@@ -8,8 +10,8 @@ function DatasetsItem({ dataset }) {
       />
       <p className="font-semibold text-sm">{dataset.title}</p>
 
-      <p className="text-xs">انتشار یافت : امیرحسین همتی</p>
-      <p className="text-xs"> تاریخ اپلود : 9 روز پیش</p>
+      <p className="text-xs">انتشار یافت: {dataset.uploadedBy.userName}</p>
+      <p className="text-xs"> {datasets.createdAt}تاریخ اپلود : </p>
       <p className="text-xs">یک فایل جیسون</p>
     </li>
   );
