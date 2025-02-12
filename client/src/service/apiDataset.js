@@ -11,3 +11,7 @@ export async function myUploads() {
   const { data } = await axiosInstance.get("/dataset/myUploads");
   return data;
 }
+export async function getAllDatasets() {
+  const { data } = await axiosInstance.get("/dataset");
+  return data;
+}
