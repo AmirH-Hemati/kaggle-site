@@ -1,4 +1,5 @@
 import { useUploadFile } from "../feature/dataset/useUploadFile";
+import Input from "../ui/Input";
 
 function UploadFile() {
   const { createFile } = useUploadFile();
@@ -13,9 +14,9 @@ function UploadFile() {
   }
   return (
     <form onSubmit={handelCreateFile} className="flex flex-col ">
-      <input type="text" placeholder="title file" name="title" />
-      <input type="text" placeholder="description" name="description" />
-      <input type="file" name="file" />
+      <Input type="text" placeholder="title file" name="title" />
+      <Input type="textarea" placeholder="description" name="description" />
+      <Input type="file" name="file" />
       <button>submit</button>
     </form>
   );
