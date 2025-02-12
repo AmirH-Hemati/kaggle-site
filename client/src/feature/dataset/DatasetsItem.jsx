@@ -4,7 +4,7 @@ function DatasetsItem({ dataset }) {
   return (
     <li className="flex flex-col h-full rounded-3xl shadow-sm hover:shadow-2xl p-2 text-sm  border-2 border-black/20">
       <img
-        src="https://storage.googleapis.com/kaggle-datasets-ima…341df/dataset-thumbnail.jpg?t=2025-02-11-17-59-00"
+        src="	https://www.kaggle.com/static/images/datasets/landing-header-light.svg"
         alt=""
         className="rounded-3xl w-full object-cover aspect-square"
       />
