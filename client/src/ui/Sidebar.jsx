@@ -2,14 +2,15 @@ import { Data, DocumentUpload } from "iconsax-react";
 import { NavLink } from "react-router-dom";
 
 function Sidebar() {
-  //""
   return (
     <aside className="w-[20%] flex flex-col gap-6 border-l-2 border-black/20 py-8 ">
       <NavLink
         to={`/datasets`}
         className={({ isActive }) =>
           `flex items-center gap-2 rounded-sm p-3 text-sm font-semibold hover:bg-[#F8F9FA]     ${
-            isActive ? "border-l-2 border-black bg-[#F8F9FA] rounded-none" : "border-l-0 bg-white "
+            isActive
+              ? "border-l-2 border-black bg-[#F8F9FA] rounded-none"
+              : "border-l-0 bg-white "
           }`
         }
       >
