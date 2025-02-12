@@ -1,16 +1,16 @@
 function DatasetsItem() {
   return (
-    <li className="flex h-full rounded-3xl shadow-md hover:shadow-2xl border-2 border-black/30">
+    <li className="flex flex-col h-full rounded-3xl shadow-sm hover:shadow-2xl p-2 text-sm  border-2 border-black/20">
       <img
-        src=""
+        src="https://storage.googleapis.com/kaggle-datasets-ima…341df/dataset-thumbnail.jpg?t=2025-02-11-17-59-00"
         alt=""
         className="rounded-3xl w-full object-cover aspect-square"
       />
-      <p>Car Theft Data in India</p>
+      <p className="font-semibold text-sm">Car Theft Data in India</p>
 
-      <p>amirHossen hemati</p>
-      <p>uploadedAt : 9 days ago</p>
-      <p>1file json</p>
+      <p className="text-xs">انتشار یافت : امیرحسین همتی</p>
+      <p className="text-xs"> تاریخ اپلود : 9 روز پیش</p>
+      <p className="text-xs">یک فایل جیسون</p>
     </li>
   );
 }

@@ -1,3 +1,5 @@
+import DatasetsItem from "./DatasetsItem";
+
 function Datasets() {
   return (
     <div className="w-full h-full">
@@ -24,6 +26,12 @@ function Datasets() {
       </div>
       <input type="text" placeholder="search" className="border-2 w-full p-3" />
       <p>مجموعه داده های پر طرفدار</p>
+      <ul className="grid grid-cols-4 gap-4 p-4">
+      <DatasetsItem />
+      <DatasetsItem />
+      <DatasetsItem />
+      <DatasetsItem />
+      </ul>
     </div>
   );
 }
