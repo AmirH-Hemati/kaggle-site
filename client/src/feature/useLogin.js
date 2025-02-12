@@ -10,8 +10,9 @@ export function useLogin() {
     mutationFn: ({ email, password }) => loginAPI({ email, password }),
     onSuccess: (user) => {
       queryClient.invalidateQueries({ queryKey: ["user"] });
-      toast.success("خوش امدید ! ...");
       loginInAccount(user);
+      console.log(user);
+      toast.success("خوش امدید ! ...");
     },
     onError: (err) => {
       toast.error(err.response.data.message);

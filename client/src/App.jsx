@@ -12,6 +12,7 @@ import MyUpload from "./feature/dataset/MyUpload";
 import Json from "./page/Json";
 import Datasets from "./feature/dataset/Datasets";
 import { AuthContextProvider } from "./context/AuthContext";
+import ProtectedUploaderRoute from "./ui/ProtectedUploaderRoute";
 const queryClient = new QueryClient();
 
 function App() {
@@ -26,11 +27,13 @@ function App() {
               <Route path="/signIn" element={<SignIn />} />
               <Route path="/test" element={<SignInUploader />} />
             </Route>
-            <Route element={<LayoutUploader />}>
-              <Route path="/upload" element={<UploadFile />} />
-              <Route path="/myUpload" element={<MyUpload />} />
-              <Route path="/datasets" element={<Datasets />} />
-              <Route path="/json" element={<Json />} />
+            <Route element={<ProtectedUploaderRoute />}>
+              <Route element={<LayoutUploader />}>
+                <Route path="/upload" element={<UploadFile />} />
+                <Route path="/myUpload" element={<MyUpload />} />
+                <Route path="/datasets" element={<Datasets />} />
+                <Route path="/json" element={<Json />} />
+              </Route>
             </Route>
           </Route>
         </Routes>
