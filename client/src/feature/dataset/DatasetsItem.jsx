@@ -1,4 +1,4 @@
-function DatasetsItem() {
+function DatasetsItem({ dataset }) {
   return (
     <li className="flex flex-col h-full rounded-3xl shadow-sm hover:shadow-2xl p-2 text-sm  border-2 border-black/20">
       <img
@@ -6,7 +6,7 @@ function DatasetsItem() {
         alt=""
         className="rounded-3xl w-full object-cover aspect-square"
       />
-      <p className="font-semibold text-sm">Car Theft Data in India</p>
+      <p className="font-semibold text-sm">{dataset.title}</p>
 
       <p className="text-xs">انتشار یافت : امیرحسین همتی</p>
       <p className="text-xs"> تاریخ اپلود : 9 روز پیش</p>

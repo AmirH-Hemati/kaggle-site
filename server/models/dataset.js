@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 const datasetSchema = new mongoose.Schema({
-  name: { type: String },
+  title: { type: String },
   description: { type: String },
   fileUrl: { type: String },
   size: { type: Number },
