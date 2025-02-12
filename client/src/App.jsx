@@ -10,6 +10,7 @@ import LayoutUploader from "./ui/LayoutUploader";
 import UploadFile from "./page/UploadFile";
 import MyUpload from "./feature/dataset/MyUpload";
 import Json from "./page/Json";
+import Datasets from "./feature/dataset/Datasets";
 const queryClient = new QueryClient();
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route element={<LayoutUploader />}>
             <Route path="/upload" element={<UploadFile />} />
             <Route path="/myUpload" element={<MyUpload />} />
+            <Route path="/datasets" element={<Datasets />} />
             <Route path="/json" element={<Json />} />
           </Route>
         </Route>
