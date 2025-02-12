@@ -1,4 +1,6 @@
 import UploadFile from "../../page/UploadFile";
+import Button from "../../ui/Button";
+import Input from "../../ui/Input";
 import Modal from "../../ui/Modal";
 import AllDatasets from "./AllDatasets";
 
@@ -13,12 +15,8 @@ function Datasets() {
             کنید
           </p>
           <div className="flex gap-4">
-            <button className="bg-black text-white text-xs font-semibold p-2 rounded-3xl">
-              مجموعه داده جدید +
-            </button>
-            <button className="bg-black text-white text-xs font-semibold p-2 rounded-3xl">
-              داده های شما
-            </button>
+            <Button type={`contained`}>مجموعه داده جدید</Button>
+            <Button type={`primary`}>داده های شما</Button>
           </div>
         </div>
         <img
@@ -26,7 +24,7 @@ function Datasets() {
           alt=""
         />
       </div>
-      <input type="text" placeholder="search" className="border-2 w-full p-3" />
+      <Input type="text" placeholder="جستجو کنید ..." />
       <p>مجموعه داده های پر طرفدار</p>
       <AllDatasets />
       <Modal>
