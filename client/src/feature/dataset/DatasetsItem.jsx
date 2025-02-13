@@ -2,7 +2,7 @@ import { datasets } from "../../../../server/controllers/dataset";
 
 function DatasetsItem({ dataset }) {
   return (
-    <li className="flex flex-col h-full rounded-3xl shadow-sm hover:shadow-2xl p-2 text-sm  border-2 border-black/20">
+    <li className=" flex flex-col h-full rounded-3xl shadow-sm hover:shadow-2xl p-2 text-sm  border-2 border-black/20">
       <img
         src="	https://www.kaggle.com/static/images/datasets/landing-header-light.svg"
         alt=""

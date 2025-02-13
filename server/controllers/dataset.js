@@ -1,3 +1,4 @@
+import data from "../../client/src/data/sidebarDatasets.jsx";
 import Dataset from "../models/dataset.js";
 export async function uploadFile(req, res) {
   const { title, description } = req.body;
@@ -24,4 +25,15 @@ export async function datasets(req, res) {
     "email userName"
   );
   res.json({ message: "ok", data: datasets });
+}
+export async function dataset(req, res) {
+  const { id } = req.body;
+  const dataset = await Dataset.findOne({ _id: id }).populate(
+    "uploadedBy",
+    "email  userName"
+  );
+  if (!dataset) {
+    return res.status(400).json({ message: "Dataset Not Found", data: null });
+  }
+  res.json({ message: "ok", data: dataset });
 }
