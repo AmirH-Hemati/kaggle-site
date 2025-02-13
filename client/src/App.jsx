@@ -14,6 +14,7 @@ import Datasets from "./feature/dataset/Datasets";
 import { AuthContextProvider } from "./context/AuthContext";
 import ProtectedUploaderRoute from "./ui/ProtectedUploaderRoute";
 import Analyz from "./page/Analyz";
+import ProtectedAnalyzeRoute from "./ui/ProtectedAnalyzeRoute";
 const queryClient = new QueryClient();
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
               <Route path="/signIn" element={<SignIn />} />
               <Route path="/test" element={<SignInUploader />} />
             </Route>
+
             <Route element={<ProtectedUploaderRoute />}>
               <Route element={<LayoutUploader />}>
                 <Route path="/upload" element={<UploadFile />} />
@@ -36,8 +38,12 @@ function App() {
                 <Route path="/json" element={<Json />} />
               </Route>
             </Route>
+            <Route element={<ProtectedAnalyzeRoute />}>
+              <Route element={<LayoutUploader />}>
+                <Route path="/analyz" element={<Analyz />} />
+              </Route>
+            </Route>
           </Route>
-          <Route path="/analyz" element={<Analyz />} />
         </Routes>
       </AuthContextProvider>
     </QueryClientProvider>
