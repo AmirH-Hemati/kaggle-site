@@ -13,6 +13,7 @@ import Json from "./page/Json";
 import Datasets from "./feature/dataset/Datasets";
 import { AuthContextProvider } from "./context/AuthContext";
 import ProtectedUploaderRoute from "./ui/ProtectedUploaderRoute";
+import Analyz from "./page/Analyz";
 const queryClient = new QueryClient();
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
               </Route>
             </Route>
           </Route>
+          <Route path="/analyz" element={<Analyz />} />
         </Routes>
       </AuthContextProvider>
     </QueryClientProvider>
