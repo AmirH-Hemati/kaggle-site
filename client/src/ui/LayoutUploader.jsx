@@ -1,10 +1,11 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar";
 
-function LayoutUploader() {
+function LayoutUploader({ dataDatasets }) {
+  console.log(dataDatasets);
   return (
     <div className="w-full h-full flex">
-      <Sidebar />
+      <Sidebar data={dataDatasets} />
       <Outlet />
     </div>
   );

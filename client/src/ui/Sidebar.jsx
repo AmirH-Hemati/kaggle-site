@@ -1,9 +1,8 @@
 import { NavLink } from "react-router-dom";
-import data from "../data/sidebarDatasets";
-function Sidebar() {
+function Sidebar({ data }) {
   return (
     <aside className="w-[20%] flex flex-col gap-6 border-l-2 border-black/20 py-6 ">
-      {data.map((item) => (
+      {data?.map((item) => (
         <NavLink
           key={item.title}
           to={item.route}

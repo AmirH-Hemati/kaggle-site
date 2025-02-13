@@ -15,6 +15,7 @@ import { AuthContextProvider } from "./context/AuthContext";
 import ProtectedUploaderRoute from "./ui/ProtectedUploaderRoute";
 import Analyz from "./page/Analyz";
 import ProtectedAnalyzeRoute from "./ui/ProtectedAnalyzeRoute";
+import dataDatasets from "./data/sidebarDatasets";
 const queryClient = new QueryClient();
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
             </Route>
 
             <Route element={<ProtectedUploaderRoute />}>
-              <Route element={<LayoutUploader />}>
+              <Route element={<LayoutUploader dataDatasets={dataDatasets} />}>
                 <Route path="/upload" element={<UploadFile />} />
                 <Route path="/myUpload" element={<MyUpload />} />
                 <Route path="/datasets" element={<Datasets />} />
