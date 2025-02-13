@@ -16,6 +16,7 @@ import ProtectedUploaderRoute from "./ui/ProtectedUploaderRoute";
 import Analyz from "./page/Analyz";
 import ProtectedAnalyzeRoute from "./ui/ProtectedAnalyzeRoute";
 import dataDatasets from "./data/sidebarDatasets";
+import dataAnalyze from "./data/SidebarAnalyze";
 const queryClient = new QueryClient();
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
             </Route>
 
             <Route element={<ProtectedUploaderRoute />}>
-              <Route element={<LayoutUploader dataDatasets={dataDatasets} />}>
+              <Route element={<LayoutUploader data={dataDatasets} />}>
                 <Route path="/upload" element={<UploadFile />} />
                 <Route path="/myUpload" element={<MyUpload />} />
                 <Route path="/datasets" element={<Datasets />} />
@@ -40,7 +41,7 @@ function App() {
               </Route>
             </Route>
             <Route element={<ProtectedAnalyzeRoute />}>
-              <Route element={<LayoutUploader />}>
+              <Route element={<LayoutUploader data={dataAnalyze} />}>
                 <Route path="/analyz" element={<Analyz />} />
               </Route>
             </Route>
