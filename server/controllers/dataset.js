@@ -1,4 +1,3 @@
-import data from "../../client/src/data/sidebarDatasets.jsx";
 import Dataset from "../models/dataset.js";
 export async function uploadFile(req, res) {
   const { title, description } = req.body;

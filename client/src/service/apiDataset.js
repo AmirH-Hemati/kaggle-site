@@ -15,3 +15,7 @@ export async function getAllDatasets() {
   const { data } = await axiosInstance.get("/dataset");
   return data;
 }
+export async function getDataset(id) {
+  const { data } = await axiosInstance.put(`/dataset/${id}`);
+  return data;
+}

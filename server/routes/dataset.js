@@ -10,7 +10,7 @@ import {
 const router = express.Router();
 
 router.get("/", auth, datasets);
-router.get("/:id", auth, dataset);
+router.put("/:id", auth, dataset);
 router.post("/upload", auth, upload.single("file"), uploadFile);
 router.get("/myUploads", auth, myUpload);
 
