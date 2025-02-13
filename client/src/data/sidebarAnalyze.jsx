@@ -8,7 +8,7 @@ const data = [
   },
   {
     title: "مجموعه داده ها",
-    route: "/myUpload",
+    route: "/datasetsAnalyze",
     icon: <Data size="26" color="black" />,
   },
 ];

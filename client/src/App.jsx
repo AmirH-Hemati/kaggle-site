@@ -17,6 +17,7 @@ import Analyz from "./page/Analyz";
 import ProtectedAnalyzeRoute from "./ui/ProtectedAnalyzeRoute";
 import dataDatasets from "./data/sidebarDatasets";
 import dataAnalyze from "./data/SidebarAnalyze";
+import DatasetsAnalyze from "./feature/analyze/DatasetsAnalyze";
 const queryClient = new QueryClient();
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
             <Route element={<ProtectedAnalyzeRoute />}>
               <Route element={<LayoutUploader data={dataAnalyze} />}>
                 <Route path="/codeEditor" element={<Analyz />} />
+                <Route path="/datasetsAnalyze" element={<DatasetsAnalyze />} />
               </Route>
             </Route>
           </Route>
