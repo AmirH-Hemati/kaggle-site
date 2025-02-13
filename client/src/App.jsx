@@ -42,7 +42,7 @@ function App() {
             </Route>
             <Route element={<ProtectedAnalyzeRoute />}>
               <Route element={<LayoutUploader data={dataAnalyze} />}>
-                <Route path="/analyz" element={<Analyz />} />
+                <Route path="/codeEditor" element={<Analyz />} />
               </Route>
             </Route>
           </Route>

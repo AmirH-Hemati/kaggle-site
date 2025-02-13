@@ -3,7 +3,7 @@ import { Data, DocumentUpload } from "iconsax-react";
 const data = [
   {
     title: "کد ادیتور",
-    route: "/datasets",
+    route: "/codeEditor",
     icon: <DocumentUpload size="26" color="black" />,
   },
   {
