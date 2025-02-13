@@ -1,13 +1,16 @@
 import { useState } from "react";
 import { Editor } from "@monaco-editor/react";
+import axios from "axios";
 function Analyz() {
   const [code, setCode] = useState("");
+  async function handelRunCode() {
+    console.log("test in analyz");
+    const { data } = await axios.post("http://localhost:1313/run", { code });
+    console.log(data);
+  }
   console.log(code);
   return (
-    <div
-      style={{ direction: "ltr" }}
-      className="w-full bg-red-500 flex items-center justify-center h-screen"
-    >
+    <div className="w-full bg-red-500 flex items-center justify-center h-screen">
       <Editor
         className="dic"
         height="75vh"
@@ -23,6 +26,7 @@ function Analyz() {
           automaticLayout: true,
         }}
       />
+      <button onClick={handelRunCode}>run</button>
     </div>
   );
 }

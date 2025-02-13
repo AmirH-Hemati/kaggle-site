@@ -3,4 +3,7 @@
   direction: rtl;
 }
 
-
+.monaco-editor,
+.monaco-editor * {
+  direction: ltr;
+}
