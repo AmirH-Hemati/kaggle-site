@@ -16,7 +16,7 @@ function Dataset() {
         <div className="flex flex-col border-2 border-black/10 rounded-sm  p-4 gap-7">
           <h1 className="text-2xl font-semibold text-black ">
             <span className="font-semibold">نام فایل : </span>{" "}
-            {dataset?.data?.name}
+            {dataset?.data?.title}
           </h1>
           <p className="text-gray-500">
             <span className="font-semibold">توضیحات : </span>

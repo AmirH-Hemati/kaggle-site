@@ -3,6 +3,7 @@ import UploadFile from "../../page/UploadFile";
 import Button from "../../ui/Button";
 import Modal from "../../ui/Modal";
 import AllDatasets from "./AllDatasets";
+import Search from "../../ui/Search";
 
 function Datasets() {
   return (
@@ -34,6 +35,7 @@ function Datasets() {
           className="object-cover h-full"
         />
       </div>
+      <Search />
       <p>مجموعه داده های پر طرفدار</p>
       <AllDatasets />
     </div>
