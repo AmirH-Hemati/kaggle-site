@@ -18,6 +18,7 @@ import ProtectedAnalyzeRoute from "./ui/ProtectedAnalyzeRoute";
 import dataDatasets from "./data/sidebarDatasets";
 import dataAnalyze from "./data/SidebarAnalyze";
 import DatasetsAnalyze from "./feature/analyze/DatasetsAnalyze";
+import Dataset from "./feature/dataset/Dataset";
 const queryClient = new QueryClient();
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
                 <Route path="/upload" element={<UploadFile />} />
                 <Route path="/myUpload" element={<MyUpload />} />
                 <Route path="/datasets" element={<Datasets />} />
+                <Route path="/datasets/:id" element={<Dataset />} />
                 <Route path="/json" element={<Json />} />
               </Route>
             </Route>

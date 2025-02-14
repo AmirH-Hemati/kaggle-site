@@ -26,7 +26,7 @@ export async function datasets(req, res) {
   res.json({ message: "ok", data: datasets });
 }
 export async function dataset(req, res) {
-  const { id } = req.body;
+  const { id } = req.params;
   const dataset = await Dataset.findOne({ _id: id }).populate(
     "uploadedBy",
     "email  userName"
