@@ -1,9 +1,10 @@
+import { toast } from "react-toastify";
 import Button from "../../ui/Button";
 import { useGetDataset } from "./useGetDataset";
 
 function Dataset() {
   const { dataset } = useGetDataset();
-
+  console.log(dataset);
   return (
     <div className="w-full flex  flex-col items-center  mt-10">
       <div className="flex flex-col border-2 w-2/3 h-[90%] border-black/40 p-4 rounded-sm">
@@ -24,11 +25,11 @@ function Dataset() {
 
           <p>
             <span className="font-semibold">نام سازنده : </span>
-            {dataset?.data?.uploadedBy.userName}
+            {dataset?.data?.uploadedBy?.userName}
           </p>
           <p>
             <span className="font-semibold">ایمیل سازنده : </span>
-            {dataset?.data?.uploadedBy.email}
+            {dataset?.data?.uploadedBy?.email}
           </p>
 
           <div className="flex justify-between">
@@ -37,7 +38,26 @@ function Dataset() {
 
               {dataset?.data?.size}
             </p>
-            <Button type={`contained`}>دانلود فایل</Button>
+            <Button
+              type={`contained`}
+              onClick={async () => {
+                const response = await fetch(dataset?.data?.fileUrl);
+                if (!response.ok)
+                  toast.error("مشکلی در دانلود فایل وجود دارد!");
+                const blob = await response.blob();
+                const link = document.createElement("a");
+                link.href = URL.createObjectURL(blob);
+                link.setAttribute(
+                  "download",
+                  dataset?.data?.name || "dataset.json"
+                );
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
+            >
+              دانلود فایل
+            </Button>
           </div>
         </div>
       </div>
