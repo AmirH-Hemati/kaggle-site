@@ -3,10 +3,12 @@ import Button from "../../ui/Button";
 import { useGetDataset } from "./useGetDataset";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import { useDeleteDataset } from "./useDeleteDataset";
 
 function Dataset() {
   const { dataset } = useGetDataset();
   const { role } = useAuth();
+  const { deleteDataset } = useDeleteDataset();
   return (
     <div className="w-full flex  flex-col items-center  mt-10">
       <div className="flex flex-col border-2 w-2/3 h-[90%] border-black/40 p-4 rounded-sm">
@@ -73,9 +75,12 @@ function Dataset() {
               )}
               {role == "uploader" && (
                 <>
-                  <Link to={`/overView/${dataset?.data?._id}`}>
-                    <Button type={`primary`}>حذف</Button>
-                  </Link>
+                  <Button
+                    type={`primary`}
+                    onClick={() => deleteDataset(dataset?.data?._id)}
+                  >
+                    حذف
+                  </Button>
                   <Link to={`/codeEditor/${dataset?.data?._id}`}>
                     <Button type={`primary`}>بروزرسانی</Button>
                   </Link>

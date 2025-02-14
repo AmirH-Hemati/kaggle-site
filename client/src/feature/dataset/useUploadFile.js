@@ -7,8 +7,8 @@ export function useUploadFile() {
   const { mutate: createFile, isPending } = useMutation({
     mutationFn: (formData) => createFileAPI(formData),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["dataset"] });
-      toast.success("فایل با موفقیت ساخته شد")
+      queryClient.invalidateQueries({ queryKey: ["datasets"] });
+      toast.success("فایل با موفقیت ساخته شد");
     },
     onError: (error) => {
       console.log(error);
