@@ -44,7 +44,7 @@ function StartCoddingInDataset() {
               code={code}
               setCode={setCode}
               readOnly={false}
-              defaultLanguage={`python`}
+              defaultLanguage="python"
               defaultValue="Write Some Code"
             />
           ) : (
