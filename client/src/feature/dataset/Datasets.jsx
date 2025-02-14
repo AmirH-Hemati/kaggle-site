@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import UploadFile from "../../page/UploadFile";
 import Button from "../../ui/Button";
-import Input from "../../ui/Input";
 import Modal from "../../ui/Modal";
 import AllDatasets from "./AllDatasets";
 
@@ -35,7 +34,6 @@ function Datasets() {
           className="object-cover h-full"
         />
       </div>
-      <Input type="text" placeholder="جستجو کنید ..." />
       <p>مجموعه داده های پر طرفدار</p>
       <AllDatasets />
     </div>

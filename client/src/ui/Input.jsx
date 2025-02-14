@@ -1,4 +1,4 @@
-function Input({ type, placeholder, name }) {
+function Input({ type, placeholder, name, value, onChange }) {
   const styles = "p-3 w-full border-2 border-black/50 rounded-sm text-black";
   if (type == "textarea") {
     return (
@@ -9,6 +9,8 @@ function Input({ type, placeholder, name }) {
         minLength={0}
         maxLength={100}
         className={styles}
+        value={value}
+        onChange={onChange}
       ></textarea>
     );
   }
@@ -18,6 +20,8 @@ function Input({ type, placeholder, name }) {
       name={name}
       placeholder={placeholder}
       className={styles}
+      value={value}
+      onChange={onChange}
     />
   );
 }
