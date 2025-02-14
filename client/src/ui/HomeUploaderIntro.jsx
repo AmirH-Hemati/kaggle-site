@@ -1,3 +1,4 @@
+import BenefitUpload from "./BenefitUpload";
 function HomeUploaderIntro() {
   return (
     <div>
@@ -17,6 +18,13 @@ function HomeUploaderIntro() {
           alt=""
           className=" w-96 h-96 object-cover "
         />
+      </div>
+      <div className="space-y-5">
+        <h2 className="text-xl font-semibold ">
+          چرا داده‌های خود را آپلود کنید؟
+        </h2>
+
+        <BenefitUpload />
       </div>
     </div>
   );
