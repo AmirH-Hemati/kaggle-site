@@ -26,7 +26,7 @@ function HomeIntro() {
           className=" w-96 h-96 object-cover "
         />
       </div>
-      <div className="w-full flex flex-col  gap-4">
+      <div className="] w-full flex flex-col  gap-4">
         <h2 className="text-xl font-semibold ">چه کسانی در کگل هستند ؟ .</h2>
         <Members />
       </div>
