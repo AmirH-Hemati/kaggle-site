@@ -11,8 +11,8 @@ function CodeEditor({ code, setCode }) {
         value={code}
         onChange={(newValue) => setCode(newValue)}
         options={{
-          readOnly: false, // مطمئن شو که readOnly خاموشه
-          domReadOnly: false, // گاهی این مقدار باعث فریز شدن ادیتور میشه
+          readOnly: false,
+          domReadOnly: false,
           minimap: { enabled: false },
           automaticLayout: true,
           fontSize: "25px",
