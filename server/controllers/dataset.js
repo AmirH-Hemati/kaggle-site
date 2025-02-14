@@ -19,7 +19,17 @@ export async function myUpload(req, res) {
   res.json({ message: "ok", data: datasets });
 }
 export async function datasets(req, res) {
-  const datasets = await Dataset.find({}).populate(
+  const { categories, search } = req.query;
+  const filter = {};
+  if (categories) {
+    filter.categories = categories;
+  }
+
+  if (search) {
+    filter.name = { $regex: search, $options: "i" };
+  }
+
+  const datasets = await Dataset.find(filter).populate(
     "uploadedBy",
     "email userName"
   );
