@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useLogin } from "./useLogin";
+import Button from "../../ui/Button";
+import Input from "../../ui/Input";
 
 function LoginForm() {
   const { login } = useLogin();
@@ -17,23 +19,23 @@ function LoginForm() {
       onSubmit={handelLoginForm}
       className="w-96 h-80 p-6 shadow-md flex flex-col rounded-sm justify-evenly"
     >
-      <input
+      <Input
         type="text"
         placeholder="User Name"
         className="border-2 border-black/50 p-2 rounded-sm"
         onChange={handelOnChange}
         name="email"
       />
-      <input
+      <Input
         type="password"
         placeholder="Password"
         className="border-2 border-black/50 p-2 rounded-sm"
         onChange={handelOnChange}
         name="password"
       />
-      <button className="w-full p-2 bg-red-500 text-white rounded-sm">
-        submit
-      </button>
+      <Button type="contained" extraStyle={`p-4`}>
+        ورود
+      </Button>
     </form>
   );
 }

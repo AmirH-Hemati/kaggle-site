@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useSignIn } from "./useSIgnIn";
+import Input from "../../ui/Input";
+import Button from "../../ui/Button";
 
 function SignIn() {
   const { signIn } = useSignIn();
@@ -24,21 +26,21 @@ function SignIn() {
       onSubmit={handelSignIn}
       className="w-96 h-80 p-6 shadow-md flex flex-col rounded-sm justify-evenly"
     >
-      <input
+      <Input
         type="text"
         placeholder="User Name"
         className="border-2 border-black/50 p-2 rounded-sm"
         name="userName"
         onChange={handelOnChange}
       />
-      <input
+      <Input
         type="text"
         placeholder="email"
         className="border-2 border-black/50 p-2 rounded-sm"
         name="email"
         onChange={handelOnChange}
       />
-      <input
+      <Input
         type="password"
         placeholder="Password"
         className="border-2 border-black/50 p-2 rounded-sm"
@@ -50,9 +52,9 @@ function SignIn() {
         <option value="uploader">uploader</option>
         <option value="analyzer">analyzer</option>
       </select>
-      <button className="w-full p-2 bg-red-500 text-white rounded-sm">
-        submit
-      </button>
+      <Button type={`contained`}>
+        ثبت نام
+      </Button>
     </form>
   );
 }
