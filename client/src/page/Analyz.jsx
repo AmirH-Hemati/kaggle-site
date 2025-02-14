@@ -8,13 +8,15 @@ function Analyz() {
 
   return (
     <div className="relative h-full w-full p-4">
-      <CodeEditor
-        code={code}
-        setCode={setCode}
-        defaultLanguage={`python`}
-        readOnly={false}
-        defaultValue="Write Some Code"
-      />
+      <div className="w-full h-1/2">
+        <CodeEditor
+          code={code}
+          setCode={setCode}
+          defaultLanguage={`python`}
+          readOnly={false}
+          defaultValue="Write Some Code"
+        />
+      </div>
       <Output code={code} />
     </div>
   );

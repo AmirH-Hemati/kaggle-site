@@ -2,9 +2,11 @@ import { toast } from "react-toastify";
 import Button from "../../ui/Button";
 import { useGetDataset } from "./useGetDataset";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 function Dataset() {
   const { dataset } = useGetDataset();
+  const { role } = useAuth();
   return (
     <div className="w-full flex  flex-col items-center  mt-10">
       <div className="flex flex-col border-2 w-2/3 h-[90%] border-black/40 p-4 rounded-sm">
@@ -38,29 +40,33 @@ function Dataset() {
 
               {dataset?.data?.size}
             </p>
-            <Button
-              type={`contained`}
-              onClick={async () => {
-                const response = await fetch(dataset?.data?.fileUrl);
-                if (!response.ok)
-                  toast.error("مشکلی در دانلود فایل وجود دارد!");
-                const blob = await response.blob();
-                const link = document.createElement("a");
-                link.href = URL.createObjectURL(blob);
-                link.setAttribute(
-                  "download",
-                  dataset?.data?.name || "dataset.json"
-                );
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-              }}
-            >
-              دانلود فایل
-            </Button>
-            <Link to={`/overView/${dataset?.data?._id}`}>
-              <Button type={`contained`}>پیش نمایش</Button>
-            </Link>
+            <div className="space-x-2">
+              <Button
+                type={`contained`}
+                onClick={async () => {
+                  const response = await fetch(dataset?.data?.fileUrl);
+                  if (!response.ok)
+                    toast.error("مشکلی در دانلود فایل وجود دارد!");
+                  const blob = await response.blob();
+                  const link = document.createElement("a");
+                  link.href = URL.createObjectURL(blob);
+                  link.setAttribute(
+                    "download",
+                    dataset?.data?.name || "dataset.json"
+                  );
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
+              >
+                دانلود فایل
+              </Button>
+              {role == "analyzer" && (
+                <Link to={`/overView/${dataset?.data?._id}`}>
+                  <Button type={`primary`}>پیش نمایش</Button>
+                </Link>
+              )}
+            </div>
           </div>
         </div>
       </div>
