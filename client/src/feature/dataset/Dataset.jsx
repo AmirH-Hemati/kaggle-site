@@ -1,6 +1,7 @@
 import { toast } from "react-toastify";
 import Button from "../../ui/Button";
 import { useGetDataset } from "./useGetDataset";
+import { Link } from "react-router-dom";
 
 function Dataset() {
   const { dataset } = useGetDataset();
@@ -57,7 +58,9 @@ function Dataset() {
             >
               دانلود فایل
             </Button>
-            <Button type={`contained`}>پیش نمایش</Button>
+            <Link to={`/overView/${dataset?.data?._id}`}>
+              <Button type={`contained`}>پیش نمایش</Button>
+            </Link>
           </div>
         </div>
       </div>

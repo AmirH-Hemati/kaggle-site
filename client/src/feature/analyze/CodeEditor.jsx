@@ -8,7 +8,7 @@ function CodeEditor({
   defaultValue,
 }) {
   return (
-    <div className="border-2 border-black/30  h-1/2">
+    <div className="border-2 border-black/30  h-full">
       <Editor
         height={`100%`}
         defaultLanguage={defaultLanguage}
