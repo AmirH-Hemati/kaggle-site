@@ -20,6 +20,7 @@ import dataAnalyze from "./data/SidebarAnalyze";
 import DatasetsAnalyze from "./feature/analyze/DatasetsAnalyze";
 import Dataset from "./feature/dataset/Dataset";
 import OverView from "./feature/analyze/OverView";
+import StartCoddingInDataset from "./feature/analyze/StartCoddingInDataset";
 const queryClient = new QueryClient();
 
 function App() {
@@ -47,6 +48,10 @@ function App() {
             <Route element={<ProtectedAnalyzeRoute />}>
               <Route element={<LayoutUploader data={dataAnalyze} />}>
                 <Route path="/codeEditor" element={<Analyz />} />
+                <Route
+                  path="/codeEditor/:id"
+                  element={<StartCoddingInDataset />}
+                />
                 <Route path="/datasetsAnalyze" element={<DatasetsAnalyze />} />
                 <Route path="/datasetsAnalyze/:id" element={<Dataset />} />
                 <Route path="/overView/:id" element={<OverView />} />

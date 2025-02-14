@@ -62,9 +62,14 @@ function Dataset() {
                 دانلود فایل
               </Button>
               {role == "analyzer" && (
-                <Link to={`/overView/${dataset?.data?._id}`}>
-                  <Button type={`primary`}>پیش نمایش</Button>
-                </Link>
+                <>
+                  <Link to={`/overView/${dataset?.data?._id}`}>
+                    <Button type={`primary`}>پیش نمایش</Button>
+                  </Link>
+                  <Link to={`/codeEditor/${dataset?.data?._id}`}>
+                    <Button type={`primary`}>شروع</Button>
+                  </Link>
+                </>
               )}
             </div>
           </div>

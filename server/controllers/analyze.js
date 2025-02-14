@@ -5,16 +5,17 @@ export async function runCode(req, res) {
   const pathFile = "temp.py";
 
   fs.writeFileSync(pathFile, code);
+  let output = "";
   try {
     const process = spawn("python", [pathFile]);
 
-    process.stdout.on("data", (data) => {
-      return res.json({ message: "ok", data: data.toString() });
-    });
+    process.stdout.on("data", (data) => (output += data.toString()));
 
-    process.stderr.on("data", (data) => {
-      console.log(data.toString());
-    });
+    process.stderr.on(
+      "data",
+      (data) => (output += data.toString().split("NameError").at(1))
+    );
+    process.on("close", () => res.json({ message: "ok", data: output }));
   } catch (error) {
     res.status(500).json({ message: "internal server error", data: null });
   }

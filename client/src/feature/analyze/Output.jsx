@@ -17,7 +17,7 @@ function Output({ code }) {
 
   return (
     <>
-      <div className="h-1/2 text-black p-4 flex flex-col gap-2 border-t-2 border-black/30">
+      <div className="h-1/3 overflow-auto text-black p-4 flex flex-col gap-2 border-t-2 border-black/30">
         <p className="text-xl font-semibold">خروجی</p>
         <div className="flex-1  border-2 border-black/30 p-4 rounded-sm text-lg">
           {output}

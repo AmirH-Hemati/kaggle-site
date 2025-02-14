@@ -8,12 +8,12 @@ function Analyz() {
 
   return (
     <div className="relative h-full w-full p-4">
-      <div className="w-full h-1/2">
+      <div className="w-full h-2/3">
         <CodeEditor
           code={code}
           setCode={setCode}
-          defaultLanguage={`python`}
           readOnly={false}
+          defaultLanguage={`python`}
           defaultValue="Write Some Code"
         />
       </div>
