@@ -1,9 +1,10 @@
 import { toast } from "react-toastify";
 import Button from "../../ui/Button";
-import { useGetDataset } from "./useGetDataset";
+import { useGetDataset } from "../dataset/useGetDataset";
 
-function Dataset() {
+function DatasetDetails() {
   const { dataset } = useGetDataset();
+
   return (
     <div className="w-full flex  flex-col items-center  mt-10">
       <div className="flex flex-col border-2 w-2/3 h-[90%] border-black/40 p-4 rounded-sm">
@@ -57,7 +58,6 @@ function Dataset() {
             >
               دانلود فایل
             </Button>
-            <Button type={`contained`}>پیش نمایش</Button>
           </div>
         </div>
       </div>
@@ -65,4 +65,4 @@ function Dataset() {
   );
 }
 
-export default Dataset;
+export default DatasetDetails;

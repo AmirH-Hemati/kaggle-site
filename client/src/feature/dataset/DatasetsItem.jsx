@@ -1,9 +1,16 @@
 import { Link } from "react-router-dom";
 import { datasets } from "../../../../server/controllers/dataset";
+import { useAuth } from "../../context/AuthContext";
 
-function DatasetsItem({ dataset }) {
+function DatasetsItem({ dataset, route }) {
+  const { role } = useAuth();
+
   return (
-    <Link to={`/datasets/${dataset?._id}`}>
+    <Link
+      to={`/${role == "uploader" ? "datasets" : "datasetsAnalyze"}/${
+        dataset?._id
+      }`}
+    >
       <li className=" flex flex-col h-full rounded-3xl shadow-sm hover:shadow-2xl p-2 text-sm  border-2 border-black/20">
         <img
           src="	https://www.kaggle.com/static/images/datasets/landing-header-light.svg"
