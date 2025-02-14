@@ -1,4 +1,4 @@
-import BenefitUpload from "./BenefitUpload";
+import BenefitAnalyze from "./BenefitAnalyze";
 
 function HomeAnalyzerIntro() {
   return (
@@ -25,7 +25,7 @@ function HomeAnalyzerIntro() {
           چرا داده‌های خود را آپلود کنید؟
         </h2>
 
-        <BenefitUpload />
+        <BenefitAnalyze />
       </div>
     </div>
   );
