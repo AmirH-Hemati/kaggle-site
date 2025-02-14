@@ -36,7 +36,7 @@ function Datasets() {
         />
       </div>
       <Search />
-      <p>مجموعه داده های پر طرفدار</p>
+      <h2 className="font-semibold text-lg">مجموعه داده های پر طرفدار</h2>
       <AllDatasets />
     </div>
   );

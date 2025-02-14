@@ -19,3 +19,8 @@ export async function getDataset(id) {
   const { data } = await axiosInstance.put(`/dataset/${id}`);
   return data;
 }
+
+export async function deleteDataset(id) {
+  const { data } = await axiosInstance.delete(`/dataset/${id}`);
+  return data;
+}

@@ -1,6 +1,1 @@
-dwq
-dwqdwq
-
-dwqdwqdwq
-dwqdwqdwqdq
-dwqdwqdwqdwq
+print(b)

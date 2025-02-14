@@ -71,6 +71,16 @@ function Dataset() {
                   </Link>
                 </>
               )}
+              {role == "uploader" && (
+                <>
+                  <Link to={`/overView/${dataset?.data?._id}`}>
+                    <Button type={`primary`}>حذف</Button>
+                  </Link>
+                  <Link to={`/codeEditor/${dataset?.data?._id}`}>
+                    <Button type={`primary`}>بروزرسانی</Button>
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>

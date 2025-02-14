@@ -6,11 +6,13 @@ import {
   uploadFile,
   datasets,
   dataset,
+  deleteDataset,
 } from "../controllers/dataset.js";
 const router = express.Router();
 
 router.get("/", auth, datasets);
 router.put("/:id", auth, dataset);
+router.delete("/:id", auth, deleteDataset);
 router.post("/upload", auth, upload.single("file"), uploadFile);
 router.get("/myUploads", auth, myUpload);
 

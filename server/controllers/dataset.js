@@ -41,9 +41,15 @@ export async function dataset(req, res) {
     "uploadedBy",
     "email  userName"
   );
-  
+
   if (!dataset) {
     return res.status(400).json({ message: "Dataset Not Found", data: null });
   }
   res.json({ message: "ok", data: dataset });
+}
+
+export async function deleteDataset(req, res) {
+  const { id } = req.params;
+  const reslut = await Dataset.deleteOne({ _id: id });
+  res.json({ message: "ok", data: reslut });
 }

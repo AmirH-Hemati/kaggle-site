@@ -51,7 +51,7 @@ function SignIn() {
         <option value="">select</option>
         <option value="uploader">uploader</option>
         <option value="analyzer">analyzer</option>
-      </select>
+      </select>]c
       <Button type={`contained`}>
         ثبت نام
       </Button>
