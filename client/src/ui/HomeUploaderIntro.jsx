@@ -1,8 +1,8 @@
 import BenefitUpload from "./BenefitUpload";
 function HomeUploaderIntro() {
   return (
-    <div>
-      <div className="bg-white flex justify-between items-center p-10 mt-20 border-t-2 border-black/8">
+    <div className="bg-white flex flex-col gap-6  p-10 mt-20 border-t-2 border-black/8">
+      <div className="flex flex-row-reverse justify-between items-center gap-10">
         <div className="flex h-80 flex-col justify-center gap-8">
           <h3 className="text-xl font-semibold">
             📂 ورود به دنیای داده‌ها: آپلود و به‌اشتراک‌گذاری مجموعه داده‌ها
