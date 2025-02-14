@@ -51,7 +51,7 @@ function StartCoddingInDataset() {
             <CodeEditor
               code={jsonCode}
               setCode={setJsonCode}
-              readOnly={false}
+              readOnly={true}
               defaultLanguage={`json`}
             />
           )}
