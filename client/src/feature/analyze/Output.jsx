@@ -5,7 +5,6 @@ import axiosInstance from "../../service/axiosInstance";
 function Output({ code }) {
   const [output, setOutput] = useState("");
   async function handelRunCode() {
-    console.log("test in analyz");
     const { data } = await axiosInstance.post(
       "http://localhost:1313/api/analyze/run",
       {

@@ -1,1 +1,1 @@
-print(b)
+print("2")

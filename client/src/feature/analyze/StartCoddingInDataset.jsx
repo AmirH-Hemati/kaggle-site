@@ -7,7 +7,7 @@ import axios from "axios";
 function StartCoddingInDataset() {
   const { dataset } = useGetDataset();
   const [toggleCode, setToggleCode] = useState(false);
-  const [code, setCode] = useState("");
+  const [code, setCode] = useState(`print("Hello my friend")`);
   const [jsonCode, setJsonCode] = useState("");
   useEffect(() => {
     async function getData() {
@@ -18,7 +18,7 @@ function StartCoddingInDataset() {
     getData();
   }, [dataset?.data?.fileUrl]);
   return (
-    <div className="w-full h-full ">
+    <div className="relative w-full h-full ">
       <div className="h-2/3 flex flex-row-reverse">
         <div className="w-[10%] flex flex-col gap-4 items-center py-3 border-r-2 border-black/30">
           <p
@@ -45,7 +45,8 @@ function StartCoddingInDataset() {
               setCode={setCode}
               readOnly={false}
               defaultLanguage="python"
-              defaultValue="Write Some Code"
+              defaultValue='def my_function():
+               print("Hello from a function")'
             />
           ) : (
             <CodeEditor
@@ -57,7 +58,7 @@ function StartCoddingInDataset() {
           )}
         </div>
       </div>
-      <Output />
+      <Output code={code} />
     </div>
   );
 }
