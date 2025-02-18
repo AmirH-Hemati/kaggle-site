@@ -1,3 +1,4 @@
 /server/node_modules
 /server/file
+/server/temp.py
 /client/node_modules
