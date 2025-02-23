@@ -4,6 +4,8 @@ const datasetSchema = new mongoose.Schema({
   description: { type: String },
   fileUrl: { type: String },
   size: { type: Number },
+  prize: { type: Number },
+  deadline: { type: Date },
   uploadedBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   createdAt: { type: Date, default: Date.now },
 });

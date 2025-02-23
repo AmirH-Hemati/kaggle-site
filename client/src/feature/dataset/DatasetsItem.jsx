@@ -1,9 +1,26 @@
 import { Link } from "react-router-dom";
 import { datasets } from "../../../../server/controllers/dataset";
 import { useAuth } from "../../context/AuthContext";
+import { useEffect, useState } from "react";
 
 function DatasetsItem({ dataset, route }) {
   const { role } = useAuth();
+  const date = new Date(dataset?.deadline) - new Date();
+  const [first, setFirst] = useState(date > 0 ? date : 0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (first > 0) {
+        setFirst((t) => t - 1000);
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [first]);
+  const days = Math.floor(first / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((first / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((first / (1000 * 60)) % 60);
+  const seconds = Math.floor((first / 1000) % 60);
 
   return (
     <Link
@@ -11,7 +28,7 @@ function DatasetsItem({ dataset, route }) {
         dataset?._id
       }`}
     >
-      <li className=" flex flex-col h-full rounded-3xl shadow-sm hover:shadow-2xl p-2 text-sm  border-2 border-black/20">
+      <li className="relative flex flex-col h-full rounded-3xl shadow-sm hover:shadow-2xl p-2 text-sm  border-2 border-black/20">
         <img
           src="	https://www.kaggle.com/static/images/datasets/landing-header-light.svg"
           alt=""
@@ -21,7 +38,8 @@ function DatasetsItem({ dataset, route }) {
 
         <p className="text-xs">انتشار یافت: {dataset?.uploadedBy?.userName}</p>
         <p className="text-xs"> {datasets?.createdAt}تاریخ اپلود : </p>
-        <p className="text-xs">یک فایل جیسون</p>
+        <p className="text-xs">جایزه : {dataset?.prize}</p>
+        <p className=" text-red-500 self-end font-semibold p-2">{`${days}:${hours}:${minutes}:${seconds}`}</p>
       </li>
     </Link>
   );

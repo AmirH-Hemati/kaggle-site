@@ -1,12 +1,15 @@
 import Dataset from "../models/dataset.js";
 export async function uploadFile(req, res) {
-  const { title, description } = req.body;
+  const { title, description, prize, deadline } = req.body;
+
   const fileUrl = `http://localhost:1313/${req.file.filename}`;
   const size = req.file.size;
   const uploadedBy = req.user._id;
   const reslut = await Dataset.create({
     title,
     description,
+    prize,
+    deadline,
     fileUrl,
     size,
     uploadedBy,
