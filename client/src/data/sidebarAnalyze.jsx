@@ -11,6 +11,11 @@ const data = [
     route: "/datasetsAnalyze",
     icon: <Data size="26" color="black" />,
   },
+  {
+    title: "مجموعه داده های من",
+    route: "/mySubmission",
+    icon: <Data size="26" color="black" />,
+  },
 ];
 
 export default data;

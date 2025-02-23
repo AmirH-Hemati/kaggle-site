@@ -8,7 +8,6 @@ import SignInUploader from "./feature/authorization/SignInUploader";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import LayoutUploader from "./ui/LayoutUploader";
 import UploadFile from "./page/UploadFile";
-import MyUpload from "./feature/dataset/MyUpload";
 import Json from "./page/Json";
 import Datasets from "./feature/dataset/Datasets";
 import { AuthContextProvider } from "./context/AuthContext";
@@ -21,6 +20,10 @@ import DatasetsAnalyze from "./feature/analyze/DatasetsAnalyze";
 import Dataset from "./feature/dataset/Dataset";
 import OverView from "./feature/analyze/OverView";
 import StartCoddingInDataset from "./feature/analyze/StartCoddingInDataset";
+import SubmitModel from "./feature/analyze/SubmitModel";
+import MySubmissionPage from "./page/MySubmissionPage";
+import MyUploads from "./feature/dataset/MyUploads";
+import MyUpload from "./feature/dataset/MyUpload";
 const queryClient = new QueryClient();
 
 function App() {
@@ -39,10 +42,10 @@ function App() {
             <Route element={<ProtectedUploaderRoute />}>
               <Route element={<LayoutUploader data={dataDatasets} />}>
                 <Route path="/upload" element={<UploadFile />} />
-                <Route path="/myUpload" element={<MyUpload />} />
+                <Route path="/myUploads" element={<MyUploads />} />
+                <Route path="/myUploads/:id" element={<MyUpload />} />
                 <Route path="/datasets" element={<Datasets />} />
                 <Route path="/datasets/:id" element={<Dataset />} />
-                <Route path="/json" element={<Json />} />
               </Route>
             </Route>
             <Route element={<ProtectedAnalyzeRoute />}>
@@ -54,6 +57,8 @@ function App() {
                 />
                 <Route path="/datasetsAnalyze" element={<DatasetsAnalyze />} />
                 <Route path="/datasetsAnalyze/:id" element={<Dataset />} />
+                <Route path="/submitModel/:id" element={<SubmitModel />} />
+                <Route path="/mySubmission" element={<MySubmissionPage />} />
                 <Route path="/overView/:id" element={<OverView />} />
               </Route>
             </Route>

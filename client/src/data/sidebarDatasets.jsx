@@ -8,7 +8,7 @@ const data = [
   },
   {
     title: "فایل های شما",
-    route: "/myUpload",
+    route: "/myUploads",
     icon: <Data size="26" color="black" />,
   },
 ];

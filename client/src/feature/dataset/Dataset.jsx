@@ -1,23 +1,20 @@
 import { toast } from "react-toastify";
 import Button from "../../ui/Button";
 import { useGetDataset } from "./useGetDataset";
-import { Link } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
-import { useDeleteDataset } from "./useDeleteDataset";
+import { Link, useNavigate } from "react-router-dom";
 
 function Dataset() {
   const { dataset } = useGetDataset();
-  const { role } = useAuth();
-  const { deleteDataset } = useDeleteDataset();
+  const navigate = useNavigate();
   return (
-    <div className="w-full flex  flex-col items-center  mt-10">
-      <div className="flex flex-col border-2 w-2/3 h-[90%] border-black/40 p-4 rounded-sm">
+    <div className="w-full flex  flex-col items-center  mt-4">
+      <div className="flex flex-col border-2 w-2/3  border-black/40 p-4 rounded-sm">
         <img
           src="	https://www.kaggle.com/static/images/datasets/landing-header-light.svg"
           alt=""
           className="self-center aspect-square  "
         />
-        <div className="flex flex-col border-2 border-black/10 rounded-sm  p-4 gap-7">
+        <div className="flex flex-col border-2 border-black/10 rounded-sm  p-4 gap-5">
           <h1 className="text-2xl font-semibold text-black ">
             <span className="font-semibold">نام فایل : </span>{" "}
             {dataset?.data?.title}
@@ -31,11 +28,19 @@ function Dataset() {
             <span className="font-semibold">نام سازنده : </span>
             {dataset?.data?.uploadedBy?.userName}
           </p>
+
           <p>
             <span className="font-semibold">ایمیل سازنده : </span>
             {dataset?.data?.uploadedBy?.email}
           </p>
-
+          <p>
+            <span className="font-semibold">جایزه : </span>
+            {dataset?.data?.prize}
+          </p>
+          <p>
+            <span className="font-semibold">اخرین مهلت ارسال : </span>
+            {new Date(dataset?.data?.deadline).toLocaleDateString("fa-IR")}
+          </p>
           <div className="flex justify-between">
             <p>
               <span className="font-semibold">اندازه فایل : </span>
@@ -46,6 +51,7 @@ function Dataset() {
               <Button
                 type={`contained`}
                 onClick={async () => {
+                  navigate(`/submitModel/${dataset?.data?._id}`);
                   const response = await fetch(dataset?.data?.fileUrl);
                   if (!response.ok)
                     toast.error("مشکلی در دانلود فایل وجود دارد!");
@@ -63,29 +69,10 @@ function Dataset() {
               >
                 دانلود فایل
               </Button>
-              {role == "analyzer" && (
-                <>
-                  <Link to={`/overView/${dataset?.data?._id}`}>
-                    <Button type={`primary`}>پیش نمایش</Button>
-                  </Link>
-                  <Link to={`/codeEditor/${dataset?.data?._id}`}>
-                    <Button type={`primary`}>شروع</Button>
-                  </Link>
-                </>
-              )}
-              {role == "uploader" && (
-                <>
-                  <Button
-                    type={`primary`}
-                    onClick={() => deleteDataset(dataset?.data?._id)}
-                  >
-                    حذف
-                  </Button>
-                  <Link to={`/codeEditor/${dataset?.data?._id}`}>
-                    <Button type={`primary`}>بروزرسانی</Button>
-                  </Link>
-                </>
-              )}
+
+              <Link to={`/overView/${dataset?.data?._id}`}>
+                <Button type={`primary`}>پیش نمایش</Button>
+              </Link>
             </div>
           </div>
         </div>

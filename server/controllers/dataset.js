@@ -1,4 +1,5 @@
 import Dataset from "../models/dataset.js";
+import submission from "../models/submission.js";
 export async function uploadFile(req, res) {
   const { title, description, prize, deadline } = req.body;
 
@@ -16,10 +17,26 @@ export async function uploadFile(req, res) {
   });
   res.json({ message: "ok", data: reslut });
 }
-export async function myUpload(req, res) {
+export async function myUploads(req, res) {
   const id = req.user._id;
   const datasets = await Dataset.find({ uploadedBy: id });
   res.json({ message: "ok", data: datasets });
+}
+
+export async function myUpload(req, res) {
+  const { id } = req.params;
+
+  const submissions = await submission
+    .find({ dataset: id })
+    .populate("user", "userName email");
+
+  if (!submissions) {
+    return res
+      .status(404)
+      .json({ message: "هیچ مدلی برای این مجموعه داده وجود ندارد." });
+  }
+
+  res.json({ message: "ok", data: submissions });
 }
 export async function datasets(req, res) {
   const { categories, search } = req.query;
