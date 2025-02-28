@@ -25,36 +25,38 @@ function MyUpload() {
 
   if (datasets?.length === 0) {
     return (
-      <h2 className="text-2xl font-semibold mt-8 mb-4">
-        کاربری مدلی ارسال نکرده است .
+      <h2 className="text-2xl font-semibold mt-8 mb-4 text-center text-gray-600">
+        کاربری مدلی ارسال نکرده است.
       </h2>
     );
   }
+
   return (
-    <div className="w-full h-full   overflow-auto mx-auto p-6">
-      <h2 className="text-2xl font-semibold mb-4">
+    <div className="w-full h-full overflow-auto bg-gray-50 p-6">
+      <h2 className="text-2xl font-semibold mb-6 text-gray-800 text-center">
         کاربرانی که مدل خود را ارسال کرده‌اند:
       </h2>
-      <ul className="grid grid-cols-4 gap-4 w-full">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
         {datasets?.map((dataset) => (
           <li
             key={dataset?._id}
-            className="bg-white  shadow-xl  box-border  items-center rounded-sm w-full"
+            className="bg-white shadow-lg rounded-lg overflow-hidden p-4 flex flex-col gap-4 transform transition-all hover:scale-105 hover:shadow-xl"
           >
             <img
               src="https://www.kaggle.com/static/images/datasets/landing-header-light.svg"
-              alt=""
-              className="w-full object-cover"
+              alt="Dataset Thumbnail"
+              className="w-full h-48 object-cover rounded-lg"
             />
-            <div className="flex flex-col w-full gap-2 justify-between p-3">
-              <p className="font-semibold">
-                ایمیل ارسال کننده :{dataset.user.email}
+            <div className="flex flex-col gap-2">
+              <p className="text-lg font-semibold text-gray-800">
+                ایمیل ارسال کننده: {dataset.user.email}
               </p>
-              <p className="font-semibold ">
+              <p className="text-lg font-semibold text-gray-800">
                 نام کاربری ارسال کننده: {dataset.user.userName}
               </p>
               <Button
-                type={`contained`}
+                type="contained"
+                extraStyle="mt-4"
                 onClick={async () => {
                   const response = await fetch(dataset?.modelFile);
                   if (!response.ok)
@@ -71,7 +73,7 @@ function MyUpload() {
                   document.body.removeChild(link);
                 }}
               >
-                دانلود مدل{" "}
+                دانلود مدل
               </Button>
             </div>
           </li>
@@ -82,33 +84,3 @@ function MyUpload() {
 }
 
 export default MyUpload;
-// {dataset && (
-//     <div>
-//       <h1 className="text-3xl font-bold text-center mb-8">
-//         {dataset.title}
-//       </h1>
-//       <p className="text-center mb-4">{dataset.description}</p>
-//       <h2 className="text-2xl font-semibold mt-8 mb-4">
-//         کاربرانی که مدل خود را ارسال کرده‌اند:
-//       </h2>
-
-//       {submissions.length === 0 ? (
-//         <p>هیچ مدلی ارسال نشده است.</p>
-//       ) : (
-//         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-//           {submissions.map((submission) => (
-//             <div
-//               key={submission._id}
-//               className="bg-white p-4 rounded-lg shadow-md"
-//             >
-//               <h3 className="text-xl font-semibold text-gray-800">
-//                 {submission.user.name}
-//               </h3>
-//               <p className="text-sm text-gray-600">
-//                 {submission.user.email}
-//               </p>
-//             </div>
-//           ))}
-//         </div>
-//       )}
-//     </div>

@@ -1,14 +1,24 @@
-function Button({ children, type, onClick, extraStyle }) {
-  const rootStyle = " py-2 px-4 rounded-lg mt-4 cursor-pointer ";
-  let style;
+function Button({ children, type, onClick, extraStyle, disabled }) {
+  const baseStyle =
+    "cursor-pointer py-2 px-5 rounded-lg font-medium transition duration-300 ease-in-out focus:outline-none";
+  let style = "";
+
   if (type === "contained") {
-    style = rootStyle + "bg-black text-white";
+    style =
+      "bg-[#2563EB] text-white hover:bg-[#1E40AF] shadow-md active:scale-95";
   } else if (type === "primary") {
-    style = rootStyle + " bg-white text-black border-2 border-black/50";
+    style =
+      "bg-white text-[#2563EB] border-2 border-[#2563EB]/50 hover:border-[#2563EB] hover:shadow-md active:scale-95";
   }
 
   return (
-    <button className={` ${extraStyle} ${style}`} onClick={onClick}>
+    <button
+      className={`${baseStyle} ${style} ${extraStyle} ${
+        disabled ? "opacity-50 cursor-not-allowed" : ""
+      }`}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {children}
     </button>
   );

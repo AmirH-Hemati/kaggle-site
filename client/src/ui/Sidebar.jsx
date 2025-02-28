@@ -1,21 +1,23 @@
 import { NavLink } from "react-router-dom";
+
 function Sidebar({ data }) {
   return (
-    <aside className="w-[20%] flex flex-col gap-6 border-l-2 border-black/20 py-6 ">
+    <aside className="w-[20%] h-full  hidden md:flex flex-col gap-6 border-l-2 border-black/20 py-6 bg-gray-50 ">
       {data?.map((item) => (
         <NavLink
           key={item.title}
           to={item.route}
           className={({ isActive }) =>
-            `flex items-center gap-2 rounded-sm p-3 text-sm font-semibold hover:bg-[#F8F9FA]     ${
-              isActive
-                ? "border-l-2 border-black bg-[#F8F9FA] rounded-none"
-                : "border-l-0 bg-white "
-            }`
+            `flex items-center gap-3 p-3 text-sm font-semibold transition-all rounded-lg hover:bg-blue-100 
+              ${
+                isActive
+                  ? "bg-blue-200 text-blue-800 border-l-4 border-blue-600"
+                  : "bg-white text-gray-700"
+              }`
           }
         >
-          {item.icon}
-          <p>{item.title}</p>
+          <div className="text-xl">{item.icon}</div>
+          <p className="text-base">{item.title}</p>
         </NavLink>
       ))}
     </aside>

@@ -22,14 +22,14 @@ function Window({ name, children }) {
   const ref = useClickOutSide(close);
   if (isOpen !== name) return null;
   return (
-    <div className=" flex z-50 backdrop-blur-sm bg-black-30 items-center justify-center fixed top-0 left-0 w-full h-screen   bg-black/70">
+    <div className=" flex z-50 backdrop-blur-sm bg-black-30 items-center  p-6  justify-center fixed top-0 left-0 w-full h-screen   bg-black/70">
       <div
         ref={ref}
-        className="flex flex-col bg-white w-[80%] p-4 rounded-sm gap-4 "
+        className="flex flex-col bg-[#F0F9FF] shadow-lg w-[80%] p-4 rounded-sm gap-4 "
       >
         <CloseSquare
           size="32"
-          color="black"
+          color="#2563EB"
           onClick={close}
           className="cursor-pointer"
         />
