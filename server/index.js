@@ -4,6 +4,8 @@ import usersRouter from "./routes/users.js";
 import datasetRouter from "./routes/dataset.js";
 import analyzeRouter from "./routes/analyze.js";
 import submitRouter from "./routes/submission.js";
+import User from "./models/users.js";
+import bcy from "bcrypt";
 import cors from "cors";
 const app = express();
 
@@ -25,3 +27,14 @@ app.use("/api/analyze/", analyzeRouter);
 app.listen(1313, () => {
   console.log("server listen to 1313");
 });
+
+async function name() {
+  const salt = await bcy.genSalt(12);
+  const hashedPassword = await bcy.hash("123", salt);
+  await User.create({
+    phone: "1234",
+    role: "analyzer",
+    password: hashedPassword,
+  });
+}
+// name();

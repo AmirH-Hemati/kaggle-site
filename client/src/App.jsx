@@ -24,6 +24,8 @@ import SubmitModel from "./feature/analyze/SubmitModel";
 import MySubmissionPage from "./page/MySubmissionPage";
 import MyUploads from "./feature/dataset/MyUploads";
 import MyUpload from "./feature/dataset/MyUpload";
+import Test from "./ui/Test";
+import VerifyOtp from "./ui/VerifyOtp";
 const queryClient = new QueryClient();
 
 function App() {
@@ -34,9 +36,10 @@ function App() {
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
             <Route element={<AuthLayout />}>
+              <Route path="/test2" element={<Test />} />
               <Route path="/login" element={<LoginForm />} />
               <Route path="/signIn" element={<SignIn />} />
-              <Route path="/test" element={<SignInUploader />} />
+              <Route path="/verifyOtp" element={<VerifyOtp />} />
             </Route>
 
             <Route element={<ProtectedUploaderRoute />}>

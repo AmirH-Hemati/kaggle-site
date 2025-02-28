@@ -4,6 +4,11 @@ const authContext = createContext();
 function AuthContextProvider({ children }) {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [role, setRole] = useState(localStorage.getItem("role") || "");
+  const [value, setValue] = useState({
+    phone: "",
+    role: "",
+    password: "",
+  });
   function loginInAccount(user) {
     localStorage.setItem("token", user?.data?.token);
     localStorage.setItem("role", user?.data?.role);
@@ -17,7 +22,9 @@ function AuthContextProvider({ children }) {
     setRole("");
   }
   return (
-    <authContext.Provider value={{ token, role, loginInAccount, logout }}>
+    <authContext.Provider
+      value={{ token, role, loginInAccount, logout, value, setValue }}
+    >
       {children}
     </authContext.Provider>
   );

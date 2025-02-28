@@ -5,13 +5,13 @@ import Input from "../../ui/Input";
 
 function LoginForm() {
   const { login } = useLogin();
-  const [value, setValue] = useState({ email: "", password: "" });
+  const [value, setValue] = useState({ phone: "", password: "" });
   function handelOnChange(e) {
     setValue((value) => ({ ...value, [e.target.name]: e.target.value }));
   }
   function handelLoginForm(e) {
     e.preventDefault();
-    if (!value.email || !value.password) return;
+    if (!value.phone || !value.password) return;
     login(value);
   }
   return (
@@ -21,21 +21,19 @@ function LoginForm() {
     >
       <Input
         type="text"
-        placeholder="User Name"
+        placeholder="شماره موبایل"
         className="border-2 border-black/50 p-2 rounded-sm"
         onChange={handelOnChange}
-        name="email"
+        name="phone"
       />
       <Input
         type="password"
-        placeholder="Password"
+        placeholder="رمز عبور"
         className="border-2 border-black/50 p-2 rounded-sm"
         onChange={handelOnChange}
         name="password"
       />
-      <Button type="contained" extraStyle={`p-4`}>
-        ورود
-      </Button>
+      <Button type="contained">ورود</Button>
     </form>
   );
 }

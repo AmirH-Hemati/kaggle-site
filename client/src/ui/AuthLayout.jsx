@@ -3,6 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 
 function AuthLayout() {
   const [hasLogin, setHasLogin] = useState(false);
+
   return (
     <div className="w-full h-full flex flex-col  justify-center items-center">
       <Outlet />
