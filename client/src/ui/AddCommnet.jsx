@@ -1,8 +1,14 @@
 import { useState } from "react";
 import Button from "./Button";
+import { useAddComment } from "../feature/comment/useAddComment";
 
-function AddCommnet() {
+function AddCommnet({ id }) {
   const [comment, setComment] = useState("");
+  const { addComment } = useAddComment();
+  function handelAddComment(e) {
+    // e.preventDefault();
+    addComment({ id, text: comment });
+  }
   return (
     <div>
       <textarea
@@ -14,7 +20,7 @@ function AddCommnet() {
       <Button
         type="contained"
         extraStyle="mt-4 py-2 px-6 text-white bg-blue-600 hover:bg-blue-700 transition-all"
-        onClick={() => console.log("comment")}
+        onClick={handelAddComment}
       >
         ارسال کامنت
       </Button>

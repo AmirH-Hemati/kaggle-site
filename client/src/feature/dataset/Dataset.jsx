@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import Button from "../../ui/Button";
-import { Link } from "react-router-dom";
+import { data, Link } from "react-router-dom";
 import { useGetDataset } from "./useGetDataset";
 import DatasetInformation from "./DatasetInformation";
 import Tabs from "../../ui/Tabs";
 import AddCommnet from "../../ui/AddCommnet";
 import Comments from "../../ui/Comments";
 import Contact from "../../ui/Contact";
+import Submission from "../analyze/Submission";
 
 function Dataset() {
   const { dataset } = useGetDataset();
@@ -32,10 +33,13 @@ function Dataset() {
         {activeTab === "comments" && <Comments />}
 
         {/* تب ارسال کامنت */}
-        {activeTab === "addComment" && <AddCommnet />}
+        {activeTab === "addComment" && <AddCommnet id={dataset?.data?._id} />}
 
         {/* تب ارتباط با سازنده */}
         {activeTab === "contact" && <Contact />}
+        {activeTab === "submissionModel" && (
+          <Submission datasetId={dataset?.data?._id} />
+        )}
       </div>
     </div>
   );

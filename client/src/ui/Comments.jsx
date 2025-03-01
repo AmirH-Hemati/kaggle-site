@@ -1,18 +1,19 @@
-import { useState } from "react";
+import { useGetComments } from "../feature/comment/useGetComments";
 
 function Comments() {
-  const [comments, setComments] = useState([]);
+  const { comments } = useGetComments();
+  console.log(comments);
   return (
     <div>
-      {comments.length > 0 ? (
+      {comments?.data?.length > 0 ? (
         <div className="space-y-4">
-          {comments.map((c, index) => (
+          {comments?.data?.map((c, index) => (
             <div
               key={index}
               className="p-4 bg-gray-50 rounded-lg shadow-md border border-gray-200"
             >
-              <p className="font-semibold text-gray-800">{c.userName}</p>
-              <p className="text-gray-600">{c.comment}</p>
+              <p className="font-semibold text-gray-800">{c?.userName}</p>
+              <p className="text-gray-600">{c?.text}</p>
             </div>
           ))}
         </div>

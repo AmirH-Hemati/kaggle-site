@@ -7,7 +7,11 @@ export async function submitModel({ formData, id }) {
   return { data };
 }
 
-export async function mySubmission() {
-  const { data } = await axiosInstance.get("/submit/mySubmission");
-  return  data 
+export async function mySubmissions() {
+  const { data } = await axiosInstance.get("/submit/mySubmissions");
+  return data;
+}
+export async function mySubmission(id) {
+  const { data } = await axiosInstance.get(`/submit/mySubmission/${id}`);
+  return data;
 }

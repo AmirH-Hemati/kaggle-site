@@ -4,6 +4,7 @@ import usersRouter from "./routes/users.js";
 import datasetRouter from "./routes/dataset.js";
 import analyzeRouter from "./routes/analyze.js";
 import submitRouter from "./routes/submission.js";
+import commentRouter from "./routes/comment.js";
 import User from "./models/users.js";
 import bcy from "bcrypt";
 import cors from "cors";
@@ -23,6 +24,7 @@ app.use(express.static("file"));
 app.use("/api/users/", usersRouter);
 app.use("/api/dataset/", datasetRouter);
 app.use("/api/submit/", submitRouter);
+app.use("/api/comment/", commentRouter);
 app.use("/api/analyze/", analyzeRouter);
 app.listen(1313, () => {
   console.log("server listen to 1313");

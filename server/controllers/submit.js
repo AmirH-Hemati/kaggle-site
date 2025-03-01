@@ -15,7 +15,15 @@ export async function submit(req, res) {
 export async function userSubmissions(req, res) {
   const id = req.user._id;
   const submission = await Submission.find({ user: id })
-    .populate("dataset" , "title deadline prize")
-    .populate("user" , "");
+    .populate("dataset", "title deadline prize")
+    .populate("user", "");
+  res.json({ message: "ok", data: submission });
+}
+
+export async function userSubmission(req, res) {
+  const { id } = req.params;
+  const submission = await Submission.find({ dataset: id })
+    .populate("dataset", "title deadline prize")
+    .populate("user", "");
   res.json({ message: "ok", data: submission });
 }
