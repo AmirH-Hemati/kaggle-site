@@ -20,7 +20,7 @@ function LoginForm() {
   return (
     <form
       onSubmit={handleLoginForm}
-      className="w-88 mx-auto p-8 bg-white rounded-lg shadow-xl flex flex-col gap-6"
+      className="w-full max-w-md bg-white p-8 rounded-lg shadow-lg flex flex-col gap-6"
     >
       <h2 className="text-2xl font-bold text-center text-gray-800 mb-4">
         ورود به حساب
@@ -39,7 +39,7 @@ function LoginForm() {
         onChange={handleOnChange}
         className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
-      <Button type="contained" extraStyle="mt-4">
+      <Button type="contained" extraStyle="w-full py-3">
         ورود
       </Button>
     </form>

@@ -2,94 +2,84 @@ import { useSignIn } from "./useSIgnIn";
 import Input from "../../ui/Input";
 import Button from "../../ui/Button";
 import { useAuth } from "../../context/AuthContext";
+import { toast } from "react-toastify";
 
 function SignIn() {
   const { value, setValue } = useAuth();
   const { signIn } = useSignIn();
-  function handelOnChange(e) {
-    setValue((value) => ({ ...value, [e.target.name]: e.target.value }));
-  }
-  function handelSignIn(e) {
+
+  const handleOnChange = (e) => {
+    setValue((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSignIn = (e) => {
     e.preventDefault();
-    if (!value.phone || !value.role || !value.password) return;
-    console.log("create account ");
+    if (!value.phone || !value.role || !value.password)
+      return toast.error("اینپوت ها خالی هستند");
     signIn(value);
-  }
+  };
+
   return (
     <form
-      onSubmit={handelSignIn}
-      className="w-96 h-72 p-6 shadow-md flex flex-col rounded-sm justify-evenly gap-2 "
+      onSubmit={handleSignIn}
+      className="w-full max-w-md bg-white p-8 rounded-lg shadow-lg flex flex-col gap-6"
     >
-      <div className="w-full flex divide-x-2">
-        <div className=" w-1/2 p-4 text-xl flex gap-2 items-center shadow-md ">
-          <label htmlFor="uploader">آپلود کننده</label>
+      <h2 className="text-2xl font-bold text-center text-gray-800">ثبت نام</h2>
+      <div className="flex border rounded-lg overflow-hidden">
+        <label
+          htmlFor="uploader"
+          className={`flex-1 p-4 text-center cursor-pointer transition ${
+            value.role === "uploader"
+              ? "bg-[#2563EB] text-white"
+              : "text-gray-700 hover:bg-blue-100"
+          }`}
+        >
           <input
             type="radio"
             id="uploader"
             name="role"
             value="uploader"
-            onChange={(e) =>
-              setValue((value) => ({ ...value, role: e.target.value }))
-            }
+            className="hidden"
+            onChange={handleOnChange}
           />
-        </div>
-        <div className=" w-1/2 p-4 text-xl flex gap-2 items-center shadow-md">
-          <label htmlFor="analyzer">آنالیزگر</label>
-
+          آپلود کننده
+        </label>
+        <label
+          htmlFor="analyzer"
+          className={`flex-1 p-4 text-center cursor-pointer transition  ${
+            value.role === "analyzer"
+              ? "bg-[#2563EB] text-white"
+              : "text-gray-700 hover:bg-blue-100"
+          }`}
+        >
           <input
             type="radio"
-            value="analyzer"
             id="analyzer"
             name="role"
-            onChange={(e) =>
-              setValue((value) => ({ ...value, role: e.target.value }))
-            }
+            value="analyzer"
+            className="hidden"
+            onChange={handleOnChange}
           />
-        </div>
+          آنالیزگر
+        </label>
       </div>
-
       <Input
         type="number"
         placeholder="شماره تلفن همراه خود را وارد کنید"
-        className="border-2 border-black/50 p-2 rounded-sm"
         name="phone"
-        onChange={handelOnChange}
+        onChange={handleOnChange}
       />
       <Input
         type="password"
         placeholder="رمز عبور"
-        className="border-2 border-black/50 p-2 rounded-sm"
         name="password"
-        onChange={handelOnChange}
+        onChange={handleOnChange}
       />
-      <Button type={`contained`}>ثبت نام</Button>
+      <Button type="contained" extraStyle="w-full py-3">
+        ثبت نام
+      </Button>
     </form>
   );
 }
 
 export default SignIn;
-{
-  /* <Input
-        type="text"
-        placeholder="User Name"
-        className="border-2 border-black/50 p-2 rounded-sm"
-        name="userName"
-        onChange={handelOnChange}
-      /> */
-}
-{
-  /* <Input
-        type="password"
-        placeholder="Password"
-        className="border-2 border-black/50 p-2 rounded-sm"
-        name="password"
-        onChange={handelOnChange}
-      /> */
-}
-{
-  /* <select name="role" onChange={handelOnChange}>
-        <option value="">select</option>
-        <option value="uploader">uploader</option>
-        <option value="analyzer">analyzer</option>
-      </select> */
-}
