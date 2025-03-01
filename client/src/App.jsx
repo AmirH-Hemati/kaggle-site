@@ -27,6 +27,7 @@ import MyUpload from "./feature/dataset/MyUpload";
 import Test from "./ui/Test";
 import VerifyOtp from "./ui/VerifyOtp";
 import AllDatasets from "./feature/dataset/AllDatasets";
+import Profile from "./feature/authorization/Profile";
 const queryClient = new QueryClient();
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
             <Route path="/allDataset" element={<DatasetsAnalyze />} />
+            <Route path="/profile" element={<Profile />} />
 
             <Route element={<AuthLayout />}>
               <Route path="/test2" element={<Test />} />

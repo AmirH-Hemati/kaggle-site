@@ -67,3 +67,27 @@ export async function me(req, res) {
   const user = req.user;
   res.json({ message: "ok", data: user });
 }
+
+export async function editProfile(req, res) {
+  const { email, userName, image } = req.body;
+  const updatedUser = { email, userName };
+  const currentUser = await User.findOne({ _id: req?.user?._id });
+  if (!currentUser) {
+    return res.status(404).json({ message: "user Not Found", data: null });
+  }
+
+  const isChanged =
+    (email && currentUser.email !== email) ||
+    (userName && currentUser.userName !== userName);
+  if (!isChanged) {
+    return res
+      .status(400)
+      .json({ message: "no change detected , no updated needed", data: null });
+  }
+  const result = await User.findByIdAndDelete(
+    { _id: req?.user?._id },
+    updatedUser,
+    { new: true }
+  );
+  res.json({ message: "ok", data: result });
+}
