@@ -3,17 +3,14 @@ import { useParams } from "react-router-dom";
 import axiosInstance from "../../service/axiosInstance";
 import Button from "../../ui/Button";
 import { toast } from "react-toastify";
-import { useDeleteDataset } from "./useDeleteDataset";
 
 function MyUpload() {
   const { id } = useParams();
   const [submissions, setSubmissions] = useState([]);
   const [datasets, setDatasets] = useState(null);
-  console.log(datasets);
   useEffect(() => {
     const fetchDatasetDetails = async () => {
       try {
-        // دریافت اطلاعات مجموعه داده
         const datasetRes = await axiosInstance.get(`/dataset/myUploads/${id}`);
         setDatasets(datasetRes?.data?.data);
       } catch (error) {

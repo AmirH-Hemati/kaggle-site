@@ -3,22 +3,17 @@ import DatasetList from "../feature/dataset/DatasetList";
 
 function MySubmissionPage() {
   const { datasets } = useMySubmission();
-  // console.log(datasets?.data);
-  const a = datasets?.data?.map((dataset) => ({ ...dataset.dataset }));
-  console.log(a);
+  const a = datasets?.data?.map((dataset) => ({
+    ...dataset.dataset,
+    userName: dataset?.user?.userName,
+  }));
+  console.log(a)
   return (
     <div className="container mx-auto p-6">
       <h1 className="text-3xl font-semibold mb-6">مجموعه داده‌های من</h1>
       {datasets?.length === 0 ? (
         <p>شما هنوز مدلی ارسال نکرده‌اید.</p>
       ) : (
-        // <Link to={`/submitModel/${datasets?._id}`}>
-        //   <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        //     {datasets?.map((dataset) => (
-        //       <DatasetsItem key={dataset?._id} dataset={dataset.dataset} />
-        //     ))}
-        //   </ul>
-        // </Link>
         <DatasetList datasets={a} />
       )}
     </div>

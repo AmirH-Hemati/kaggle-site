@@ -10,7 +10,6 @@ function Header() {
   const { currentUser } = useCurrentUser();
   const { token } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
-  console.log(currentUser?.data);
   return (
     <header className="w-full bg-white shadow-md z-30">
       <div className="container mx-auto flex items-center justify-between h-16 px-4">

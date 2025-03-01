@@ -2,7 +2,6 @@ import { useGetComments } from "../feature/comment/useGetComments";
 
 function Comments() {
   const { comments } = useGetComments();
-  console.log(comments);
   return (
     <div>
       {comments?.data?.length > 0 ? (

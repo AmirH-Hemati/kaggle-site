@@ -1,11 +1,8 @@
 import { Link } from "react-router-dom";
-import { datasets } from "../../../../server/controllers/dataset";
 import { useAuth } from "../../context/AuthContext";
 import { useEffect, useState } from "react";
-import Button from "../../ui/Button";
 
 function DatasetsItem({ dataset, route }) {
-  console.log(dataset);
   const { role } = useAuth();
   const date = new Date(dataset?.deadline) - new Date();
   const [first, setFirst] = useState(date > 0 ? date : 0);
@@ -53,7 +50,8 @@ function DatasetsItem({ dataset, route }) {
           انتشار یافت: {dataset?.uploadedBy?.userName}
         </p>
         <p className="text-xs text-gray-600">
-          {datasets?.createdAt} تاریخ آپلود
+          تاریخ آپلود :{" "}
+          {new Date(dataset?.createdAt).toLocaleDateString("fa-IR")}
         </p>
         <p className="text-xs font-medium text-gray-700 mt-2">
           جایزه: {dataset?.prize}

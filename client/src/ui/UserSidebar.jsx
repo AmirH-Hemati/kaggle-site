@@ -1,8 +1,10 @@
 import { CloseSquare } from "iconsax-react";
 import { Link } from "react-router-dom";
 import Button from "./Button";
+import { useAuth } from "../context/AuthContext";
 
 function UserSidebar({ setIsOpen, isOpen }) {
+  const { logout } = useAuth();
   return (
     <div
       className={`fixed top-0 right-0 h-full w-1/5 bg-white shadow-lg  transition-transform ease-in-out duration-500  ${
@@ -20,10 +22,7 @@ function UserSidebar({ setIsOpen, isOpen }) {
         <Link to="/profile" className="w-full  p-2 hover:bg-gray-200 rounded">
           پروفایل من
         </Link>
-        <Link to="/settings" className="w-full  p-2 hover:bg-gray-200 rounded">
-          تنظیمات
-        </Link>
-        <Button type={`primary`} extraStyle={`w-full`}>
+        <Button type={`primary`} extraStyle={`w-full`} onClick={logout}>
           خروج
         </Button>
       </nav>

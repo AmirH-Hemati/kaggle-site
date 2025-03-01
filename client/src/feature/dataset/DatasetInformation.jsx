@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 
 function DatasetInformation({ dataset }) {
   const navigate = useNavigate();
+  console.log(dataset);
   return (
     <div className="flex flex-col w-full h-full sm:w-4/5 md:w-3/4 lg:w-3/4 border-2 border-gray-200 p-6 rounded-lg shadow-md bg-white">
       <img

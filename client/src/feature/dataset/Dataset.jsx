@@ -12,17 +12,7 @@ import Submission from "../analyze/Submission";
 
 function Dataset() {
   const { dataset } = useGetDataset();
-  const [comment, setComment] = useState("");
-  const [comments, setComments] = useState([]); // فرض بر اینکه کامنت‌ها از API دریافت می‌شود.
-  const [activeTab, setActiveTab] = useState("comments"); // برای مدیریت تب‌های نمایش
-
-  // ارسال کامنت
-  const handleCommentSubmit = () => {
-    if (!comment.trim()) return;
-    setComments([...comments, { userName: "کاربر ناشناس", comment }]);
-    setComment(""); // فیلد کامنت پاک می‌شود
-    toast.success("کامنت شما ارسال شد!");
-  };
+  const [activeTab, setActiveTab] = useState("comments");
 
   return (
     <div className="w-full h-full bg-gray-50 flex flex-col gap-6 items-center p-4 justify-center ">
