@@ -6,34 +6,42 @@ import Input from "../../ui/Input";
 function LoginForm() {
   const { login } = useLogin();
   const [value, setValue] = useState({ phone: "", password: "" });
-  function handelOnChange(e) {
-    setValue((value) => ({ ...value, [e.target.name]: e.target.value }));
-  }
-  function handelLoginForm(e) {
+
+  const handleOnChange = (e) => {
+    setValue((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleLoginForm = (e) => {
     e.preventDefault();
     if (!value.phone || !value.password) return;
     login(value);
-  }
+  };
+
   return (
     <form
-      onSubmit={handelLoginForm}
-      className="w-96 h-80 p-6 shadow-md flex flex-col rounded-sm justify-evenly"
+      onSubmit={handleLoginForm}
+      className="w-88 mx-auto p-8 bg-white rounded-lg shadow-xl flex flex-col gap-6"
     >
+      <h2 className="text-2xl font-bold text-center text-gray-800 mb-4">
+        ورود به حساب
+      </h2>
       <Input
         type="text"
         placeholder="شماره موبایل"
-        className="border-2 border-black/50 p-2 rounded-sm"
-        onChange={handelOnChange}
         name="phone"
+        onChange={handleOnChange}
+        className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
       <Input
         type="password"
         placeholder="رمز عبور"
-        className="border-2 border-black/50 p-2 rounded-sm"
-        onChange={handelOnChange}
         name="password"
+        onChange={handleOnChange}
+        className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
-      <Button type="contained">ورود</Button>
+      <Button type="contained" extraStyle="mt-4">
+        ورود
+      </Button>
     </form>
   );
 }

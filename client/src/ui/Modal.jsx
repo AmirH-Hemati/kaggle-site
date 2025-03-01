@@ -1,6 +1,8 @@
 import { cloneElement, createContext, useContext, useState } from "react";
 import { CloseSquare } from "iconsax-react";
 import { useClickOutSide } from "../hook/useClickOutSide";
+import { createPortal } from "react-dom";
+
 const modalContext = createContext();
 function Modal({ children }) {
   const [isOpen, setIsOpen] = useState("");
@@ -21,8 +23,8 @@ function Window({ name, children }) {
   const { isOpen, close } = useContext(modalContext);
   const ref = useClickOutSide(close);
   if (isOpen !== name) return null;
-  return (
-    <div className=" flex z-50 backdrop-blur-sm bg-black-30 items-center  p-6  justify-center fixed top-0 left-0 w-full h-screen   bg-black/70">
+  return createPortal(
+    <div className="fixed top-0 left-0 w-full h-screen flex z-[1000] backdrop-blur-sm bg-black-30 items-center  p-6  justify-center    bg-black/70">
       <div
         ref={ref}
         className="flex flex-col bg-[#F0F9FF] shadow-lg w-[80%] p-4 rounded-sm gap-4 "
@@ -35,7 +37,8 @@ function Window({ name, children }) {
         />
         <div>{cloneElement(children, { onClose: close })}</div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
 Modal.Open = Open;

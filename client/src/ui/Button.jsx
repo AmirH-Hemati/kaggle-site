@@ -9,6 +9,8 @@ function Button({ children, type, onClick, extraStyle, disabled }) {
   } else if (type === "primary") {
     style =
       "bg-white text-[#2563EB] border-2 border-[#2563EB]/50 hover:border-[#2563EB] hover:shadow-md active:scale-95";
+  } else if (type === "danger") {
+    style = "bg-red-600 text-white hover:bg-red-700 shadow-md active:scale-95";
   }
 
   return (

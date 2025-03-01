@@ -3,7 +3,7 @@ import Sidebar from "./Sidebar";
 
 function LayoutUploader({ data }) {
   return (
-    <div className="w-full h-full flex">
+    <div className="flex-1 flex">
       <Sidebar data={data} />
       <Outlet />
     </div>

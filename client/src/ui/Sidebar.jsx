@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 function Sidebar({ data }) {
   return (
-    <aside className="w-[20%] h-full  hidden md:flex flex-col gap-6 border-l-2 border-black/20 py-6 bg-gray-50 ">
+    <aside className="w-[20%] hidden md:flex flex-col gap-6 border-l-2 border-black/20 py-6 bg-gray-50 ">
       {data?.map((item) => (
         <NavLink
           key={item.title}

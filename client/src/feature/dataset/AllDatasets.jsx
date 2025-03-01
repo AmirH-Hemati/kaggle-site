@@ -1,14 +1,15 @@
-import DatasetsItem from "./DatasetsItem";
-import { useDatasets } from "./useDatasets";
+import MyUploads from "./MyUploads";
+import { useMyUpload } from "./useMyUpload";
 
 function AllDatasets() {
-  const { datasets } = useDatasets();
+  const { uploads } = useMyUpload();
   return (
-    <ul className="grid grid-cols-4 p-4 gap-4">
-      {datasets?.data?.map((dataset) => (
-        <DatasetsItem key={dataset._id} dataset={dataset} />
-      ))}
-    </ul>
+    <div className="w-full p-6 bg-gray-50">
+      <h1 className="text-3xl font-semibold text-center text-gray-800 my-6">
+        مجموعه فایل های آپلود شده شما
+      </h1>
+      <MyUploads datasets={uploads?.data} />
+    </div>
   );
 }
 

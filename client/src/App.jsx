@@ -26,6 +26,7 @@ import MyUploads from "./feature/dataset/MyUploads";
 import MyUpload from "./feature/dataset/MyUpload";
 import Test from "./ui/Test";
 import VerifyOtp from "./ui/VerifyOtp";
+import AllDatasets from "./feature/dataset/AllDatasets";
 const queryClient = new QueryClient();
 
 function App() {
@@ -45,7 +46,7 @@ function App() {
             <Route element={<ProtectedUploaderRoute />}>
               <Route element={<LayoutUploader data={dataDatasets} />}>
                 <Route path="/upload" element={<UploadFile />} />
-                <Route path="/myUploads" element={<MyUploads />} />
+                <Route path="/myUploads" element={<AllDatasets />} />
                 <Route path="/myUploads/:id" element={<MyUpload />} />
                 <Route path="/datasets" element={<Datasets />} />
                 <Route path="/datasets/:id" element={<Dataset />} />

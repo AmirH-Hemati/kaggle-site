@@ -15,7 +15,7 @@ export async function submit(req, res) {
 export async function userSubmissions(req, res) {
   const id = req.user._id;
   const submission = await Submission.find({ user: id })
-    .populate("dataset" , "")
+    .populate("dataset" , "title deadline prize")
     .populate("user" , "");
   res.json({ message: "ok", data: submission });
 }
