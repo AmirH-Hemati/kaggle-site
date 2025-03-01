@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import Button from "./Button";
 import { useCurrentUser } from "../feature/authorization/useCurrentUser";
-import { Icon, User } from "iconsax-react";
+import { User } from "iconsax-react";
 import { useState } from "react";
 import UserSidebar from "./UserSidebar";
+import { useAuth } from "../context/AuthContext";
 
 function Header() {
   const { currentUser } = useCurrentUser();
+  const { token } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   console.log(currentUser?.data);
   return (
@@ -35,8 +37,14 @@ function Header() {
             </Link>
           )}
         </nav>
-        {currentUser?.data ? (
-          <User onClick={() => setIsOpen((isOpen) => !isOpen)} />
+        {token ? (
+          <div
+            className="flex gap-2 items-center cursor-pointer"
+            onClick={() => setIsOpen((isOpen) => !isOpen)}
+          >
+            <span>{currentUser?.data?.userName}</span>
+            <User />
+          </div>
         ) : (
           <Link to="/login">
             <Button extraStyle="w-24 py-2" type="contained">

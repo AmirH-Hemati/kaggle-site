@@ -84,7 +84,7 @@ export async function editProfile(req, res) {
       .status(400)
       .json({ message: "no change detected , no updated needed", data: null });
   }
-  const result = await User.findByIdAndDelete(
+  const result = await User.findOneAndUpdate(
     { _id: req?.user?._id },
     updatedUser,
     { new: true }
