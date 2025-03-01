@@ -9,14 +9,14 @@ function Profile() {
   const { currentUser } = useCurrentUser();
   const user = currentUser?.data;
   const [userEdit, setUserEdit] = useState({
-    username: "",
+    userName: "",
     phone: "",
     email: "",
   });
   useEffect(() => {
     setUserEdit({
       phone: user?.phone,
-      username: user?.userName,
+      userName: user?.userName,
       email: user?.email,
     });
   }, [user?.phone, user?.userName, user?.email]);
@@ -30,6 +30,7 @@ function Profile() {
 
   const handelEditProfile = (e) => {
     e.preventDefault();
+    console.log(userEdit);
     editProfile(userEdit);
   };
 
@@ -52,8 +53,8 @@ function Profile() {
           <label className="block text-gray-700">نام کاربری</label>
           <Input
             type="text"
-            name="username"
-            value={userEdit.username}
+            name="userName"
+            value={userEdit.userName}
             onChange={handleChange}
             className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
           />

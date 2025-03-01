@@ -23,10 +23,10 @@ export async function currentUser() {
   );
   return data;
 }
-export async function editProfile({ userData }) {
+export async function editProfile(userData) {
   const { data } = await axiosInstance.post(
     "http://localhost:1313/api/users/editProfile",
-    { userData }
+    { ...userData }
   );
   return data;
 }
