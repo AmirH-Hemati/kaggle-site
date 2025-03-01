@@ -18,7 +18,7 @@ function Search() {
     <Input
       type="text"
       name="search"
-      placeholder="جستجو کنید ..."
+      placeholder="جستجو در مجموعه داده‌ها..."
       value={search}
       onChange={handelSearchChange}
     />

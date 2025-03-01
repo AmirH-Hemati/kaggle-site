@@ -3,13 +3,22 @@ import Button from "./Button";
 
 function Header() {
   return (
-    <header className="w-full bg-white z-30 shadow-md items-center p-4 h-16 flex justify-between font-semibold">
-      <Link to={`/`} >خانه</Link>
-      <Link to={`/login`}>
-        <Button extraStyle={`w-20 `} type={`contained`}>
-          ورود
-        </Button>
-      </Link>
+    <header className="w-full bg-white shadow-md z-30">
+      <div className="container mx-auto flex items-center justify-between h-16 px-4">
+        <nav className="flex items-center gap-8 text-lg font-semibold text-gray-700">
+          <Link to="/" className="hover:text-blue-600 transition-colors">
+            خانه
+          </Link>
+          <Link to="/allDataset" className="hover:text-blue-600 transition-colors">
+            مجموعه داده
+          </Link>
+        </nav>
+        <Link to="/login">
+          <Button extraStyle="w-24 py-2" type="contained">
+            ورود
+          </Button>
+        </Link>
+      </div>
     </header>
   );
 }

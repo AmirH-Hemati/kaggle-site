@@ -36,6 +36,8 @@ function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
+            <Route path="/allDataset" element={<DatasetsAnalyze />} />
+
             <Route element={<AuthLayout />}>
               <Route path="/test2" element={<Test />} />
               <Route path="/login" element={<LoginForm />} />
