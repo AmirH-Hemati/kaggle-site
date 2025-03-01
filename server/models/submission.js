@@ -4,6 +4,7 @@ const submissionSchema = new mongoose.Schema({
   dataset: { type: mongoose.Schema.Types.ObjectId, ref: "Dataset" },
   user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   modelFile: { type: String },
+  description: { type: String },
   size: { type: Number, default: 1000 },
 });
 

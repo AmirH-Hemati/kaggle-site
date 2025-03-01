@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { mySubmission } from "../../service/apiSubmission";
+import { mySubmissions } from "../../service/apiSubmission";
 
 export function useMySubmission() {
   const { data: datasets } = useQuery({
     queryKey: ["submission"],
-    queryFn: mySubmission,
+    queryFn: mySubmissions,
   });
   return { datasets };
 }
