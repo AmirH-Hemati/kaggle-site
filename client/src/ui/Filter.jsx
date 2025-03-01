@@ -14,7 +14,7 @@ function Filter() {
     setSearchParams(newparams);
   }
   return (
-    <aside className="w-full md:w-1/5 bg-white p-6 rounded-lg shadow-md">
+    <aside className="h-full w-full md:w-1/5 bg-white p-6 rounded-lg shadow-md">
       <h2 className="text-xl font-semibold text-gray-800 mb-4">فیلترها</h2>
       {/* فیلتر جایزه */}
       <div className="mb-4">

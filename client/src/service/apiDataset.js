@@ -11,8 +11,10 @@ export async function myUploads() {
   const { data } = await axiosInstance.get("/dataset/myUploads");
   return data;
 }
-export async function getAllDatasets({ search }) {
-  const { data } = await axiosInstance.get(`/dataset?search=${search}`);
+export async function getAllDatasets({ search, deadline, minPrize, maxPrize }) {
+  const { data } = await axiosInstance.get(
+    `/dataset?search=${search}&deadline=${deadline}&minPrize=${minPrize}&maxPrize=${maxPrize}`
+  );
   return data;
 }
 export async function getDataset(id) {

@@ -39,16 +39,27 @@ export async function myUpload(req, res) {
   res.json({ message: "ok", data: submissions });
 }
 export async function datasets(req, res) {
-  const { categories, search } = req.query;
-  const filter = {};
-  if (categories) {
-    filter.categories = categories;
-  }
+  const { search, deadline, minPrize, maxPrize } = req.query;
 
+  const filter = {};
+  if (deadline) {
+    if (deadline == "active") {
+      filter.deadline = { $gte: new Date() };
+    }
+    if (deadline == "expired") {
+      filter.deadline = { $lt: new Date() };
+    }
+  }
+  if (Number(minPrize)) {
+    filter.prize = { $gte: Number(minPrize) };
+  }
+  if (Number(maxPrize)) {
+    filter.prize = { $lte: Number(maxPrize) };
+  }
   if (search) {
     filter.title = { $regex: search, $options: "i" };
   }
-
+  console.log(filter);
   const datasets = await Dataset.find(filter).populate(
     "uploadedBy",
     "email userName"
