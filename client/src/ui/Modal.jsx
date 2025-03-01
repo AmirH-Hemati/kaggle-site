@@ -8,7 +8,6 @@ function Modal({ children }) {
   const [isOpen, setIsOpen] = useState("");
   const close = () => setIsOpen("");
   const open = (openies) => setIsOpen(openies);
-  console.log(isOpen);
   return (
     <modalContext.Provider value={{ isOpen, close, open }}>
       {children}
