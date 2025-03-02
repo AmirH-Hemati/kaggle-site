@@ -8,14 +8,15 @@ function Comments() {
   const { addReplies } = useAddReplies();
   const [replyingTo, setReplyingTo] = useState(null);
   const [replyText, setReplyText] = useState("");
+
   const handleReply = (commentId) => {
     setReplyingTo(commentId);
   };
 
   const submitReply = (commentId) => {
     if (!replyText.trim()) return;
-
     addReplies({ id: commentId, text: replyText });
+    setReplyText("");
   };
 
   return (
@@ -27,8 +28,9 @@ function Comments() {
               key={index}
               className="p-4 bg-white rounded-lg shadow-md border space-y-4 border-gray-200"
             >
-              <div className="flex gap-4  text-gray-600 items-center">
-                <p className="font-semibold text-gray-800 ">
+              {/* اطلاعات کامنت اصلی */}
+              <div className="flex gap-4 text-gray-600 items-center">
+                <p className="font-semibold text-gray-800">
                   {c?.userName || "کاربر"}
                 </p>
                 <p className="text-sm">
@@ -55,12 +57,33 @@ function Comments() {
                     placeholder="پاسخ خود را بنویسید..."
                     className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
                   />
-                  <Button
-                    onClick={() => submitReply(c?._id)}
-                    type={`contained`}
-                  >
+                  <Button onClick={() => submitReply(c?._id)} type="contained">
                     ارسال پاسخ
                   </Button>
+                </div>
+              )}
+
+              {/* نمایش پاسخ‌ها */}
+              {c?.replies?.length > 0 && (
+                <div className="mt-4 space-y-3 pl-6 border-l-2 border-gray-300">
+                  {c.replies.map((reply, idx) => (
+                    <div
+                      key={idx}
+                      className="p-3 bg-gray-100 rounded-md shadow-sm"
+                    >
+                      <div className="flex gap-3 text-gray-600 items-center">
+                        <p className="font-semibold text-gray-800">
+                          {reply?.userName || "کاربر"}
+                        </p>
+                        <p className="text-xs">
+                          {new Date(reply?.createdAt).toLocaleDateString(
+                            "fa-IR"
+                          )}
+                        </p>
+                      </div>
+                      <p className="text-gray-700">{reply?.text}</p>
+                    </div>
+                  ))}
                 </div>
               )}
             </div>
