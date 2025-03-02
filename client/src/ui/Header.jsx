@@ -8,7 +8,8 @@ import { useAuth } from "../context/AuthContext";
 
 function Header() {
   const { currentUser } = useCurrentUser();
-  const { token } = useAuth();
+  const { token, role } = useAuth();
+
   const [isOpen, setIsOpen] = useState(false);
   return (
     <header className="w-full bg-white shadow-md z-30">
@@ -23,13 +24,9 @@ function Header() {
           >
             مجموعه داده
           </Link>
-          {currentUser?.data && (
+          {token && (
             <Link
-              to={`${
-                currentUser?.data?.role == "uploader"
-                  ? "/datasets"
-                  : "/codeEditor"
-              }`}
+              to={`${role == "uploader" ? "/datasets" : "/codeEditor"}`}
               className="hover:text-blue-600 transition-colors"
             >
               داشبورد
@@ -41,7 +38,7 @@ function Header() {
             className="flex gap-2 items-center cursor-pointer"
             onClick={() => setIsOpen((isOpen) => !isOpen)}
           >
-            <span>{currentUser?.data?.userName}</span>
+            <span>{currentUser?.data?.userName || "user"}</span>
             <User />
           </div>
         ) : (

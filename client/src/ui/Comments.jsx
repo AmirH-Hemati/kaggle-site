@@ -1,7 +1,23 @@
+import { useState } from "react";
 import { useGetComments } from "../feature/comment/useGetComments";
+import Button from "./Button";
+import { useAddReplies } from "../feature/comment/useAddReplies";
 
 function Comments() {
   const { comments } = useGetComments();
+  const { addReplies } = useAddReplies();
+  const [replyingTo, setReplyingTo] = useState(null);
+  const [replyText, setReplyText] = useState("");
+  const handleReply = (commentId) => {
+    setReplyingTo(commentId);
+  };
+
+  const submitReply = (commentId) => {
+    if (!replyText.trim()) return;
+
+    addReplies({ id: commentId, text: replyText });
+  };
+
   return (
     <div>
       {comments?.data?.length > 0 ? (
@@ -9,10 +25,44 @@ function Comments() {
           {comments?.data?.map((c, index) => (
             <div
               key={index}
-              className="p-4 bg-gray-50 rounded-lg shadow-md border border-gray-200"
+              className="p-4 bg-white rounded-lg shadow-md border space-y-4 border-gray-200"
             >
-              <p className="font-semibold text-gray-800">{c?.userName}</p>
+              <div className="flex gap-4  text-gray-600 items-center">
+                <p className="font-semibold text-gray-800 ">
+                  {c?.userName || "کاربر"}
+                </p>
+                <p className="text-sm">
+                  {new Date(c?.createdAt).toLocaleDateString("fa-IR")}
+                </p>
+              </div>
               <p className="text-gray-600">{c?.text}</p>
+
+              {/* دکمه پاسخ دادن */}
+              <button
+                onClick={() => handleReply(c?._id)}
+                className="mt-2 text-blue-500 hover:underline text-sm"
+              >
+                پاسخ دادن
+              </button>
+
+              {/* فرم ارسال پاسخ */}
+              {replyingTo === c?._id && (
+                <div className="mt-2 space-y-2">
+                  <input
+                    type="text"
+                    value={replyText}
+                    onChange={(e) => setReplyText(e.target.value)}
+                    placeholder="پاسخ خود را بنویسید..."
+                    className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
+                  />
+                  <Button
+                    onClick={() => submitReply(c?._id)}
+                    type={`contained`}
+                  >
+                    ارسال پاسخ
+                  </Button>
+                </div>
+              )}
             </div>
           ))}
         </div>

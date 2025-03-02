@@ -9,7 +9,7 @@ function Tabs({ activeTab, setActiveTab }) {
         }`}
         onClick={() => setActiveTab("comments")}
       >
-        نظرات
+        پرسش و پاسخ
       </button>
       <button
         className={`flex items-center py-2 px-6 text-sm font-medium transition-all ${
@@ -19,7 +19,7 @@ function Tabs({ activeTab, setActiveTab }) {
         }`}
         onClick={() => setActiveTab("addComment")}
       >
-        نظر جدید
+        پرسش{" "}
       </button>
       <button
         className={`flex items-center py-2 px-6 text-sm font-medium transition-all ${
