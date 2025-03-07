@@ -56,10 +56,6 @@ function DatasetsItem({ dataset, route }) {
         <p className="text-xs font-medium text-gray-700 mt-2">
           جایزه: {dataset?.prize}
         </p>
-        {/* <div className="">
-          <Button>ویرایش</Button>
-          <Button>حذف</Button>
-        </div> */}
       </li>
     </Link>
   );

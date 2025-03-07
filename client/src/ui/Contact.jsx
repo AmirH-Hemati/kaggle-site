@@ -1,6 +1,7 @@
 import Button from "./Button";
 
-function Contact() {
+function Contact({ dataset }) {
+  console.log(dataset);
   return (
     <div className="mt-4">
       <p className="text-gray-600">
@@ -10,7 +11,7 @@ function Contact() {
         type="contained"
         extraStyle="mt-4 py-2 px-6 text-white bg-green-600 hover:bg-green-700 transition-all"
         onClick={() =>
-          (window.location.href = `mailto:${dataset?.data?.uploadedBy?.email}`)
+          (window.location.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${dataset?.uploadedBy?.email}`)
         }
       >
         ارسال ایمیل به سازنده

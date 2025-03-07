@@ -1,7 +1,4 @@
 import { useState } from "react";
-import { toast } from "react-toastify";
-import Button from "../../ui/Button";
-import { data, Link } from "react-router-dom";
 import { useGetDataset } from "./useGetDataset";
 import DatasetInformation from "./DatasetInformation";
 import Tabs from "../../ui/Tabs";
@@ -13,7 +10,6 @@ import Submission from "../analyze/Submission";
 function Dataset() {
   const { dataset } = useGetDataset();
   const [activeTab, setActiveTab] = useState("comments");
-
   return (
     <div className="w-full h-full bg-gray-50 flex flex-col gap-6 items-center p-4 justify-center ">
       <DatasetInformation dataset={dataset?.data} />
@@ -26,7 +22,7 @@ function Dataset() {
         {activeTab === "addComment" && <AddCommnet id={dataset?.data?._id} />}
 
         {/* تب ارتباط با سازنده */}
-        {activeTab === "contact" && <Contact />}
+        {activeTab === "contact" && <Contact dataset={dataset?.data} />}
         {activeTab === "submissionModel" && (
           <Submission datasetId={dataset?.data?._id} />
         )}

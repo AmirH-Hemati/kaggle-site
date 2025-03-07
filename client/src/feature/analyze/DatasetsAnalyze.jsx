@@ -3,14 +3,18 @@ import { useDatasets } from "../dataset/useDatasets";
 import Search from "../../ui/Search";
 import Filter from "../../ui/Filter";
 
-function DatasetsAnalyze() {
+function DatasetsAnalyze({ showFilter = false }) {
   const { datasets, loading } = useDatasets();
 
   return (
     <div className="w-full h-full py-6 px-3 bg-gray-50">
       <div className="flex h-full flex-col md:flex-row gap-6 ">
-        <Filter />
-        <main className="w-full md:w-4/5 flex flex-col gap-6 ">
+        {showFilter && <Filter />}
+        <main
+          className={`w-full ${
+            showFilter ? "md:w-4/5" : "w-full"
+          } flex flex-col gap-6 `}
+        >
           {/* Header with title, search bar, and sorting */}
           <div className="flex  flex-col md:flex-row justify-between items-center gap-4">
             <div className="w-full md:w-1/2">

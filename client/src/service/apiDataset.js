@@ -19,6 +19,7 @@ export async function getAllDatasets({ search, deadline, minPrize, maxPrize }) {
 }
 export async function getDataset(id) {
   const { data } = await axiosInstance.put(`/dataset/${id}`);
+  console.log(data)
   return data;
 }
 

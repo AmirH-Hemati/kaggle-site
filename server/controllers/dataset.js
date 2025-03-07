@@ -59,7 +59,6 @@ export async function datasets(req, res) {
   if (search) {
     filter.title = { $regex: search, $options: "i" };
   }
-  console.log(filter);
   const datasets = await Dataset.find(filter).populate(
     "uploadedBy",
     "email userName"
@@ -68,11 +67,12 @@ export async function datasets(req, res) {
 }
 export async function dataset(req, res) {
   const { id } = req.params;
+  console.log(id);
   const dataset = await Dataset.findOne({ _id: id }).populate(
     "uploadedBy",
     "email  userName"
   );
-
+  console.log(dataset);
   if (!dataset) {
     return res.status(400).json({ message: "Dataset Not Found", data: null });
   }

@@ -37,7 +37,10 @@ function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
-            <Route path="/allDataset" element={<DatasetsAnalyze />} />
+            <Route
+              path="/allDataset"
+              element={<DatasetsAnalyze showFilter={true} />}
+            />
             <Route path="/profile" element={<Profile />} />
 
             <Route element={<AuthLayout />}>

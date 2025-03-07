@@ -12,9 +12,8 @@ function Comments() {
   const handleReply = (commentId) => {
     setReplyingTo(commentId);
   };
-
   const submitReply = (commentId) => {
-    if (!replyText.trim()) return;
+    if (replyText == "") return;
     addReplies({ id: commentId, text: replyText });
     setReplyText("");
   };
@@ -30,14 +29,14 @@ function Comments() {
             >
               {/* اطلاعات کامنت اصلی */}
               <div className="flex gap-4 text-gray-600 items-center">
-                <p className="font-semibold text-gray-800">
+                <p className="font-semibold text-lg text-gray-800">
                   {c?.userName || "کاربر"}
                 </p>
                 <p className="text-sm">
                   {new Date(c?.createdAt).toLocaleDateString("fa-IR")}
                 </p>
               </div>
-              <p className="text-gray-600">{c?.text}</p>
+              <p className="text-gray-600 font-semibold text-md">{c?.text}</p>
 
               {/* دکمه پاسخ دادن */}
               <button
@@ -66,9 +65,9 @@ function Comments() {
               {/* نمایش پاسخ‌ها */}
               {c?.replies?.length > 0 && (
                 <div className="mt-4 space-y-3 pl-6 border-l-2 border-gray-300">
-                  {c.replies.map((reply, idx) => (
+                  {c.replies.map((reply, index) => (
                     <div
-                      key={idx}
+                      key={index}
                       className="p-3 bg-gray-100 rounded-md shadow-sm"
                     >
                       <div className="flex gap-3 text-gray-600 items-center">

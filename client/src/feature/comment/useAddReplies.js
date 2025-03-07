@@ -6,7 +6,9 @@ export function useAddReplies() {
   const { mutate: addReplies } = useMutation({
     mutationFn: ({ text, id }) => addRepliesAPI({ id, text }),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["comment"] });
+      queryClient.invalidateQueries({
+        queryKey: ["comments"],
+      });
     },
   });
   return { addReplies };

@@ -6,7 +6,7 @@ export function useAddComment() {
   const { mutate: addComment } = useMutation({
     mutationFn: ({ text, id }) => addCommentAPI({ id, text }),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["comment"] });
+      queryClient.invalidateQueries({ queryKey: ["comments"] });
     },
   });
   return { addComment };

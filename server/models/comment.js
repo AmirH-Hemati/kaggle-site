@@ -6,7 +6,7 @@ const commnetSchema = new mongoose.Schema(
     text: { type: String },
     replies: [
       {
-        userName: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+        userName: { type: String },
         text: { type: String },
         createdAt: { type: Date, default: Date.now },
       },
