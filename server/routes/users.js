@@ -7,6 +7,7 @@ import {
   editProfile,
   users,
   getUser,
+  editUser,
 } from "../controllers/users.js";
 import { auth } from "../middelwares/auth.js";
 
@@ -18,5 +19,6 @@ router.post("/verifyOtp", verifyOTP);
 router.get("/me", auth, me);
 router.get("/allUsers", auth, users);
 router.get("/user/:id", auth, getUser);
+router.put("/user/:id", auth, editUser);
 router.post("/editProfile", auth, editProfile);
 export default router;

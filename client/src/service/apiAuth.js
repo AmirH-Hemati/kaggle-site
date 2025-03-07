@@ -40,3 +40,8 @@ export async function getUser(id) {
   const { data } = await axiosInstance.get(`/users/user/${id}`);
   return data;
 }
+
+export async function editUser({ id, values }) {
+  const { data } = await axiosInstance.put(`/users/user/${id}`, { ...values });
+  return data;
+}

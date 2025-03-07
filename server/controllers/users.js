@@ -102,3 +102,30 @@ export async function getUser(req, res) {
   const user = await User.findOne({ _id: id }).select("-password");
   res.json({ message: "ok", data: user });
 }
+
+export async function editUser(req, res) {
+  const { id } = req.params;
+  const { email, userName, phone, role } = req.body;
+  const update = { email, userName, phone, role };
+  const user = await User.find({ _id: id });
+  if (!user) {
+    return res.status(400).json({ message: "User Not Found", data: null });
+  }
+  const isDataChanged =
+    (email && user.email !== email) ||
+    (userName && user.userName !== userName) ||
+    (phone && user.phone !== phone) ||
+    (role && user.role !== role);
+  if (!isDataChanged) {
+    return res
+      .status(400)
+      .json({
+        message: "تغییراتی مشاهده نشد , لطفا ابتدا مقادیر را تغییر دهید",
+        data: null,
+      });
+  }
+  const result = await User.findByIdAndUpdate({ _id: id }, update, {
+    new: true,
+  });
+  res.json({ message: "ok", data: result });
+}
