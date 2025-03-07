@@ -35,3 +35,8 @@ export async function getUsers() {
   const { data } = await axiosInstance.get("/users/allUsers");
   return data;
 }
+
+export async function getUser(id) {
+  const { data } = await axiosInstance.get(`/users/user/${id}`);
+  return data;
+}

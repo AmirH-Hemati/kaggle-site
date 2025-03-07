@@ -1,21 +1,31 @@
 import { Edit2 } from "iconsax-react";
 import Button from "../../ui/Button";
 import { useGetUsers } from "./useGetUsers";
+import Modal from "../../ui/Modal";
+import EditUsers from "./EditUsers";
 
 function Users() {
   const { users } = useGetUsers();
   console.log(users);
   return (
     <div className="w-full p-4 space-y-4 overflow-auto h-full">
-      {users.map((user) => (
+      {users?.map((user) => (
         <li
           key={user._id}
           className="w-full relative bg-white shadow-md rounded-xl p-4 flex flex-col gap-2  border-l-4 border-[#1E40AF]"
         >
-          <Button type={`primary`} extraStyle={`absolute left-2 `}>
-            <Edit2 size="22" color="#1E40AF" />
-            <p>ویرایش</p>
-          </Button>
+          <Modal>
+            <Modal.Open>
+              <Button type={`primary`} extraStyle={`absolute left-2 `}>
+                <Edit2 size="22" color="#1E40AF" />
+                <p>ویرایش</p>
+              </Button>
+            </Modal.Open>
+            <Modal.Window>
+              <EditUsers userId={user?._id} />
+            </Modal.Window>
+          </Modal>
+
           <div className="flex gap-10">
             <div className="text-lg font-semibold text-gray-800">
               <p className="text-gray-400 text-sm">نام کاربری :</p>

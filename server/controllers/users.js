@@ -96,3 +96,9 @@ export async function users(req, res) {
   const users = await User.find({}).select("-password");
   res.json({ message: "ok", data: users });
 }
+
+export async function getUser(req, res) {
+  const { id } = req.params;
+  const user = await User.findOne({ _id: id }).select("-password");
+  res.json({ message: "ok", data: user });
+}
