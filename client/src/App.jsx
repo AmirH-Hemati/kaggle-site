@@ -22,7 +22,6 @@ import OverView from "./feature/analyze/OverView";
 import StartCoddingInDataset from "./feature/analyze/StartCoddingInDataset";
 import SubmitModel from "./feature/analyze/SubmitModel";
 import MySubmissionPage from "./page/MySubmissionPage";
-import MyUploads from "./feature/dataset/MyUploads";
 import MyUpload from "./feature/dataset/MyUpload";
 import Test from "./ui/Test";
 import VerifyOtp from "./ui/VerifyOtp";
@@ -31,6 +30,7 @@ import Profile from "./feature/authorization/Profile";
 import AdminPage from "./page/AdminPage";
 import AdminLayout from "./ui/AdminLayout";
 import Users from "./feature/admin/Users";
+import ProtectedRoutes from "./ui/ProtectedRoutes";
 const queryClient = new QueryClient();
 
 function App() {
@@ -38,9 +38,11 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <AuthContextProvider>
         <Routes>
-          <Route element={<AdminLayout />}>
-            <Route path="/admin" element={<AdminPage />} />
-            <Route path="users" element={<Users />} />
+          <Route element={<ProtectedRoutes roles={["admin", "writer"]} />}>
+            <Route element={<AdminLayout />}>
+              <Route path="/admin" element={<AdminPage />} />
+              <Route path="users" element={<Users />} />
+            </Route>
           </Route>
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
@@ -66,6 +68,7 @@ function App() {
                 <Route path="/datasets/:id" element={<Dataset />} />
               </Route>
             </Route>
+
             <Route element={<ProtectedAnalyzeRoute />}>
               <Route element={<LayoutUploader data={dataAnalyze} />}>
                 <Route path="/codeEditor" element={<Analyz />} />

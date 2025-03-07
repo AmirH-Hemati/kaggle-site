@@ -6,7 +6,6 @@ import EditUsers from "./EditUsers";
 
 function Users() {
   const { users } = useGetUsers();
-  console.log(users);
   return (
     <div className="w-full p-4 space-y-4 overflow-auto h-full">
       {users?.map((user) => (
