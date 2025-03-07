@@ -2,12 +2,15 @@ import { useState } from "react";
 import Button from "../../ui/Button";
 import FormLabel from "../../ui/FormLabel";
 import Input from "../../ui/Input";
+import { useCreateArticle } from "./useCreateArticle";
 
 function CreateArticle() {
+  const { createArticle } = useCreateArticle();
   const [preview, setPreview] = useState("");
   function handleCreateArticle(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
+    createArticle(formData);
   }
   return (
     <div className="w-full flex flex-col h-full overflow-auto p-6 bg-gray-50 rounded-lg shadow-lg">
@@ -49,7 +52,9 @@ function CreateArticle() {
           />
         </label>
 
-        <Button type="contained" extraStyle={``}>ساخت مقاله جدید</Button>
+        <Button type="contained" extraStyle={``}>
+          ساخت مقاله جدید
+        </Button>
       </form>
     </div>
   );

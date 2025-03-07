@@ -38,7 +38,13 @@ export async function removeArticle(req, res) {
 }
 export async function createArticle(req, res) {
   const { title, content } = req.body;
-  console.log(title, content);
-  //   const result = await Article.create({ title, content, image: "ssdadwqwq" });
-  //   res.json({ message: "ok", data: result });
+  const imageUrl = `http://localhost:1313/${req.file.filename}`;
+  const result = await Article.create({
+    title,
+    content,
+    image: imageUrl,
+    user: req.user._id,
+  });
+  console.log(result);
+  res.json({ message: "ok", data: result });
 }

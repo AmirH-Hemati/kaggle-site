@@ -6,11 +6,13 @@ import {
   removeArticle,
   updateArticle,
 } from "../controllers/article.js";
+import { auth } from "../middelwares/auth.js";
+import upload from "../controllers/upload.js";
 const router = express.Router();
 
 router.get("/allArticles", getAllArticle);
 router.get("/articles/:id", getArticle);
 router.put("/articles/:id", updateArticle);
 router.delete("/articles/:id", removeArticle);
-router.post("/createArticle", createArticle);
+router.post("/createArticle", auth, upload.single("image"), createArticle);
 export default router;

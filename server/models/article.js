@@ -13,7 +13,7 @@ const articleSchema = new mongoose.Schema(
       ref: "User",
     },
 
-    iamge: {
+    image: {
       type: String,
     },
   },
