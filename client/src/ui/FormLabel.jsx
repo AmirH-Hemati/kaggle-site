@@ -1,7 +1,7 @@
 function FormLabel({ label, children }) {
   return (
     <div
-      className={` w-full flex flex-col gap-2  justify-between  py-3 md:py-6 font-semibold`}
+      className={` w-full flex flex-col gap-3  justify-between  py-3 font-semibold`}
     >
       <label
         htmlFor={children?.props?.id}

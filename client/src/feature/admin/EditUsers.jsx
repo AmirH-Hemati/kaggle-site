@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import FormLabel from "../../ui/FormLabel";
 import Input from "../../ui/Input";
 import { useGetUser } from "./useGetUser";
 import Button from "../../ui/Button";
+import { useEditUser } from "./useEditUser";
 
 function EditUsers({ userId, onClose }) {
   const { user } = useGetUser(userId);
+  const { editUser } = useEditUser();
   const [value, setValue] = useState({
     email: "",
     userName: "",
@@ -22,17 +24,20 @@ function EditUsers({ userId, onClose }) {
       });
     }
   }, [user]);
-
   function handelChangeValue(e) {
     setValue((value) => ({ ...value, [e.target.name]: e.target.value }));
   }
   function handelEditUser(e) {
     e.preventDefault();
-    console.log("test");
+    editUser({ id: userId, values: value });
+    onClose();
   }
   return (
     <form onSubmit={handelEditUser} className="flex flex-col">
-      <p className="font-semibold text-lg"> ویرایش حساب : {user?.email}</p>
+      <p className="font-semibold text-lg">
+        {" "}
+        ویرایش حساب : <span className="text-[#2563EB]">{user?.email}</span>
+      </p>
 
       <FormLabel label={`ایمیل`}>
         <Input
@@ -56,6 +61,7 @@ function EditUsers({ userId, onClose }) {
         />
       </FormLabel>
       <div className=" w-full flex flex-col gap-3 p-4 bg-blue-100 rounded-lg shadow-md">
+        <p className="font-semibold text-lg">نقش کاربر : </p>
         {["admin", "writer", "user"].map((role) => (
           <label key={role} className="flex items-center gap-3 cursor-pointer">
             <input
