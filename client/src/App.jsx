@@ -28,6 +28,9 @@ import Test from "./ui/Test";
 import VerifyOtp from "./ui/VerifyOtp";
 import AllDatasets from "./feature/dataset/AllDatasets";
 import Profile from "./feature/authorization/Profile";
+import AdminPage from "./page/AdminPage";
+import AdminLayout from "./ui/AdminLayout";
+import Users from "./feature/admin/Users";
 const queryClient = new QueryClient();
 
 function App() {
@@ -35,6 +38,10 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <AuthContextProvider>
         <Routes>
+          <Route element={<AdminLayout />}>
+            <Route path="/admin" element={<AdminPage />} />
+            <Route path="users" element={<Users />} />
+          </Route>
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
             <Route

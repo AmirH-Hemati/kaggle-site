@@ -1,6 +1,6 @@
 function Button({ children, type, onClick, extraStyle, disabled }) {
   const baseStyle =
-    "cursor-pointer py-2 px-5 rounded-lg font-medium transition duration-300 ease-in-out focus:outline-none";
+    "cursor-pointer flex gap-2 items-center py-2 px-5 rounded-lg font-medium transition duration-300 ease-in-out focus:outline-none";
   let style = "";
 
   if (type === "contained") {

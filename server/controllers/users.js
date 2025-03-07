@@ -91,3 +91,8 @@ export async function editProfile(req, res) {
   );
   res.json({ message: "ok", data: result });
 }
+
+export async function users(req, res) {
+  const users = await User.find({}).select("-password");
+  res.json({ message: "ok", data: users });
+}

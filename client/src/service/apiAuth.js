@@ -30,3 +30,8 @@ export async function editProfile(userData) {
   );
   return data;
 }
+
+export async function getUsers() {
+  const { data } = await axiosInstance.get("/users/allUsers");
+  return data;
+}
