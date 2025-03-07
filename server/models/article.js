@@ -13,7 +13,6 @@ const articleSchema = new mongoose.Schema(
       ref: "User",
     },
 
-    tags: [String],
     iamge: {
       type: String,
     },
