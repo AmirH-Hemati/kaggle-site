@@ -18,7 +18,7 @@ function Open({ openies, children }) {
   const { open } = useContext(modalContext);
   return cloneElement(children, { onClick: () => open(openies) });
 }
-function Window({ name, children }) {
+function Window({ name, children, extraStyle }) {
   const { isOpen, close } = useContext(modalContext);
   const ref = useClickOutSide(close);
   if (isOpen !== name) return null;
@@ -26,7 +26,7 @@ function Window({ name, children }) {
     <div className="fixed top-0 left-0 w-full h-screen flex z-[1000] backdrop-blur-sm bg-black-30 items-center  p-6  justify-center    bg-black/70">
       <div
         ref={ref}
-        className="flex overflow-auto h-full flex-col bg-[#F0F9FF] shadow-lg w-[80%] p-4 rounded-sm gap-4 "
+        className={`${extraStyle} flex overflow-auto  flex-col bg-[#F0F9FF] shadow-lg w-[80%] p-4 rounded-sm gap-4 `}
       >
         <CloseSquare
           size="32"

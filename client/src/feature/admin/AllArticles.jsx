@@ -3,6 +3,7 @@ import { useGetAllArticles } from "../articles/useGetAllArticles";
 import { useRemoveArticle } from "./useRemoveArticle";
 import Modal from "../../ui/Modal";
 import EditArticle from "./EditArticle";
+import ConfirmDelete from "../../ui/ConfirmDelete";
 function AllArticles() {
   const { articles } = useGetAllArticles();
   const { removeArticle } = useRemoveArticle();
@@ -38,17 +39,21 @@ function AllArticles() {
                 <Modal.Open openies={`editArticle`}>
                   <Edit2 size="32" color="black" className="cursor-pointer" />
                 </Modal.Open>
-                <Modal.Window name={`editArticle`}>
+                <Modal.Window name={`editArticle`} extraStyle={`h-full`}>
                   <EditArticle articleId={article?._id} />
                 </Modal.Window>
               </Modal>
-
-              <Trash
-                size="32"
-                color="black"
-                className="cursor-pointer"
-                onClick={() => removeArticle(article._id)}
-              />
+              <Modal>
+                <Modal.Open openies={`confimDelete`}>
+                  <Trash size="32" color="black" className="cursor-pointer" />
+                </Modal.Open>
+                <Modal.Window name={`confimDelete`}>
+                  <ConfirmDelete
+                    resourceName={article?.title}
+                    handelDelete={() => removeArticle(article._id)}
+                  />
+                </Modal.Window>
+              </Modal>
             </div>
           </li>
         ))}
