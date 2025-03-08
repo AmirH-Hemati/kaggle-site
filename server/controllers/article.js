@@ -63,15 +63,15 @@ export async function createArticle(req, res) {
   res.json({ message: "ok", data: result });
 }
 
-export async function reportWriteArticles(req, res) {
+export async function reportDailyArticle(req, res) {
+  const { id } = req.params;
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  const articles = await Article.find({ createdAt: { $gte: today } }).populate(
-    "author",
-    "email userName  articleCount"
-  );
-  //   console.log(articles);
+  const articles = await Article.find({
+    author: id,
+    createdAt: { $gte: today },
+  }).populate("author", "email userName  articleCount");
   res.json({ message: "ok", data: articles });
 }
 export async function reportWriteArticlesCount(req, res) {

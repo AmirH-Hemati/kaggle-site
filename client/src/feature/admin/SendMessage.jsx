@@ -7,9 +7,12 @@ function SendMessage({ userId, email }) {
     e.preventDefault();
   }
   return (
-    <form onSubmit={handelSendMessage} className="flex flex-col font-semibold text-lg">
+    <form
+      onSubmit={handelSendMessage}
+      className="flex flex-col font-semibold text-lg"
+    >
       <h2>
-          ارسال پیام به کاربر <span className="text-blue-600">{email}</span> 
+        ارسال پیام به کاربر <span className="text-blue-600">{email}</span>
       </h2>
       <FormLabel label={`عنوان`}>
         <Input type="text" name="title" />

@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 import Button from "../../ui/Button";
 import Modal from "../../ui/Modal";
 import SendMessage from "./SendMessage";
 import { useGetReportDailyArticles } from "./useGetReportDailyArticles";
 
-function ReportDailyArticle() {
+function ReportDailyArticles() {
   const { articles } = useGetReportDailyArticles();
   return (
     <div className="w-full h-full overflow-auto mx-auto p-6 bg-gray-50 rounded-xl shadow-md">
@@ -26,7 +27,9 @@ function ReportDailyArticle() {
                 <p className="text-sm text-gray-500">{article.email}</p>
               </div>
               <div className="flex gap-2">
-                <Button type={`contained`}>{article.count} مقاله</Button>
+                <Link to={`/reportDailyArticles/${article?.userId}`}>
+                  <Button type={`contained`}>{article.count} مقاله</Button>
+                </Link>
                 <Modal>
                   <Modal.Open>
                     <Button type={`primary`}>پیام</Button>
@@ -47,4 +50,4 @@ function ReportDailyArticle() {
   );
 }
 
-export default ReportDailyArticle;
+export default ReportDailyArticles;

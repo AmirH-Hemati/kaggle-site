@@ -4,8 +4,8 @@ import {
   getAllArticle,
   getArticle,
   removeArticle,
+  reportDailyArticle,
   reportInActiveUser,
-  reportWriteArticles,
   reportWriteArticlesCount,
   updateArticle,
 } from "../controllers/article.js";
@@ -15,6 +15,7 @@ const router = express.Router();
 
 router.get("/allArticles", getAllArticle);
 router.get("/reportDailyArticles", reportWriteArticlesCount);
+router.get("/reportDailyArticle/:id", reportDailyArticle);
 router.get("/reportInActiveUsers", reportInActiveUser);
 router.get("/articles/:id", getArticle);
 router.put("/articles/:id", updateArticle);

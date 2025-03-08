@@ -8,7 +8,6 @@ import SignInUploader from "./feature/authorization/SignInUploader";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import LayoutUploader from "./ui/LayoutUploader";
 import UploadFile from "./page/UploadFile";
-import Json from "./page/Json";
 import Datasets from "./feature/dataset/Datasets";
 import { AuthContextProvider } from "./context/AuthContext";
 import ProtectedUploaderRoute from "./ui/ProtectedUploaderRoute";
@@ -32,8 +31,9 @@ import AdminLayout from "./ui/AdminLayout";
 import Users from "./feature/admin/Users";
 import ProtectedRoutes from "./ui/ProtectedRoutes";
 import CreateArticle from "./feature/admin/CreateArticle";
-import ReportDailyArticle from "./feature/admin/ReportDailyArticle";
 import ReportInActiveUsers from "./feature/admin/ReportInActiveUsers";
+import ReportDailyArticles from "./feature/admin/ReportDailyArticles";
+import ReportDailyArticle from "./feature/ReportDailyArticle";
 const queryClient = new QueryClient();
 
 function App() {
@@ -47,7 +47,11 @@ function App() {
               <Route path="users" element={<Users />} />
               <Route path="createArticle" element={<CreateArticle />} />
               <Route
-                path="reportDailyArticle"
+                path="reportDailyArticles"
+                element={<ReportDailyArticles />}
+              />
+              <Route
+                path="reportDailyArticles/:id"
                 element={<ReportDailyArticle />}
               />
               <Route

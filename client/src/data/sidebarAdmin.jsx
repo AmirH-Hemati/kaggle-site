@@ -23,7 +23,7 @@ const data = [
   },
   {
     title: "گزارش مقالات روزانه",
-    route: "/reportDailyArticle",
+    route: "/reportDailyArticles",
     icon: <Data size="26" color="black" />,
   },
   {
