@@ -32,7 +32,10 @@ function ReportDailyArticle() {
                     <Button type={`primary`}>پیام</Button>
                   </Modal.Open>
                   <Modal.Window>
-                    <SendMessage userId={article?.userId} />
+                    <SendMessage
+                      userId={article?.userId}
+                      email={article?.email}
+                    />
                   </Modal.Window>
                 </Modal>
               </div>
