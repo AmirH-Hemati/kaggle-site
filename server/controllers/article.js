@@ -118,4 +118,5 @@ export async function reportInActiveUser() {
     _id: { $nin: activeUser },
     role: "writer",
   }).select("-password");
+  res.json({ message: "ok", data: inActiveUser });
 }
