@@ -11,8 +11,10 @@ export async function createArticle(formData) {
   return data;
 }
 
-export async function GetReportDailyArticles() {
-  const { data } = await axiosInstance.get("/articles/reportDailyArticles");
+export async function GetReportDailyArticles(searchWriter) {
+  const { data } = await axiosInstance.get(
+    `/articles/reportDailyArticles?searchWriter=${searchWriter}`
+  );
   return data;
 }
 export async function getInActiveUsers() {
@@ -26,8 +28,10 @@ export async function getReportDailyArticle(id) {
   return data;
 }
 
-export async function getAllArticles({ search, deadline, minPrize, maxPrize }) {
-  const { data } = await axiosInstance.get(`/articles/allArticles`);
+export async function getAllArticles(searchArticles) {
+  const { data } = await axiosInstance.get(
+    `/articles/allArticles?searchArticles=${searchArticles}`
+  );
   return data;
 }
 export async function getArticle(id) {

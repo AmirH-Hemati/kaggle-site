@@ -4,11 +4,19 @@ import { useRemoveArticle } from "./useRemoveArticle";
 import Modal from "../../ui/Modal";
 import EditArticle from "./EditArticle";
 import ConfirmDelete from "../../ui/ConfirmDelete";
+import Search from "../../ui/Search";
 function AllArticles() {
   const { articles } = useGetAllArticles();
   const { removeArticle } = useRemoveArticle();
   return (
-    <div className="w-full h-full bg-gray-50 p-6 flex flex-col font-semibold">
+    <div className="w-full h-full bg-gray-50 p-6 flex flex-col font-semibold space-y-4">
+      <div className="flex items-center justify-between">
+        <h2 className="w-2/3">مقالات</h2>
+        <Search
+          placeholder={`جستجو بر اساس عنوان مقاله`}
+          filedSearch={`searchArticles`}
+        />
+      </div>
       <li className="grid grid-cols-[1fr_2fr_2fr_3fr_0.5fr]  text-white items-center bg-blue-600 p-5 w-full rounded-tl-sm rounded-tr-sm">
         <p>عکس</p>
         <p>عنوان مقاله</p>
