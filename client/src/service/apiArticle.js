@@ -30,13 +30,18 @@ export async function getAllArticles({ search, deadline, minPrize, maxPrize }) {
   const { data } = await axiosInstance.get(`/articles/allArticles`);
   return data;
 }
-export async function getDataset(id) {
-  const { data } = await axiosInstance.put(`/dataset/${id}`);
-  console.log(data);
+export async function getArticle(id) {
+  const { data } = await axiosInstance.get(`/articles/${id}`);
   return data;
 }
 
-export async function deleteDataset(id) {
-  const { data } = await axiosInstance.delete(`/dataset/${id}`);
+export async function removeArticle(id) {
+  const { data } = await axiosInstance.delete(`/articles/removeArticle/${id}`);
+  return data;
+}
+export async function updateArticle({ id, formData }) {
+  const { data } = await axiosInstance.put(`/articles/${id}`, formData, {
+    headers: { "Content-Type": "multipart/form-data" },
+  });
   return data;
 }

@@ -14,8 +14,9 @@ export async function getArticle(req, res) {
 }
 export async function updateArticle(req, res) {
   const { id } = req.params;
-  const { title, content, image } = req.body;
-  const update = { title, content, image };
+  const { title, content } = req.body;
+  const imagePath = `http://localhost:1313/${req.file.filename}`;
+  const update = { title, content };
   const article = await Article.findOne({ _id: id });
   if (!article) {
     return res.status(400).json({ message: "Article Not Found", data: null });
@@ -23,7 +24,7 @@ export async function updateArticle(req, res) {
   const isDataChanged =
     (title && article.title !== title) ||
     (content && article.content !== content) ||
-    (image && article.image !== image);
+    (imagePath && article.image !== imagePath);
   if (!isDataChanged) {
     return res.status(400).json({
       message: "تغییراتی لحاظ نشده است , لطفا ابتدا مقادیر را تغییر دهید",
@@ -40,6 +41,7 @@ export async function updateArticle(req, res) {
 
 export async function removeArticle(req, res) {
   const { id } = req.params;
+  console.log(id);
   const result = await Article.deleteOne({ _id: id });
   await User.findByIdAndUpdate(
     { _id: req.user._id },

@@ -26,7 +26,7 @@ function Window({ name, children }) {
     <div className="fixed top-0 left-0 w-full h-screen flex z-[1000] backdrop-blur-sm bg-black-30 items-center  p-6  justify-center    bg-black/70">
       <div
         ref={ref}
-        className="flex flex-col bg-[#F0F9FF] shadow-lg w-[80%] p-4 rounded-sm gap-4 "
+        className="flex overflow-auto h-full flex-col bg-[#F0F9FF] shadow-lg w-[80%] p-4 rounded-sm gap-4 "
       >
         <CloseSquare
           size="32"

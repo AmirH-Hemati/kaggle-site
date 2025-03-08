@@ -1,9 +1,11 @@
 import { Edit2, Trash } from "iconsax-react";
 import { useGetAllArticles } from "../articles/useGetAllArticles";
-
+import { useRemoveArticle } from "./useRemoveArticle";
+import Modal from "../../ui/Modal";
+import EditArticle from "./EditArticle";
 function AllArticles() {
   const { articles } = useGetAllArticles();
-  console.log(articles);
+  const { removeArticle } = useRemoveArticle();
   return (
     <div className="w-full h-full bg-gray-50 p-6 flex flex-col font-semibold">
       <li className="grid grid-cols-[1fr_2fr_2fr_3fr_0.5fr]  text-white items-center bg-blue-600 p-5 w-full rounded-tl-sm rounded-tr-sm">
@@ -32,8 +34,21 @@ function AllArticles() {
             <p>{article?.author?.email}</p>
 
             <div className="flex gap-4 mr-auto">
-              <Edit2 size="32" color="black" className="cursor-pointer" />
-              <Trash size="32" color="black" className="cursor-pointer" />
+              <Modal>
+                <Modal.Open openies={`editArticle`}>
+                  <Edit2 size="32" color="black" className="cursor-pointer" />
+                </Modal.Open>
+                <Modal.Window name={`editArticle`}>
+                  <EditArticle articleId={article?._id} />
+                </Modal.Window>
+              </Modal>
+
+              <Trash
+                size="32"
+                color="black"
+                className="cursor-pointer"
+                onClick={() => removeArticle(article._id)}
+              />
             </div>
           </li>
         ))}
