@@ -3,6 +3,7 @@ import FormLabel from "../../ui/FormLabel";
 import Input from "../../ui/Input";
 
 function SendMessage({ userId }) {
+  console.log(userId);
   function handelSendMessage(e) {
     e.preventDefault();
   }

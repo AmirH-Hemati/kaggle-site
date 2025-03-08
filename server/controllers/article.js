@@ -100,6 +100,7 @@ export async function reportWriteArticlesCount(req, res) {
       $project: {
         userName: "$user.userName",
         email: "$user.email",
+        userId: "$user._id",
         count: 1,
         article: 1,
       },
