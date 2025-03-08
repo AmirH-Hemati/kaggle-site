@@ -3,9 +3,11 @@ import Button from "../../ui/Button";
 import FormLabel from "../../ui/FormLabel";
 import Input from "../../ui/Input";
 import { useGetArticle } from "./useGetArticle";
+import { useUpdateArticle } from "./useUpdateArticle";
 
 function EditArticle({ articleId }) {
   const [values, setValues] = useState({ title: "", content: "", image: "" });
+  const { updateArticle } = useUpdateArticle();
   const [preview, setPreview] = useState("");
   const { article } = useGetArticle(articleId);
   useEffect(() => {
@@ -24,7 +26,7 @@ function EditArticle({ articleId }) {
     formData.append("title", values.title);
     formData.append("content", values.content);
     formData.append("image", values.image);
-    console.log(e.target.title.value);
+    updateArticle({ id: articleId, formData });
   }
   function handelOnChange(e) {
     setValues((values) => ({ ...values, [e.target.name]: e.target.value }));

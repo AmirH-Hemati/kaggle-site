@@ -15,16 +15,20 @@ export async function getArticle(req, res) {
 export async function updateArticle(req, res) {
   const { id } = req.params;
   const { title, content } = req.body;
-  const imagePath = `http://localhost:1313/${req.file.filename}`;
   const update = { title, content };
+  if (req.file) {
+    const imagePath = `http://localhost:1313/${req?.file?.filename}`;
+    update.image = imagePath;
+  }
   const article = await Article.findOne({ _id: id });
+
   if (!article) {
     return res.status(400).json({ message: "Article Not Found", data: null });
   }
   const isDataChanged =
-    (title && article.title !== title) ||
-    (content && article.content !== content) ||
-    (imagePath && article.image !== imagePath);
+    (title && article.title !== update.title) ||
+    (content && article.content !== update.content) ||
+    (req.file && article.image !== update.image);
   if (!isDataChanged) {
     return res.status(400).json({
       message: "تغییراتی لحاظ نشده است , لطفا ابتدا مقادیر را تغییر دهید",

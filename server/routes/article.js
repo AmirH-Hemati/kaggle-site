@@ -18,7 +18,7 @@ router.get("/reportDailyArticles", reportWriteArticlesCount);
 router.get("/reportDailyArticle/:id", reportDailyArticle);
 router.get("/reportInActiveUsers", reportInActiveUser);
 router.get("/:id", getArticle);
-router.put("/:id", updateArticle);
+router.put("/:id", upload.single("image"), updateArticle);
 router.delete("/removeArticle/:id", auth, removeArticle);
 router.post("/createArticle", auth, upload.single("image"), createArticle);
 export default router;
