@@ -11,10 +11,8 @@ export async function createArticle(formData) {
   return data;
 }
 
-export async function GetReportDailyArticles(searchWriter) {
-  const { data } = await axiosInstance.get(
-    `/articles/reportDailyArticles?searchWriter=${searchWriter}`
-  );
+export async function GetReportDailyArticles() {
+  const { data } = await axiosInstance.get(`/articles/reportDailyArticles`);
   return data;
 }
 export async function getInActiveUsers() {

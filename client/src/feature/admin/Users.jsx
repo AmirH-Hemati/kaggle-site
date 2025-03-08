@@ -4,18 +4,20 @@ import { useGetUsers } from "./useGetUsers";
 import Modal from "../../ui/Modal";
 import EditUsers from "./EditUsers";
 import Search from "../../ui/Search";
+import Heading from "../../ui/Heading";
 
 function Users() {
   const { users } = useGetUsers();
   return (
-    <div className="w-full p-6  overflow-auto h-full bg-gray-50">
-      <div>
+    <div className="w-full p-6  flex flex-col h-full bg-gray-50">
+      <div className="flex items-center justify-between">
+        <Heading>کاربران</Heading>
         <Search
           placeholder="جستجو بر اساس ایمیل کاربر"
           filedSearch={`searchUsers`}
         />
       </div>
-      <ul className="w-full space-y-4 p-4">
+      <ul className="w-full space-y-4 p-4 overflow-auto flex-1">
         {users?.map((user) => (
           <li
             key={user._id}

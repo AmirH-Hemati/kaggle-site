@@ -1,12 +1,11 @@
+import Heading from "../../ui/Heading";
 import { useGetInActiveUsers } from "./useGetInActiveUsers";
 
 function ReportInActiveUsers() {
   const { users } = useGetInActiveUsers();
   return (
     <div className="w-full h-full overflow-auto mx-auto p-6 bg-gray-50 rounded-xl shadow-md">
-      <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-        گزارش نویسندگان غیر فعال امروز
-      </h2>
+      <Heading>نویسندگان غیر فعال امروز</Heading>
       <ul className="space-y-4">
         {users?.length === 0 ? (
           <p className="text-gray-500">تمامی افراد امروز فعال بوده اند .</p>

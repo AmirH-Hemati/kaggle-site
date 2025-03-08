@@ -21,6 +21,7 @@ function Search({ placeholder, filedSearch }) {
       placeholder={placeholder}
       value={search}
       onChange={handelSearchChange}
+      full={false}
     />
   );
 }

@@ -5,10 +5,10 @@ function Input({
   value,
   onChange,
   extraStyle,
+  full = true,
   id,
 }) {
-  const baseStyles =
-    "p-3 w-full border-2 rounded-sm text-black focus:outline-none focus:ring-2 focus:ring-[#2563EB] bg-white";
+  const baseStyles = `p-3 ${full ? "w-full" : "w-1/2"} border-2 rounded-sm text-black focus:outline-none focus:ring-2 focus:ring-[#2563EB] bg-white`
 
   if (type === "textarea") {
     return (

@@ -5,13 +5,14 @@ import Modal from "../../ui/Modal";
 import EditArticle from "./EditArticle";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import Search from "../../ui/Search";
+import Heading from "../../ui/Heading";
 function AllArticles() {
   const { articles } = useGetAllArticles();
   const { removeArticle } = useRemoveArticle();
   return (
     <div className="w-full h-full bg-gray-50 p-6 flex flex-col font-semibold space-y-4">
       <div className="flex items-center justify-between">
-        <h2 className="w-2/3">مقالات</h2>
+        <Heading>مقالات</Heading>
         <Search
           placeholder={`جستجو بر اساس عنوان مقاله`}
           filedSearch={`searchArticles`}

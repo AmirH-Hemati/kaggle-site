@@ -3,6 +3,7 @@ import Button from "../../ui/Button";
 import FormLabel from "../../ui/FormLabel";
 import Input from "../../ui/Input";
 import { useCreateArticle } from "./useCreateArticle";
+import Heading from "../../ui/Heading";
 
 function CreateArticle() {
   const { createArticle } = useCreateArticle();
@@ -14,9 +15,7 @@ function CreateArticle() {
   }
   return (
     <div className="w-full flex flex-col h-full overflow-auto p-6 bg-gray-50 rounded-lg shadow-lg">
-      <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
-        ساخت مقاله
-      </h2>
+      <Heading>اضافه کردن مقاله جدید</Heading>
 
       <form onSubmit={handleCreateArticle} className="space-y-5">
         <FormLabel label="عنوان مقاله">
