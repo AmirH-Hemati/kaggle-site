@@ -27,9 +27,7 @@ export async function getReportDailyArticle(id) {
 }
 
 export async function getAllArticles({ search, deadline, minPrize, maxPrize }) {
-  const { data } = await axiosInstance.get(
-    `/dataset?search=${search}&deadline=${deadline}&minPrize=${minPrize}&maxPrize=${maxPrize}`
-  );
+  const { data } = await axiosInstance.get(`/articles/allArticles`);
   return data;
 }
 export async function getDataset(id) {

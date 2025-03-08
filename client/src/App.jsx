@@ -34,6 +34,7 @@ import CreateArticle from "./feature/admin/CreateArticle";
 import ReportInActiveUsers from "./feature/admin/ReportInActiveUsers";
 import ReportDailyArticles from "./feature/admin/ReportDailyArticles";
 import ReportDailyArticle from "./feature/ReportDailyArticle";
+import AllArticles from "./feature/admin/AllArticles";
 const queryClient = new QueryClient();
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
               <Route path="/admin" element={<AdminPage />} />
               <Route path="users" element={<Users />} />
               <Route path="createArticle" element={<CreateArticle />} />
+              <Route path="articles" element={<AllArticles />} />
               <Route
                 path="reportDailyArticles"
                 element={<ReportDailyArticles />}

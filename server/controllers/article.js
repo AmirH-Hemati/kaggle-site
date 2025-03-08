@@ -1,7 +1,10 @@
 import Article from "../models/article.js";
 import User from "../models/users.js";
+//////////////////////
 export async function getAllArticle(req, res) {
-  const articles = await Article.find({});
+  const articles = await Article.find({})
+    .populate("author", "email userName")
+    .sort({ createdAt: -1 });
   res.json({ message: "ok", data: articles });
 }
 export async function getArticle(req, res) {
