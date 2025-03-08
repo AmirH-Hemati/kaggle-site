@@ -108,7 +108,7 @@ export async function reportWriteArticlesCount(req, res) {
   res.json({ message: "ok", data: articles });
 }
 
-export async function reportInActiveUser() {
+export async function reportInActiveUser(req, res) {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   const activeUser = await Article.distinct("author", {

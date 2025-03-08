@@ -1,3 +1,6 @@
+import Button from "../../ui/Button";
+import Modal from "../../ui/Modal";
+import SendMessage from "./SendMessage";
 import { useGetReportDailyArticles } from "./useGetReportDailyArticles";
 
 function ReportDailyArticle() {
@@ -22,8 +25,16 @@ function ReportDailyArticle() {
                 </h3>
                 <p className="text-sm text-gray-500">{article.email}</p>
               </div>
-              <div className="bg-blue-500 text-white px-4 py-2 rounded-lg font-semibold">
-                {article.count} مقاله
+              <div className="flex gap-2">
+                <Button type={`contained`}>{article.count} مقاله</Button>
+                <Modal>
+                  <Modal.Open>
+                    <Button type={`primary`}>پیام</Button>
+                  </Modal.Open>
+                  <Modal.Window>
+                    <SendMessage />
+                  </Modal.Window>
+                </Modal>
               </div>
             </li>
           ))
