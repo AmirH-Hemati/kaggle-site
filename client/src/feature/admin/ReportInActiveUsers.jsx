@@ -1,7 +1,8 @@
 function ReportInActiveUsers() {
+   
     return (
         <div>
-            
+            dwqdwq
         </div>
     )
 }

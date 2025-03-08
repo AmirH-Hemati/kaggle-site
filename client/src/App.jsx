@@ -33,6 +33,7 @@ import Users from "./feature/admin/Users";
 import ProtectedRoutes from "./ui/ProtectedRoutes";
 import CreateArticle from "./feature/admin/CreateArticle";
 import ReportDailyArticle from "./feature/admin/ReportDailyArticle";
+import ReportInActiveUsers from "./feature/admin/ReportInActiveUsers";
 const queryClient = new QueryClient();
 
 function App() {
@@ -51,7 +52,7 @@ function App() {
               />
               <Route
                 path="reportInActiveUsers"
-                element={<ReportDailyArticle />}
+                element={<ReportInActiveUsers />}
               />
             </Route>
           </Route>

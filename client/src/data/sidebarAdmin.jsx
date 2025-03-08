@@ -17,6 +17,11 @@ const data = [
     icon: <Data size="26" color="black" />,
   },
   {
+    title: "اضافه کردن مقاله",
+    route: "/createArticle",
+    icon: <Data size="26" color="black" />,
+  },
+  {
     title: "گزارش مقالات روزانه",
     route: "/reportDailyArticle",
     icon: <Data size="26" color="black" />,
