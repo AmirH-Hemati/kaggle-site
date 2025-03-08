@@ -16,6 +16,16 @@ const data = [
     route: "/articles",
     icon: <Data size="26" color="black" />,
   },
+  {
+    title: "گزارش مقالات روزانه",
+    route: "/reportDailyArticle",
+    icon: <Data size="26" color="black" />,
+  },
+  {
+    title: "نویسندگان غیر فعال",
+    route: "/reportInActiveUsers",
+    icon: <Data size="26" color="black" />,
+  },
 ];
 
 export default data;

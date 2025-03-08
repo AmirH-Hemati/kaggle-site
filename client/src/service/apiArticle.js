@@ -11,8 +11,8 @@ export async function createArticle(formData) {
   return data;
 }
 
-export async function myUploads() {
-  const { data } = await axiosInstance.get("/dataset/myUploads");
+export async function GetReportDailyArticles() {
+  const { data } = await axiosInstance.get("/articles/reportDailyArticles");
   return data;
 }
 export async function getAllArticles({ search, deadline, minPrize, maxPrize }) {

@@ -32,6 +32,7 @@ import AdminLayout from "./ui/AdminLayout";
 import Users from "./feature/admin/Users";
 import ProtectedRoutes from "./ui/ProtectedRoutes";
 import CreateArticle from "./feature/admin/CreateArticle";
+import ReportDailyArticle from "./feature/admin/ReportDailyArticle";
 const queryClient = new QueryClient();
 
 function App() {
@@ -44,6 +45,14 @@ function App() {
               <Route path="/admin" element={<AdminPage />} />
               <Route path="users" element={<Users />} />
               <Route path="createArticle" element={<CreateArticle />} />
+              <Route
+                path="reportDailyArticle"
+                element={<ReportDailyArticle />}
+              />
+              <Route
+                path="reportInActiveUsers"
+                element={<ReportDailyArticle />}
+              />
             </Route>
           </Route>
           <Route element={<Layout />}>

@@ -1,4 +1,5 @@
 import Article from "../models/article.js";
+import User from "../models/users.js";
 export async function getAllArticle(req, res) {
   const articles = await Article.find({});
   res.json({ message: "ok", data: articles });
@@ -31,11 +32,21 @@ export async function updateArticle(req, res) {
   });
   res.json({ message: "ok", data: result });
 }
+
+///////////////////////
+
 export async function removeArticle(req, res) {
   const { id } = req.params;
   const result = await Article.deleteOne({ _id: id });
+  await User.findByIdAndUpdate(
+    { _id: req.user._id },
+    { $inc: { articleCount: -1 } }
+  );
   res.json({ message: "ok", data: result });
 }
+
+///////////////////
+
 export async function createArticle(req, res) {
   const { title, content } = req.body;
   const imageUrl = `http://localhost:1313/${req.file.filename}`;
@@ -43,8 +54,68 @@ export async function createArticle(req, res) {
     title,
     content,
     image: imageUrl,
-    user: req.user._id,
+    author: req.user._id,
   });
-  console.log(result);
+  await User.findByIdAndUpdate(
+    { _id: req.user._id },
+    { $inc: { articleCount: 1 } }
+  );
   res.json({ message: "ok", data: result });
+}
+
+export async function reportWriteArticles(req, res) {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const articles = await Article.find({ createdAt: { $gte: today } }).populate(
+    "author",
+    "email userName  articleCount"
+  );
+  //   console.log(articles);
+  res.json({ message: "ok", data: articles });
+}
+export async function reportWriteArticlesCount(req, res) {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const articles = await Article.aggregate([
+    { $match: { createdAt: { $gte: today } } },
+    {
+      $group: {
+        _id: "$author",
+        count: { $sum: 1 },
+        articles: { $push: "$title" },
+      },
+    },
+    {
+      $lookup: {
+        from: "users",
+        localField: "_id",
+        foreignField: "_id",
+        as: "user",
+      },
+    },
+    { $unwind: "$user" },
+    {
+      $project: {
+        userName: "$user.userName",
+        email: "$user.email",
+        count: 1,
+        article: 1,
+      },
+    },
+  ]);
+  res.json({ message: "ok", data: articles });
+}
+
+export async function reportInActiveUser() {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const activeUser = await Article.distinct("author", {
+    createdAt: { $gte: today },
+  });
+  const inActiveUser = await User.find({
+    _id: { $nin: activeUser },
+    role: "writer",
+  }).select("-password");
 }
