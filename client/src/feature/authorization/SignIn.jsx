@@ -14,8 +14,8 @@ function SignIn() {
 
   const handleSignIn = (e) => {
     e.preventDefault();
-    if (!value.phone || !value.role || !value.password)
-      return toast.error("اینپوت ها خالی هستند");
+    if (!value.email || !value.role || !value.password || !value.userName)
+      return toast.error("ورودی  ها خالی هستند");
     signIn(value);
   };
 
@@ -64,9 +64,15 @@ function SignIn() {
         </label>
       </div>
       <Input
-        type="number"
-        placeholder="شماره تلفن همراه خود را وارد کنید"
-        name="phone"
+        type="text"
+        placeholder="نام کاربری"
+        name="userName"
+        onChange={handleOnChange}
+      />
+      <Input
+        type="text"
+        placeholder="ایمیل "
+        name="email"
         onChange={handleOnChange}
       />
       <Input

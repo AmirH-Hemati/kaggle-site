@@ -1,10 +1,11 @@
 import axios from "axios";
 import axiosInstance from "./axiosInstance";
-export async function signIn({ phone, role, password }) {
+export async function signIn({ email, role, password, userName }) {
   const { data } = await axios.post("http://localhost:1313/api/users/signIn", {
-    phone,
+    email,
     role,
     password,
+    userName,
   });
   return data;
 }

@@ -62,7 +62,7 @@ function EditUsers({ userId, onClose }) {
       </FormLabel>
       <div className=" w-full flex flex-col gap-3 p-4 bg-blue-100 rounded-lg shadow-md">
         <p className="font-semibold text-lg">نقش کاربر : </p>
-        {["admin", "writer", "user"].map((role) => (
+        {["admin", "writer", "uploader", "analyzer"].map((role) => (
           <label key={role} className="flex items-center gap-3 cursor-pointer">
             <input
               type="radio"

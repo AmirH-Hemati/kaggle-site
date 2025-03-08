@@ -47,7 +47,7 @@ function Users() {
             </div>
             <div className="text-lg font-semibold text-gray-800">
               <p className="text-gray-400 text-sm">شماره موبایل : </p>
-              <p>{user.phone}</p>
+              <p>{user.phone || "نا مشخص"}</p>
             </div>
             <div className="  text-blue-700 font-semibold  text-sm ">
               <p className="text-gray-400 text-sm">نقش کاربر</p>

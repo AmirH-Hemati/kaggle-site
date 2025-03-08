@@ -1,18 +1,15 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { signIn as signInAPI } from "../../service/apiAuth";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
 
 export function useSignIn() {
-  const navigate = useNavigate();
   const queryClient = useQueryClient();
   const { mutate: signIn, isPending } = useMutation({
-    mutationFn: ({ phone, role, password }) =>
-      signInAPI({ phone, role, password }),
+    mutationFn: ({ email, role, password, userName }) =>
+      signInAPI({ email, role, password, userName }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["user"] });
-      navigate("/verifyOtp");
-      toast.success("کد احراز هویت ارسال شد");
+      toast.success("اکانت با موفقیت ساخته شد");
     },
     onError: (err) => {
       console.log(err);

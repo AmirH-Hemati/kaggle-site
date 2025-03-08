@@ -5,7 +5,8 @@ function AuthContextProvider({ children }) {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [role, setRole] = useState(localStorage.getItem("role") || "");
   const [value, setValue] = useState({
-    phone: "",
+    email: "",
+    userName: "",
     role: "",
     password: "",
   });
