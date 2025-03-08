@@ -62,7 +62,7 @@ function Users() {
                 <p className="text-gray-400 text-sm">
                   آخرین زمان ورود به حساب :
                 </p>
-                <p>{new Date(user.createdAt).toLocaleDateString("fa-IR")}</p>
+                <p>{new Date(user.loginAt).toLocaleDateString("fa-IR")}</p>
               </div>
             </div>
           </li>

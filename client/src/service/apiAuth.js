@@ -10,9 +10,9 @@ export async function signIn({ email, role, password, userName }) {
   return data;
 }
 
-export async function login({ phone, password }) {
+export async function login({ email, password }) {
   const { data } = await axios.post("http://localhost:1313/api/users/login", {
-    phone,
+    email,
     password,
   });
   return data;

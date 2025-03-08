@@ -8,7 +8,7 @@ export function useLogin() {
   const { loginInAccount } = useAuth();
   const queryClient = useQueryClient();
   const { mutate: login, isPending } = useMutation({
-    mutationFn: ({ phone, password }) => loginAPI({ phone, password }),
+    mutationFn: ({ email, password }) => loginAPI({ email, password }),
     onSuccess: (user) => {
       queryClient.invalidateQueries({ queryKey: ["user"] });
       loginInAccount(user);

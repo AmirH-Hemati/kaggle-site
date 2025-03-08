@@ -5,7 +5,7 @@ import Input from "../../ui/Input";
 
 function LoginForm() {
   const { login } = useLogin();
-  const [value, setValue] = useState({ phone: "", password: "" });
+  const [value, setValue] = useState({ email: "", password: "" });
 
   const handleOnChange = (e) => {
     setValue((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -13,7 +13,7 @@ function LoginForm() {
 
   const handleLoginForm = (e) => {
     e.preventDefault();
-    if (!value.phone || !value.password) return;
+    if (!value.email || !value.password) return;
     login(value);
   };
 
@@ -28,7 +28,7 @@ function LoginForm() {
       <Input
         type="text"
         placeholder="شماره موبایل"
-        name="phone"
+        name="email"
         onChange={handleOnChange}
         className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
       />

@@ -3,8 +3,8 @@ import bcy from "bcrypt";
 import jwt from "jsonwebtoken";
 
 export async function login(req, res) {
-  const { phone, password } = req.body;
-  const user = await User.findOne({ phone });
+  const { email, password } = req.body;
+  const user = await User.findOne({ email });
   if (!user) {
     return res
       .status(400)
@@ -16,6 +16,7 @@ export async function login(req, res) {
       .status(400)
       .json({ message: "ایمیل یا پسورد اشتباه است", data: null });
   }
+  await User.findOneAndUpdate({ email }, { loginAt: Date.now() });
   const token = jwt.sign({ _id: user._id }, "dwqdsadwqgfw45dqdwqs");
   res.json({ message: "ok", data: { token: token, role: user?.role } });
 }
