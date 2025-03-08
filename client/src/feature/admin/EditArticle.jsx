@@ -5,11 +5,11 @@ import Input from "../../ui/Input";
 import { useGetArticle } from "./useGetArticle";
 import { useUpdateArticle } from "./useUpdateArticle";
 
-function EditArticle({ articleId }) {
-  const [values, setValues] = useState({ title: "", content: "", image: "" });
-  const { updateArticle } = useUpdateArticle();
-  const [preview, setPreview] = useState("");
+function EditArticle({ articleId, onClose }) {
   const { article } = useGetArticle(articleId);
+  const { updateArticle } = useUpdateArticle();
+  const [values, setValues] = useState({ title: "", content: "", image: "" });
+  const [preview, setPreview] = useState("");
   useEffect(() => {
     if (article) {
       setValues({
@@ -27,6 +27,7 @@ function EditArticle({ articleId }) {
     formData.append("content", values.content);
     formData.append("image", values.image);
     updateArticle({ id: articleId, formData });
+    onClose();
   }
   function handelOnChange(e) {
     setValues((values) => ({ ...values, [e.target.name]: e.target.value }));

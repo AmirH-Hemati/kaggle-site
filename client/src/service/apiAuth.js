@@ -31,8 +31,10 @@ export async function editProfile(userData) {
   return data;
 }
 
-export async function getUsers() {
-  const { data } = await axiosInstance.get("/users/allUsers");
+export async function getUsers(search) {
+  const { data } = await axiosInstance.get(
+    `/users/allUsers?searchUsers=${search}`
+  );
   return data;
 }
 

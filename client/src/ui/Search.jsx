@@ -1,16 +1,16 @@
 import { useSearchParams } from "react-router-dom";
 import Input from "./Input";
 
-function Search() {
+function Search({ placeholder, filedSearch }) {
   const [searchParams, setSearchParams] = useSearchParams();
-  const search = searchParams.get("search") || "";
+  const search = searchParams.get(filedSearch) || "";
   function handelSearchChange(e) {
     const newSearch = e.target.value;
     const newParams = new URLSearchParams(searchParams);
     if (newSearch) {
-      newParams.set("search", newSearch);
+      newParams.set(filedSearch, newSearch);
     } else {
-      newParams.delete("search");
+      newParams.delete(filedSearch);
     }
     setSearchParams(newParams);
   }
@@ -18,9 +18,10 @@ function Search() {
     <Input
       type="text"
       name="search"
-      placeholder="جستجو در مجموعه داده‌ها..."
+      placeholder={placeholder}
       value={search}
       onChange={handelSearchChange}
+      extraStyle={`w-[300px]`}
     />
   );
 }

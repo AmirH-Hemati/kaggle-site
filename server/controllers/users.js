@@ -93,7 +93,13 @@ export async function editProfile(req, res) {
 }
 
 export async function users(req, res) {
-  const users = await User.find({}).select("-password");
+  const { searchUsers } = req.query;
+  const filter = {};
+  if (searchUsers && searchUsers !== "null") {
+    filter.email = { $regex: searchUsers, $options: "i" };
+  }
+  console.log(searchUsers);
+  const users = await User.find(filter).select("-password");
   res.json({ message: "ok", data: users });
 }
 

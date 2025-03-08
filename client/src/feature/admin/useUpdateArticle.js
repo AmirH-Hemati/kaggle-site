@@ -6,7 +6,7 @@ export function useUpdateArticle() {
   const { mutate: updateArticle, isPending } = useMutation({
     mutationFn: ({ id, formData }) => updateArticlleAPI({ id, formData }),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["article"] });
+      queryClient.invalidateQueries({ queryKey: ["articles"] });
       toast.success("تغییرات با موفقیت ویرایش  شد");
     },
     onError: (err) => {
