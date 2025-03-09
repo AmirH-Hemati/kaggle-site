@@ -36,6 +36,7 @@ import ReportDailyArticles from "./feature/admin/ReportDailyArticles";
 import ReportDailyArticle from "./feature/ReportDailyArticle";
 import AllArticles from "./feature/admin/AllArticles";
 import ArticlesPage from "./page/ArticlesPage";
+import ArticleDetails from "./feature/articles/ArticleDetails";
 const queryClient = new QueryClient();
 
 function App() {
@@ -66,6 +67,7 @@ function App() {
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
             <Route path="/articles" element={<ArticlesPage />} />
+            <Route path="/articles/:id" element={<ArticleDetails />} />
             <Route
               path="/allDataset"
               element={<DatasetsAnalyze showFilter={true} />}

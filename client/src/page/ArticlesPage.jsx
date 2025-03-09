@@ -11,10 +11,12 @@ function ArticlesPage() {
       label: "دسته‌بندی",
       type: "select",
       options: [
-        { value: "technology", label: "تکنولوژی" },
-        { value: "science", label: "علمی" },
-        { value: "business", label: "کسب‌وکار" },
-        { value: "health", label: "سلامت" },
+        { key: "skills", label: "مهارت و سرگرمی" },
+        { key: "programming", label: "برنامه‌نویسی" },
+        { key: "security", label: "امنیت و شبکه" },
+        { key: "art", label: "هنر و طراحی" },
+        { key: "health", label: "سلامت و تناسب اندام" },
+        { key: "research", label: "پژوهش و توسعه" },
       ],
     },
     {

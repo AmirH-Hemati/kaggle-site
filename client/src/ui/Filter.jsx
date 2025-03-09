@@ -14,7 +14,6 @@ function FilterSidebar({ filters }) {
     }
     setSearchParams(newparams);
   }
-
   return (
     <aside className="h-full w-full md:w-1/3 bg-gary-50 p-6 rounded-lg shadow-md">
       <Heading>فیلترها</Heading>
@@ -35,7 +34,7 @@ function FilterSidebar({ filters }) {
             >
               <option value="all">همه</option>
               {options.map((option) => (
-                <option key={option.value} value={option.value}>
+                <option key={option.key} value={option.key}>
                   {option.label}
                 </option>
               ))}

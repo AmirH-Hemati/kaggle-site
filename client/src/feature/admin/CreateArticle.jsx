@@ -23,7 +23,6 @@ function CreateArticle() {
         <FormLabel label="عنوان مقاله">
           <Input name={`title`} />
         </FormLabel>
-
         <FormLabel label="توضیحات مقاله">
           <Input type="textarea" name={`content`} />
         </FormLabel>

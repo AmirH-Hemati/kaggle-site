@@ -62,7 +62,6 @@ function Comments() {
                 </div>
               )}
 
-              {/* نمایش پاسخ‌ها */}
               {c?.replies?.length > 0 && (
                 <div className="mt-4 space-y-3 pl-6 border-l-2 border-gray-300">
                   {c.replies.map((reply, index) => (
@@ -89,7 +88,7 @@ function Comments() {
           ))}
         </div>
       ) : (
-        <p className="text-gray-500">هیچ کامنتی برای این دیتاست وجود ندارد.</p>
+        <p className="text-gray-500">کامنتی هنوز ثبت نشده است.</p>
       )}
     </div>
   );

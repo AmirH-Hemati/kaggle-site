@@ -19,7 +19,10 @@ export async function getAllArticle(req, res) {
 }
 export async function getArticle(req, res) {
   const { id } = req.params;
-  const article = await Article.findOne({ _id: id });
+  const article = await Article.findOne({ _id: id }).populate(
+    "author",
+    "userName email"
+  );
   res.json({ message: "ok", data: article });
 }
 export async function updateArticle(req, res) {
