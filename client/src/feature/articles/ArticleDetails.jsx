@@ -17,7 +17,7 @@ function ArticleDetails() {
   return (
     <div className="w-full  h-full overflow-auto bg-gray-100  p-6 flex gap-6">
       <PopularArticles />
-      <div className="w-3/4 h-full space-y-4  p-6 rounded-lg ">
+      <div className="w-3/4 h-full space-y-4 rounded-lg overflow-auto">
         <div>
           <img
             src={article?.image}
@@ -34,10 +34,10 @@ function ArticleDetails() {
             <div>
               <p>
                 <span> دسته‌بندی: </span>
-                <span>{article?.category}</span>
+                <span>{article?.category || "نامشخص"}</span>
               </p>
               <p className="flex items-center gap-2">
-                <span>امتیاز : {article?.averageRating}</span>
+                <span>امتیاز : {article?.averageRating || "نامشخص"}</span>
                 <Star1 size={26} color="green" variant="Bold" />
               </p>
             </div>

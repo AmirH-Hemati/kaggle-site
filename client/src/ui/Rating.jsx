@@ -34,9 +34,9 @@ function Rating({ article }) {
           </Star1>
         ))}
       </div>
-      <p className="text-base font-semibold text-gray-600  text-center space-x-4">
-        <span> امتیاز مقاله: {article?.averageRating}</span>
-        <span>کل امتیازات : {article?.ratingsCount}</span>
+      <p className="text-base w-full font-semibold text-gray-600  text-center space-x-6">
+        <span> امتیاز مقاله: {article?.averageRating || "نامشخص"}</span>
+        <span>کل امتیازات : {article?.ratingsCount || "نامشخص"}</span>
       </p>
     </div>
   );

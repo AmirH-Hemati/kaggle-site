@@ -7,12 +7,12 @@ function PopularArticles() {
   const { articles } = useGetPopularArticles();
 
   return (
-    <div className="w-1/4 h-full overflow-auto bg-white p-4 rounded-lg shadow-xl">
+    <div className="w-1/4 h-full overflow-auto bg-white p-6 rounded-lg shadow-xl">
       <Heading>مقالات پرطرفدار</Heading>{" "}
       <ul className="flex flex-col gap-4">
         {articles?.map((article) => (
           <Link to={`/articles/${article._id}`} key={article._id}>
-            <li className="flex items-center p-3 space-x-3 bg-gray-100 rounded-sm hover:bg-gray-200 transition">
+            <li className="flex items-center p-3 space-x-3 bg-gray-100 rounded-sm hover:bg-gray-200 transition hover:scale-110">
               <img
                 src={article.image}
                 alt={article.title}
