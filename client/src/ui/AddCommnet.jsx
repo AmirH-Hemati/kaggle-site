@@ -6,7 +6,7 @@ function AddCommnet({ id }) {
   const [comment, setComment] = useState("");
   const { addComment } = useAddComment();
   function handelAddComment(e) {
-    // e.preventDefault();
+    e.preventDefault();
     addComment({ id, text: comment });
   }
   return (

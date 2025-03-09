@@ -122,7 +122,7 @@ function ArticleDetails() {
         <div className="bg-white p-6 rounded-lg shadow-xl ">
           <Heading>کامنت‌ها</Heading>
 
-          <AddCommnet />
+          <AddCommnet id={article?._id} />
           <Comments />
         </div>
       </div>

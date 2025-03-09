@@ -7,6 +7,16 @@ export async function addCommnet({ text, id }) {
 
   return data;
 }
+export async function addCommentArticle({ text, id }) {
+  const { data } = await axiosInstance.post(
+    `/commentArticle/addComment/${id}`,
+    {
+      text,
+    }
+  );
+
+  return data;
+}
 export async function addReplies({ text, id }) {
   const { data } = await axiosInstance.post(`/comment/replies/${id}`, {
     text,

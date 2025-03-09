@@ -6,6 +6,7 @@ import analyzeRouter from "./routes/analyze.js";
 import submitRouter from "./routes/submission.js";
 import articleRouter from "./routes/article.js";
 import commentRouter from "./routes/comment.js";
+import commentArticleRouter from "./routes/commentArticle.js";
 import User from "./models/users.js";
 import bcy from "bcrypt";
 import cors from "cors";
@@ -26,6 +27,7 @@ app.use("/api/users/", usersRouter);
 app.use("/api/dataset/", datasetRouter);
 app.use("/api/submit/", submitRouter);
 app.use("/api/comment/", commentRouter);
+app.use("/api/commentArticle/", commentArticleRouter);
 app.use("/api/analyze/", analyzeRouter);
 app.use("/api/articles/", articleRouter);
 app.listen(1313, () => {
