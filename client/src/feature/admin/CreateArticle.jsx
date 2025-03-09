@@ -4,6 +4,7 @@ import FormLabel from "../../ui/FormLabel";
 import Input from "../../ui/Input";
 import { useCreateArticle } from "./useCreateArticle";
 import Heading from "../../ui/Heading";
+import SelectorCategory from "../../ui/SelectorCategory";
 
 function CreateArticle() {
   const { createArticle } = useCreateArticle();
@@ -13,6 +14,7 @@ function CreateArticle() {
     const formData = new FormData(e.target);
     createArticle(formData);
   }
+
   return (
     <div className="w-full flex flex-col h-full overflow-auto p-6 bg-gray-50 rounded-lg shadow-lg">
       <Heading>اضافه کردن مقاله جدید</Heading>
@@ -50,10 +52,8 @@ function CreateArticle() {
             }
           />
         </label>
-
-        <Button type="contained" extraStyle={``}>
-          ساخت مقاله جدید
-        </Button>
+        <SelectorCategory />
+        <Button type="contained">ساخت مقاله جدید</Button>
       </form>
     </div>
   );

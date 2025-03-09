@@ -67,12 +67,13 @@ export async function removeArticle(req, res) {
 ///////////////////
 
 export async function createArticle(req, res) {
-  const { title, content } = req.body;
+  const { title, content, category } = req.body;
   const imageUrl = `http://localhost:1313/${req.file.filename}`;
   const result = await Article.create({
     title,
     content,
     image: imageUrl,
+    category,
     author: req.user._id,
   });
   await User.findByIdAndUpdate(
