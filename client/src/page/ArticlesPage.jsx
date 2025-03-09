@@ -5,7 +5,7 @@ import FilterSidebar from "../ui/Filter";
 function ArticlesPage() {
   const { articles } = useGetAllArticles();
   const articleFilters = [
-    { key: "title", label: "عنوان مقاله", type: "input" },
+    { key: "searchTitle", label: "عنوان مقاله", type: "input" },
     {
       key: "category",
       label: "دسته‌بندی",
@@ -25,7 +25,7 @@ function ArticlesPage() {
   ];
 
   return (
-    <div className="flex">
+    <div className="flex  w-full h-full ">
       <FilterSidebar filters={articleFilters} />
       <Articles articles={articles} />
     </div>

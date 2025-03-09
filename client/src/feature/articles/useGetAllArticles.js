@@ -4,10 +4,11 @@ import { useSearchParams } from "react-router-dom";
 
 export function useGetAllArticles() {
   const [searchParams] = useSearchParams();
-  const searchArticles = searchParams.get("searchArticles");
+  const searchTitle = searchParams.get("searchTitle");
+  const category = searchParams.get("category");
   const { data: articles, isLoading } = useQuery({
-    queryKey: ["articles", searchArticles],
-    queryFn: () => getAllArticles(searchArticles),
+    queryKey: ["articles", searchTitle, category],
+    queryFn: () => getAllArticles({ searchTitle, category }),
   });
   return { articles: articles?.data, isLoading };
 }

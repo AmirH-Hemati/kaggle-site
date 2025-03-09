@@ -3,11 +3,15 @@ import User from "../models/users.js";
 import fs from "fs";
 //////////////////////
 export async function getAllArticle(req, res) {
-  const { searchArticles } = req.query;
+  const { searchTitle, category } = req.query;
   const filter = {};
-  if (searchArticles && searchArticles !== "null") {
-    filter.title = { $regex: searchArticles, $options: "i" };
+  if (category && category !== "null") {
+    filter.category = category;
   }
+  if (searchTitle && searchTitle !== "null") {
+    filter.title = { $regex: searchTitle, $options: "i" };
+  }
+
   const articles = await Article.find(filter)
     .populate("author", "email userName")
     .sort({ createdAt: -1 });
