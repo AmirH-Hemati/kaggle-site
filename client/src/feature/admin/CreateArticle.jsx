@@ -26,6 +26,9 @@ function CreateArticle() {
         <FormLabel label="توضیحات مقاله">
           <Input type="textarea" name={`content`} />
         </FormLabel>
+        <FormLabel label="آدرس وبسایت هوش مصنوعی">
+          <Input type="text" name={`linkAi`} />
+        </FormLabel>
         <label
           htmlFor="image"
           className="cursor-pointer font-semibold w-full h-80 border-2 border-dashed  rounded-sm flex items-center justify-center"

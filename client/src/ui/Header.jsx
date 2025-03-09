@@ -30,14 +30,16 @@ function Header() {
           >
             مجموعه داده
           </Link>
-          {token && (
-            <Link
-              to={`${role == "uploader" ? "/datasets" : "/codeEditor"}`}
-              className="hover:text-blue-600 transition-colors"
-            >
-              داشبورد
-            </Link>
-          )}
+          {(token && role == "writer") ||
+            role ==
+              "admin"(
+                <Link
+                  to={`/admin`}
+                  className="hover:text-blue-600 transition-colors"
+                >
+                  داشبورد
+                </Link>
+              )}
         </nav>
         {token ? (
           <div

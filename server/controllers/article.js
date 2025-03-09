@@ -71,11 +71,12 @@ export async function removeArticle(req, res) {
 ///////////////////
 
 export async function createArticle(req, res) {
-  const { title, content, category } = req.body;
+  const { title, content, category, linkAi } = req.body;
   const imageUrl = `http://localhost:1313/${req.file.filename}`;
   const result = await Article.create({
     title,
     content,
+    linkAi,
     image: imageUrl,
     category,
     author: req.user._id,

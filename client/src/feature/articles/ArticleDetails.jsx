@@ -49,7 +49,10 @@ function ArticleDetails() {
               </span>
             </p>
           </div>
-          <Link to={``} className="text-blue-600 font-semibold text-xl">
+          <Link
+            to={article?.linkAi}
+            className="text-blue-600 font-semibold text-xl"
+          >
             جهت ورود به وبسایت اصلی هوش مصنوعی کلیک کنید
           </Link>
           <div className="text-lg text-gray-700 leading-relaxed my-10">
