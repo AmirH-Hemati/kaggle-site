@@ -3,6 +3,8 @@ import {
   createArticle,
   getAllArticle,
   getArticle,
+  latestArticle,
+  popularArticles,
   removeArticle,
   reportArticlePerDay,
   reportDailyArticle,
@@ -19,6 +21,8 @@ router.get("/reportDailyArticles", reportWriteArticlesCount);
 router.get("/reportDailyArticle/:id", reportDailyArticle);
 router.get("/reportInActiveUsers", reportInActiveUser);
 router.get("/reportArticlePerDay", reportArticlePerDay);
+router.get("/latestArticle", latestArticle);
+router.get("/popularArticle", popularArticles);
 router.get("/:id", getArticle);
 router.put("/:id", upload.single("image"), updateArticle);
 router.delete("/removeArticle/:id", auth, removeArticle);

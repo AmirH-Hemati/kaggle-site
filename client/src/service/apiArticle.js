@@ -39,7 +39,13 @@ export async function getArticle(id) {
   const { data } = await axiosInstance.get(`/articles/${id}`);
   return data;
 }
-
+export async function addRating({ articleId, rate }) {
+  const { data } = await axiosInstance.post(`/rating/addRating/`, {
+    rate,
+    articleId,
+  });
+  return data;
+}
 export async function removeArticle(id) {
   const { data } = await axiosInstance.delete(`/articles/removeArticle/${id}`);
   return data;
@@ -48,5 +54,10 @@ export async function updateArticle({ id, formData }) {
   const { data } = await axiosInstance.put(`/articles/${id}`, formData, {
     headers: { "Content-Type": "multipart/form-data" },
   });
+  return data;
+}
+
+export async function getPopularArticles() {
+  const { data } = await axiosInstance.get(`/articles/popularArticle`);
   return data;
 }

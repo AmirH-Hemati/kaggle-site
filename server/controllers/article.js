@@ -1,3 +1,4 @@
+import article from "../models/article.js";
 import Article from "../models/article.js";
 import User from "../models/users.js";
 import fs from "fs";
@@ -157,5 +158,17 @@ export async function reportArticlePerDay(req, res) {
     },
   ]);
   console.log(articles);
+  res.json({ message: "ok", data: articles });
+}
+export async function latestArticle(req, res) {
+  const articles = await Article.find({}).sort({ createdAt: -1 }).limit(5);
+  res.json({ message: "ok", data: articles });
+}
+
+export async function popularArticles(req, res) {
+  const articles = await Article.find({})
+    .populate("author", "userName email")
+    .sort({ averageRating: -1 })
+    .limit(6);
   res.json({ message: "ok", data: articles });
 }

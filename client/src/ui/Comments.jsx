@@ -1,5 +1,4 @@
 function Comments({ comments }) {
-  console.log(comments);
   return (
     <div>
       {comments?.data?.length > 0 ? (

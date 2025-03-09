@@ -17,6 +17,8 @@ const articleSchema = new mongoose.Schema(
       type: String,
     },
     category: { type: String },
+    averageRating: { type: Number },
+    ratingsCount: { type: Number },
   },
   { timestamps: true }
 );

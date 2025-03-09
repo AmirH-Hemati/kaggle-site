@@ -5,6 +5,7 @@ import datasetRouter from "./routes/dataset.js";
 import analyzeRouter from "./routes/analyze.js";
 import submitRouter from "./routes/submission.js";
 import articleRouter from "./routes/article.js";
+import ratingRouter from "./routes/rating.js";
 import commentRouter from "./routes/comment.js";
 import commentArticleRouter from "./routes/commentArticle.js";
 import User from "./models/users.js";
@@ -26,8 +27,10 @@ app.use(express.static("file"));
 app.use("/api/users/", usersRouter);
 app.use("/api/dataset/", datasetRouter);
 app.use("/api/submit/", submitRouter);
+app.use("/api/rating/", ratingRouter);
 app.use("/api/comment/", commentRouter);
 app.use("/api/commentArticle/", commentArticleRouter);
+app.use("/api/rating/", commentArticleRouter);
 app.use("/api/analyze/", analyzeRouter);
 app.use("/api/articles/", articleRouter);
 app.listen(1313, () => {
