@@ -169,6 +169,6 @@ export async function popularArticles(req, res) {
   const articles = await Article.find({})
     .populate("author", "userName email")
     .sort({ averageRating: -1 })
-    .limit(6);
+    .limit(5);
   res.json({ message: "ok", data: articles });
 }
