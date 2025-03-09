@@ -6,7 +6,7 @@ export function useAddRating() {
   const { mutate: addRating, isPending } = useMutation({
     mutationFn: ({ articleId, rate }) => addRatingAPI({ articleId, rate }),
     onSuccess: () => {
-      qeuryClient.invalidateQueries({ queryKey: ["article"] });
+      qeuryClient.invalidateQueries({ queryKey: ["articles"] });
     },
   });
   return { addRating, isPending };

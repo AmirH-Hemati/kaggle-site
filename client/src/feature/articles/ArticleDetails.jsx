@@ -8,6 +8,7 @@ import { useAddCommentArticle } from "../comment/useAddCommentArticle";
 import { useGetCommentsArticle } from "../comment/useGetCommentsArticle";
 import Rating from "../../ui/Rating";
 import PopularArticles from "./PopularArticles";
+import { Link } from "react-router-dom";
 
 function ArticleDetails() {
   const { article } = useGetArticle();
@@ -25,7 +26,7 @@ function ArticleDetails() {
             className="w-full aspect-video object-cover rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300"
           />
         </div>
-        <div className="bg-white p-8 rounded-lg shadow-md  space-y-6">
+        <div className="bg-white p-8 rounded-lg shadow-md  space-y-10">
           <h1 className="text-5xl font-extrabold text-gray-900 leading-tight text-center">
             {article?.title}
           </h1>
@@ -48,8 +49,10 @@ function ArticleDetails() {
               </span>
             </p>
           </div>
-
-          <div className="text-lg text-gray-700 leading-relaxed mt-6">
+          <Link to={``} className="text-blue-600 font-semibold text-xl">
+            جهت ورود به وبسایت اصلی هوش مصنوعی کلیک کنید
+          </Link>
+          <div className="text-lg text-gray-700 leading-relaxed my-10">
             {article?.content}
           </div>
 
