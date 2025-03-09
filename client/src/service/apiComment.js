@@ -28,3 +28,7 @@ export async function getCommnets(id) {
   const { data } = await axiosInstance.get(`/comment/${id}`);
   return data;
 }
+export async function getCommnetsArticle(id) {
+  const { data } = await axiosInstance.get(`/commentArticle/${id}`);
+  return data;
+}

@@ -1,10 +1,8 @@
 import { useState } from "react";
 import Button from "./Button";
-import { useAddComment } from "../feature/comment/useAddComment";
 
-function AddCommnet({ id }) {
+function AddCommnet({ id, addComment }) {
   const [comment, setComment] = useState("");
-  const { addComment } = useAddComment();
   function handelAddComment(e) {
     e.preventDefault();
     addComment({ id, text: comment });

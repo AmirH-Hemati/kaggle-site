@@ -1,4 +1,4 @@
-import CommentArticle from "../models/comment.js";
+import CommentArticle from "../models/commentArticle.js";
 
 export async function addCommnet(req, res) {
   const { id } = req.params;
@@ -12,7 +12,7 @@ export async function addCommnet(req, res) {
 }
 export async function getCommnets(req, res) {
   const { id } = req.params;
-  const comments = await Comment.find({ dataset: id }).populate(
+  const comments = await CommentArticle.find({ article: id }).populate(
     "user",
     "userName email"
   );

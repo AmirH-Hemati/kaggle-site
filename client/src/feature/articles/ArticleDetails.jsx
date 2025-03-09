@@ -4,30 +4,16 @@ import AddCommnet from "../../ui/AddCommnet";
 import Comments from "../../ui/Comments";
 import Heading from "../../ui/Heading";
 import Button from "../../ui/Button";
-import { Star, Star1 } from "iconsax-react";
+import { Star1 } from "iconsax-react";
+import { useAddCommentArticle } from "../comment/useAddCommentArticle";
+import { useGetCommentsArticle } from "../comment/useGetCommentsArticle";
 
 function ArticleDetails() {
   const { article } = useGetArticle();
-  const [comments, setComments] = useState([]);
   const [rating, setRating] = useState(0);
   const [ratingHover, setRatingHover] = useState(0);
-  const [newComment, setNewComment] = useState("");
-
-  const handleCommentChange = (e) => {
-    setNewComment(e.target.value);
-  };
-
-  const handleCommentSubmit = (e) => {
-    e.preventDefault();
-    if (newComment.trim()) {
-      setComments([...comments, newComment]);
-      setNewComment(""); // پاک کردن فیلد کامنت بعد از ارسال
-    }
-  };
-
-  const handleRating = (value) => {
-    setRating(value);
-  };
+  const { addComment } = useAddCommentArticle();
+  const { comments } = useGetCommentsArticle();
   const popularArticles = [
     { title: "مقاله پرطرفدار 1", link: "#" },
     { title: "مقاله پرطرفدار 2", link: "#" },
@@ -122,8 +108,8 @@ function ArticleDetails() {
         <div className="bg-white p-6 rounded-lg shadow-xl ">
           <Heading>کامنت‌ها</Heading>
 
-          <AddCommnet id={article?._id} />
-          <Comments />
+          <AddCommnet id={article?._id} addComment={addComment} />
+          <Comments comments={comments} />
         </div>
       </div>
     </div>
