@@ -4,7 +4,6 @@ import Home from "./page/Home";
 import LoginForm from "./feature/authorization/LoginForm";
 import AuthLayout from "./ui/AuthLayout";
 import SignIn from "./feature/authorization/SignIn";
-import SignInUploader from "./feature/authorization/SignInUploader";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import LayoutUploader from "./ui/LayoutUploader";
 import UploadFile from "./page/UploadFile";

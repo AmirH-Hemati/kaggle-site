@@ -1,30 +1,29 @@
 import BenefitUpload from "./BenefitUpload";
 function HomeUploaderIntro() {
   return (
-    <div className="bg-white flex flex-col gap-6  p-10 mt-20 border-t-2 border-black/8">
+    <div className="bg-white flex flex-col gap-6  p-10 my-10 border-t-2 border-black/8">
       <div className="flex flex-row-reverse justify-between items-center gap-10">
-        <div className="flex h-80 flex-col justify-center gap-8">
+        <div className="flex h-80 flex-col justify-evenly">
           <h3 className="text-xl font-semibold">
-            📂 ورود به دنیای داده‌ها: آپلود و به‌اشتراک‌گذاری مجموعه داده‌ها
+            ورود به دنیای ابزار هاش هوش مصنوعی , نحوه کار با این ابزار بزرگ را
+            یاد بگیرید{" "}.
           </h3>
           <p className="text-gray-800">
-            اگر محقق، دانشمند داده، یا حتی یک علاقه‌مند به داده‌ها هستید، این
-            بخش برای شماست! اینجا می‌توانید داده‌های خود را آپلود کنید و با
-            جامعه‌ای از تحلیل‌گران، برنامه‌نویسان و محققان به اشتراک بگذارید.
+            به دنیای مقالات هوش مصنوعی بپیوندید , انها را بخوانید و از این ابزار
+            بزرگ در کار های خود استفاده کنید تا پیشرفت کنید . با ابزار های هوش
+            مصنوعی در کار خود بهترین شوید....
           </p>
         </div>
         <img
-          src="https://www.kaggle.com/static/images/home/logged-out/hero-illo@3x.png"
+          src="https://vectormine.b-cdn.net/wp-content/uploads/machine_learning2-1.jpg"
           alt=""
-          className=" w-96 h-96 object-cover "
+          className=" aspect-video w-1/2 object-cover "
         />
       </div>
       <div className="space-y-5">
-        <h2 className="text-xl font-semibold ">
-          چرا داده‌های خود را آپلود کنید؟
-        </h2>
+        {/* <h2 className="text-xl font-semibold ">ما چه کار انجام میدهیم؟ </h2>
 
-        <BenefitUpload />
+        <BenefitUpload /> */}
       </div>
     </div>
   );

@@ -161,7 +161,10 @@ export async function reportArticlePerDay(req, res) {
   res.json({ message: "ok", data: articles });
 }
 export async function latestArticle(req, res) {
-  const articles = await Article.find({}).sort({ createdAt: -1 }).limit(5);
+  const articles = await Article.find({})
+    .populate("author", "userName email")
+    .sort({ createdAt: -1 })
+    .limit(5);
   res.json({ message: "ok", data: articles });
 }
 

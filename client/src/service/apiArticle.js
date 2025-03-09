@@ -61,3 +61,7 @@ export async function getPopularArticles() {
   const { data } = await axiosInstance.get(`/articles/popularArticle`);
   return data;
 }
+export async function getLatestArticles() {
+  const { data } = await axiosInstance.get(`/articles/latestArticle`);
+  return data;
+}

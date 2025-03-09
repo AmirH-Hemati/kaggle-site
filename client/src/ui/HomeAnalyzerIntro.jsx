@@ -5,24 +5,23 @@ function HomeAnalyzerIntro() {
     <div className="bg-white  p-10 mt-20 border-t-2 border-black/8">
       <div className="flex justify-between items-center">
         <div className="flex h-80 flex-col justify-center gap-8">
-          <h3 className="text-xl font-semibold">چرا داده‌ها را تحلیل کنید؟</h3>
+          <h3 className="text-xl font-semibold">
+            در مسابقات شرکت کنید و خود را به چالش بکشید .
+          </h3>
           <p className="text-gray-800">
-            در دنیای امروز، تحلیل داده‌ها یکی از مهم‌ترین مهارت‌های مورد نیاز در
-            علوم داده، هوش مصنوعی و یادگیری ماشین است. با بررسی و پردازش
-            داده‌ها، می‌توان بینش‌های ارزشمندی استخراج کرد که در تصمیم‌گیری‌های
-            بهتر، ساخت مدل‌های پیش‌بینی و حتی حل چالش‌های پیچیده علمی و تجاری
-            مؤثر است.
+            از مجموعه داده های موجود انتخاب کنید و بر روی آنها کار بکنید و مدل
+            خود را ارسال کنید . به بهترین مدل جایزه تعلق میگیرید.
           </p>
         </div>
         <img
-          src="https://www.kaggle.com/static/images/home/logged-out/hero-illo@3x.png"
+          src="https://cdn-llnof.nitrocdn.com/tUhsYyMyuYYlQHhzCKCWCSRurZjIffeY/assets/images/optimized/rev-b04a0dc/neuroleadership.com/wp-content/uploads/2024/10/How-to-Use-AI-to-Improve-Your-Thinking-768x435.png"
           alt=""
-          className=" w-96 h-96 object-cover "
+          className=" aspect-video w-1/2 object-cover "
         />
       </div>
       <div className="space-y-5">
         <h2 className="text-xl font-semibold ">
-          چرا داده‌های خود را آپلود کنید؟
+          شرایط مسابقه به چه صورت است ؟
         </h2>
 
         <BenefitAnalyze />
