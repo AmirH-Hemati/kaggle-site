@@ -136,3 +136,18 @@ export async function reportInActiveUser(req, res) {
   }).select("-password");
   res.json({ message: "ok", data: inActiveUser });
 }
+
+export async function reportArticlePerDay(req, res) {
+  const articles = await Article.aggregate([
+    {
+      $group: {
+        _id: {
+          $dateToString: { format: "%Y-%m-%d", date: "$createdAt" },
+        },
+        count: { $sum: 1 },
+      },
+    },
+  ]);
+  console.log(articles);
+  res.json({ message: "ok", data: articles });
+}

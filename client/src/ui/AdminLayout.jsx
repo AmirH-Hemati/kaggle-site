@@ -5,7 +5,7 @@ function AdminLayout() {
   return (
     <div className="w-full h-screen bg-gray-50 flex">
       <SidebarAdminPage />
-      <main className="flex-1 overflow-auto bg-amber-400">
+      <main className="flex-1 overflow-auto bg-gray-50">
         <Outlet />
       </main>
     </div>

@@ -27,7 +27,7 @@ function LoginForm() {
       </h2>
       <Input
         type="text"
-        placeholder="شماره موبایل"
+        placeholder="ایمیل"
         name="email"
         onChange={handleOnChange}
         className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"

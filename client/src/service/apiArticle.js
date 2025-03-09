@@ -25,7 +25,10 @@ export async function getReportDailyArticle(id) {
   );
   return data;
 }
-
+export async function getReportArticlePerDay() {
+  const { data } = await axiosInstance.get(`/articles/reportArticlePerDay/`);
+  return data;
+}
 export async function getAllArticles(searchArticles) {
   const { data } = await axiosInstance.get(
     `/articles/allArticles?searchArticles=${searchArticles}`
