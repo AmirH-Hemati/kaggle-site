@@ -19,6 +19,12 @@ function Header() {
             خانه
           </Link>
           <Link
+            to="/articles"
+            className="hover:text-blue-600 transition-colors"
+          >
+            مقالات{" "}
+          </Link>
+          <Link
             to="/allDataset"
             className="hover:text-blue-600 transition-colors"
           >

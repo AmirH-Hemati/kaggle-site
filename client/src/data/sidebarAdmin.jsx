@@ -13,7 +13,7 @@ const data = [
   },
   {
     title: "مقالات",
-    route: "/articles",
+    route: "/articlesManagment",
     icon: <Data size="26" color="black" />,
   },
   {
