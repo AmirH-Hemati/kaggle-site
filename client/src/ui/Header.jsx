@@ -13,8 +13,8 @@ function Header() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <header className="w-full bg-white shadow-md z-30">
-      <div className="container mx-auto flex items-center justify-between h-16 px-4">
-        <nav className="flex items-center gap-8 text-lg font-semibold text-gray-700">
+      <div className="p-6 flex items-center justify-between h-16 ">
+        <nav className="flex  items-center gap-8 text-lg font-semibold text-gray-700">
           <Link to="/" className="hover:text-blue-600 transition-colors">
             خانه
           </Link>
@@ -30,16 +30,22 @@ function Header() {
           >
             مجموعه داده
           </Link>
-          {(token && role == "writer") ||
-            role ==
-              "admin"(
-                <Link
-                  to={`/admin`}
-                  className="hover:text-blue-600 transition-colors"
-                >
-                  داشبورد
-                </Link>
-              )}
+          {role == "admin" && (
+            <Link
+              to={`/admin`}
+              className="hover:text-blue-600 transition-colors"
+            >
+              داشبورد
+            </Link>
+          )}
+          {role == "writer" && (
+            <Link
+              to={`/admin`}
+              className="hover:text-blue-600 transition-colors"
+            >
+              داشبورد
+            </Link>
+          )}
         </nav>
         {token ? (
           <div

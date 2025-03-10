@@ -131,6 +131,7 @@ export async function reportWriteArticlesCount(req, res) {
       },
     },
   ]);
+  console.log(articles);
   res.json({ message: "ok", data: articles });
 }
 

@@ -6,9 +6,18 @@ import EditArticle from "./EditArticle";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import Search from "../../ui/Search";
 import Heading from "../../ui/Heading";
+import { useAuth } from "../../context/AuthContext";
 function AllArticles() {
   const { articles } = useGetAllArticles();
   const { removeArticle } = useRemoveArticle();
+  const { role } = useAuth();
+  if (role !== "admin") {
+    return (
+      <div className="w-full h-full flex justify-center items-center">
+        <Heading>شمابه این صفحه دسترسی ندارید</Heading>
+      </div>
+    );
+  }
   return (
     <div className="w-full h-full bg-gray-50 p-6 flex flex-col font-semibold space-y-4">
       <div className="flex items-center justify-between">

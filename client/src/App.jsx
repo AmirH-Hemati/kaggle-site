@@ -43,26 +43,6 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <AuthContextProvider>
         <Routes>
-          <Route element={<ProtectedRoutes roles={["admin", "writer"]} />}>
-            <Route element={<AdminLayout />}>
-              <Route path="/admin" element={<AdminPage />} />
-              <Route path="users" element={<Users />} />
-              <Route path="createArticle" element={<CreateArticle />} />
-              <Route path="articlesManagment" element={<AllArticles />} />
-              <Route
-                path="reportDailyArticles"
-                element={<ReportDailyArticles />}
-              />
-              <Route
-                path="reportDailyArticles/:id"
-                element={<ReportDailyArticle />}
-              />
-              <Route
-                path="reportInActiveUsers"
-                element={<ReportInActiveUsers />}
-              />
-            </Route>
-          </Route>
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
             <Route path="/articles" element={<ArticlesPage />} />
@@ -78,6 +58,27 @@ function App() {
               <Route path="/login" element={<LoginForm />} />
               <Route path="/signIn" element={<SignIn />} />
               <Route path="/verifyOtp" element={<VerifyOtp />} />
+            </Route>
+
+            <Route element={<ProtectedRoutes roles={["admin", "writer"]} />}>
+              <Route element={<AdminLayout />}>
+                <Route path="/admin" element={<AdminPage />} />
+                <Route path="users" element={<Users />} />
+                <Route path="createArticle" element={<CreateArticle />} />
+                <Route path="articlesManagment" element={<AllArticles />} />
+                <Route
+                  path="reportDailyArticles"
+                  element={<ReportDailyArticles />}
+                />
+                <Route
+                  path="reportDailyArticles/:id"
+                  element={<ReportDailyArticle />}
+                />
+                <Route
+                  path="reportInActiveUsers"
+                  element={<ReportInActiveUsers />}
+                />
+              </Route>
             </Route>
 
             <Route element={<ProtectedUploaderRoute />}>

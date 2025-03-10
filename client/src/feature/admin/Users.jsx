@@ -5,11 +5,20 @@ import Modal from "../../ui/Modal";
 import EditUsers from "./EditUsers";
 import Search from "../../ui/Search";
 import Heading from "../../ui/Heading";
+import { useAuth } from "../../context/AuthContext";
 
 function Users() {
   const { users } = useGetUsers();
+  const { role } = useAuth();
+  if (role !== "admin") {
+    return (
+      <div className="w-full h-full flex justify-center items-center">
+        <Heading>شمابه این صفحه دسترسی ندارید</Heading>
+      </div>
+    );
+  }
   return (
-    <div className="w-full p-6  flex flex-col h-full bg-gray-50">
+    <div className="w-full p-6 overflow-hidden  flex flex-col h-full bg-gray-50">
       <div className="flex items-center justify-between">
         <Heading>کاربران</Heading>
         <Search

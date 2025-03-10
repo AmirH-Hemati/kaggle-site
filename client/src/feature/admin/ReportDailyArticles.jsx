@@ -7,6 +7,7 @@ import Heading from "../../ui/Heading";
 
 function ReportDailyArticles() {
   const { articles } = useGetReportDailyArticles();
+  console.log(articles);
   return (
     <div className="w-full h-full overflow-auto mx-auto p-6 bg-gray-50 rounded-xl shadow-md space-y-6">
       <Heading>مقالات ارسال شده امروز</Heading>
@@ -16,18 +17,18 @@ function ReportDailyArticles() {
         ) : (
           articles?.map((article) => (
             <li
-              key={article._id}
+              key={article?._id}
               className="flex justify-between items-center p-4 bg-gray-100 rounded-lg shadow-sm border-l-6 border-blue-800"
             >
               <div>
                 <h3 className="text-lg font-medium text-gray-700">
-                  {article.userName}
+                  {article?.userName}
                 </h3>
-                <p className="text-sm text-gray-500">{article.email}</p>
+                <p className="text-sm text-gray-500">{article?.email}</p>
               </div>
               <div className="flex gap-2">
                 <Link to={`/reportDailyArticles/${article?.userId}`}>
-                  <Button type={`contained`}>{article.count} مقاله</Button>
+                  <Button type={`contained`}>{article?.count} مقاله</Button>
                 </Link>
                 <Modal>
                   <Modal.Open>

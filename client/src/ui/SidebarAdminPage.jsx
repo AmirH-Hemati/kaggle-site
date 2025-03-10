@@ -10,7 +10,7 @@ function SidebarAdminPage() {
   };
 
   return (
-    <aside className="w-[20%] hidden md:flex flex-col gap-10  py-6 bg-[#155DFC] shadow-lg text-white">
+    <aside className="w-[20%] h-full hidden md:flex flex-col gap-10  py-6 bg-[#155DFC] shadow-lg text-white">
       {data?.map((item) => (
         <div key={item.title} className="w-full">
           {item.submenu ? (
@@ -25,9 +25,9 @@ function SidebarAdminPage() {
                 </div>
                 <span>
                   {openMenus[item.title] ? (
-                    <ArrowUp2 size="24" color="white" variant="Bold" />
+                    <ArrowUp2 size="26" color="white" variant="Bold" />
                   ) : (
-                    <ArrowDown2 size="24" color="white" variant="Bold" />
+                    <ArrowDown2 size="26" color="white" variant="Bold" />
                   )}
                 </span>
               </button>

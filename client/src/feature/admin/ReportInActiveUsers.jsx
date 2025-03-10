@@ -1,8 +1,17 @@
+import { useAuth } from "../../context/AuthContext";
 import Heading from "../../ui/Heading";
 import { useGetInActiveUsers } from "./useGetInActiveUsers";
 
 function ReportInActiveUsers() {
   const { users } = useGetInActiveUsers();
+  const { role } = useAuth();
+  if (role !== "admin") {
+    return (
+      <div className="w-full h-full flex justify-center items-center">
+        <Heading>شمابه این صفحه دسترسی ندارید</Heading>
+      </div>
+    );
+  }
   return (
     <div className="w-full h-full overflow-auto mx-auto p-6 bg-gray-50 rounded-xl shadow-md">
       <Heading>نویسندگان غیر فعال امروز</Heading>
